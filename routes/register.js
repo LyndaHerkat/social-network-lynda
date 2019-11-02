@@ -27,17 +27,17 @@ router.post('/', (req, res) => {
                         res.status(401).json('Cet adresse mail est déjà utilisé');
                     } else {
                       // ajout de proprietes au new user
-                      let newUser = req.body;
-                      newUser.admin = false;
-                      newUser.friends = null;
-                      newUser.invitations = null;
-                      newUser.requests = null;
-                      delete newUser.confirmPassword;
-                      //cryptage du mot de passe avant enregistrement dans la bdd
-                      newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10));
+                        let newUser = req.body;
+                        newUser.admin = false;
+                        newUser.friends = null;
+                        newUser.invitations = null;
+                        newUser.requests = null;
+                        delete newUser.confirmPassword;
+                        //cryptage du mot de passe avant enregistrement dans la bdd
+                        newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10));
 
-                      // Creation d'un nouveau user dans la bdd
-                      myCollection.insertOne(newUser, (err, result) => {
+                        // Creation d'un nouveau user dans la bdd
+                        myCollection.insertOne(newUser, (err, result) => {
                             if(err){
                                 console.log('Impossible d\'insérer le nouveau user dans la bdd');
                             } else {

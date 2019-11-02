@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
                         res.status(200).json(token);
                     } else {
                         console.log('Connexion :  ce compte n\'existe pas ');
-                        res.status(401);
+                        res.status(401).json('Login failed');
                     }
                 }
             });
