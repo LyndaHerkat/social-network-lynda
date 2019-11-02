@@ -8,21 +8,26 @@ var logger = require('morgan');
 //DB
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
-let dbTools = require('./my_modules/db');
+const dbTools = require('./my_modules/db');
+
+//ROUTE
+const routeIndex = require('./routes/index');
 
 var app = express();
 
 app.use(logger('dev'));
-app.use(express.json());
+app.use(express.json()); //parse les body des queries pour les avoir sous format JSON
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-//Acces au ressource statique
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, './public')));//Acces au ressource statique
 
+app.use(routeIndex);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
+
+
 
 //Test connection BDD
 dbTools.connectClientMongo(dbTools.URI, {
