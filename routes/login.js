@@ -3,9 +3,9 @@ const dbTools = require('../my_modules/db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
-var path = require('path');
+const path = require('path');
 
-// recuperation de la cle privee
+// RECUPERATION de la cle privee
 const private_key = fs.readFileSync(path.resolve(__dirname, "../RSA/key"));// reafileSync prend en parametre le path en fontion de l'endroit ou est lance le serveur (pas de chemin relatif)
 
 router.post('/', (req, res) => {
