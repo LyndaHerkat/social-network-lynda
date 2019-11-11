@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const dbTools = require('../my_modules/db');
 const bcrypt = require('bcrypt');
+const path = require('path');
 
 router.post('/', (req, res) => {
     console.log(req.body);
@@ -32,6 +33,7 @@ router.post('/', (req, res) => {
                         newUser.friends = null;
                         newUser.invitations = null;
                         newUser.requests = null;
+                        newUser.avatar = "../../../../assets/img/default_avatar.png";
                         delete newUser.confirmPassword;
                         //cryptage du mot de passe avant enregistrement dans la bdd
                         newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10));

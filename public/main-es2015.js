@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"background-container\">\n  <app-header></app-header>\n  <router-outlet></router-outlet>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n<div id=\"background-container\">\n  <router-outlet></router-outlet>\n</div>\n");
 
 /***/ }),
 
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"column nowrap\" fxLayoutAlign=\"center center\">\n\n  <div>\n\n  </div>\n\n  <div class=\"form-container\">\n      <mat-tab-group dynamic-height>\n        <mat-tab label=\"Connexion\">\n            <app-login></app-login>\n        </mat-tab>\n        <mat-tab label=\"Inscription\">\n          <app-register></app-register>\n        </mat-tab>\n      </mat-tab-group>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"homepage-container\" fxLayout=\"column nowrap\" fxLayoutAlign=\"center center\">\n\n  <div class=\"form-container\">\n      <mat-tab-group dynamic-height>\n        <mat-tab label=\"Connexion\">\n            <app-login></app-login>\n        </mat-tab>\n        <mat-tab label=\"Inscription\">\n          <app-register></app-register>\n        </mat-tab>\n      </mat-tab-group>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -71,7 +71,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-content>\n      <form [formGroup]=\"registerForm\" fxLayout=\"column\" (ngSubmit)='submit()' novalidate>\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"name\" matInput type=\"text\" placeholder=\"Nom\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('name').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n          </div>\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"firstname\" matInput type=\"text\" placeholder=\"Prénom\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('firstname').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n          </div>\n\n        </div>\n\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"pseudo\"matInput type=\"text\" placeholder=\"Pseudo\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('pseudo').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n          </div>\n\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"email\" matInput type=\"text\" placeholder=\"Email\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('email').hasError('required') && isSubmitted\">Veuillez entrer votre email</p>\n            <p class=\"error\" *ngIf=\"registerForm.get('email').hasError('email')\">Veuillez entrer un email sous format mail.</p>\n          </div>\n\n        </div>\n\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"password\" matInput type=\"password\" placeholder=\"Mot de passe\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('password').invalid && isSubmitted\">Champ requis (minimum 8 caractères)</p>\n          </div>\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"confirmPassword\" matInput type=\"password\" placeholder=\"Confirmer mot de passe\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('confirmPassword').hasError('isNoMatch') && isSubmitted\">le mot de passe ne correspond pas</p>\n          </div>\n        </div>\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"birth\" matInput [matDatepicker]=\"picker\" placeholder=\"Date de naissance\">\n              <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n              <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('birth').invalid && isSubmitted\">Champ requis</p>\n          </div>\n          <div fxLayout=\"column\">\n            <mat-radio-group formControlName=\"sexe\" aria-label=\"Sexe\" fxLayoutGap=\"15px\" fxLayoutAlign=\"center center\">\n              <mat-radio-button value=\"femme \">Femme</mat-radio-button>\n              <mat-radio-button value=\"homme \">Homme</mat-radio-button>\n            </mat-radio-group>\n            <p class=\"error\" *ngIf=\"registerForm.get('sexe').invalid && isSubmitted\">Champ requis</p>\n          </div>\n\n        </div>\n        <div fxLayout=\"column\">\n          <mat-form-field>\n            <mat-label>Niveau scolaire</mat-label>\n            <mat-select formControlName=\"grade\">\n                <mat-option >6eme</mat-option>\n                <mat-option value=\"5eme\">5eme</mat-option>\n                <mat-option value=\"4eme\">4eme</mat-option>\n                <mat-option value=\"3eme\">3eme</mat-option>\n                <mat-option value=\"seconde\">seconde</mat-option>\n                <mat-option value=\"premiere\">première</mat-option>\n                <mat-option value=\"terminal\">terminal</mat-option>\n            </mat-select>\n          </mat-form-field>\n          <p class=\"error\" *ngIf=\"registerForm.get('grade').invalid && isSubmitted\">Champ requis</p>\n        </div>\n        <p class=\"error\" *ngIf=\"errorMessage\">{{ errorMessage }}</p>\n        <button mat-raised-button color=\"primary\">S'inscrire</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-content>\n      <form [formGroup]=\"registerForm\" fxLayout=\"column\" (ngSubmit)='submit()' novalidate>\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"name\" matInput type=\"text\" placeholder=\"Nom\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('name').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n          </div>\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"firstname\" matInput type=\"text\" placeholder=\"Prénom\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('firstname').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n          </div>\n\n        </div>\n\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"pseudo\"matInput type=\"text\" placeholder=\"Pseudo\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('pseudo').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n          </div>\n\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"email\" matInput type=\"text\" placeholder=\"Email\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('email').hasError('required') && isSubmitted\">Veuillez entrer votre email</p>\n            <p class=\"error\" *ngIf=\"registerForm.get('email').hasError('email')\">Veuillez entrer un email sous format mail.</p>\n          </div>\n\n        </div>\n\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"password\" matInput type=\"password\" placeholder=\"Mot de passe\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('password').invalid && isSubmitted\">Champ requis (minimum 8 caractères)</p>\n          </div>\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"confirmPassword\" matInput type=\"password\" placeholder=\"Confirmer mot de passe\">\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('confirmPassword').hasError('isNoMatch') && isSubmitted\">le mot de passe ne correspond pas</p>\n          </div>\n        </div>\n        <div class=\"form-field-container\" fxLayout=\"row\" fxLayoutGap=\"15px\">\n          <div fxLayout=\"column\">\n            <mat-form-field>\n              <input formControlName=\"birth\" matInput [matDatepicker]=\"picker\" placeholder=\"Date de naissance\">\n              <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n              <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n            <p class=\"error\" *ngIf=\"registerForm.get('birth').invalid && isSubmitted\">Champ requis</p>\n          </div>\n          <div fxLayout=\"column\">\n            <mat-radio-group formControlName=\"sexe\" aria-label=\"Sexe\" fxLayoutGap=\"15px\" fxLayoutAlign=\"center center\">\n              <mat-radio-button value=\"femme \">Femme</mat-radio-button>\n              <mat-radio-button value=\"homme \">Homme</mat-radio-button>\n            </mat-radio-group>\n            <p class=\"error\" *ngIf=\"registerForm.get('sexe').invalid && isSubmitted\">Champ requis</p>\n          </div>\n\n        </div>\n        <div fxLayout=\"column\">\n          <mat-form-field>\n            <mat-label>Niveau scolaire</mat-label>\n            <mat-select formControlName=\"grade\">\n                <mat-option value=\"cm2\">CM2</mat-option>\n                <mat-option value=\"6eme\">6eme</mat-option>\n                <mat-option value=\"5eme\">5eme</mat-option>\n                <mat-option value=\"4eme\">4eme</mat-option>\n                <mat-option value=\"3eme\">3eme</mat-option>\n                <mat-option value=\"seconde\">seconde</mat-option>\n                <mat-option value=\"premiere\">première</mat-option>\n                <mat-option value=\"terminal\">terminal</mat-option>\n                <mat-option value=\"professeur\">professeur</mat-option>\n            </mat-select>\n          </mat-form-field>\n          <p class=\"error\" *ngIf=\"registerForm.get('grade').invalid && isSubmitted\">Champ requis</p>\n        </div>\n        <p class=\"error\" *ngIf=\"message\">{{ message }}</p>\n        <p class=\"error\" *ngIf=\"errorMessage\">{{ errorMessage }}</p>\n        <button mat-raised-button color=\"primary\">S'inscrire</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/chat/chat.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/chat/chat.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>chat works!</p>\n");
 
 /***/ }),
 
@@ -84,7 +97,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=warn>\n  <div class=\"logo-container\" fxLayout=\"row nowrap\">\n    <div routerLink=\"/\" class=\"link\" fxFlexAlign=\"center\" fxLayout=\"row\">\n      <img src=\"../../../../assets/img/logo.png\" alt=\"logo-teach\" height=\"60px\" fxFlexAlign=\"center\">\n    </div>\n    <div routerLink=\"/\" class=\"link\">\n      <p class=\"logo-title\">Teach</p>\n      <p class=\"logo-pipeline\">le social network du soutien scolaire</p>\n    </div>\n  </div>\n  <span fxFlex=\"auto\" class=\"link\"></span>\n  <div>\n    <span *ngIf = \"jwtToken.isLogged === false\" fxLayoutGap=\"15px\">\n      <span routerLink=\"/login\" class=\"link\">Connexion</span>\n      <span routerLink=\"/register\" class=\"link\">Inscription</span>\n    </span>\n    <span *ngIf=\"jwtToken.isLogged\" class=\"link\" (click)=logout() fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"5px\">\n      <mat-icon class=\"link\" (click)=logout()>power_settings_new</mat-icon>\n      <span>Déconnexion</span>\n    </span>\n  </div>\n</mat-toolbar>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=warn>\n  <div class=\"logo-container\" fxLayout=\"row nowrap\">\n    <!-- <div routerLink=\"/accueil/post\" class=\"link\"></div> -->\n    <img src=\"../../../../assets/img/logo.png\" alt=\"logo-teach\" height=\"60px\" fxFlexAlign=\"center\">\n    <div routerLink=\"/accueil/post\" class=\"link\">\n      <p class=\"logo-title\">Teach</p>\n      <p class=\"logo-pipeline\">le social network du soutien scolaire</p>\n    </div>\n  </div>\n  <span fxFlex=\"auto\" class=\"link\"></span>\n  <div>\n    <span *ngIf=\"jwtToken.isLogged === false\" fxLayoutGap=\"15px\">\n      <span routerLink=\"/login\" class=\"link\">Connexion</span>\n      <span routerLink=\"/register\" class=\"link\">Inscription</span>\n    </span>\n    <span *ngIf=\"jwtToken.isLogged\" class=\"link\" (click)=logout() fxLayout=\"row\" fxLayoutAlign=\"center center\"\n      fxLayoutGap=\"5px\">\n      <mat-icon class=\"link\" (click)=logout()>power_settings_new</mat-icon>\n      <span>Déconnexion</span>\n    </span>\n  </div>\n</mat-toolbar>\n\n\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/topbar/topbar.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/topbar/topbar.component.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar class=\"topbar\" color=accent fxLayout=\"row\" fxLayoutGap=\"15px\" fxLayoutAlign=\"space-between center\">\n    <mat-icon class=\"link burger\" fxLayoutGap=\"5px\" (click)=\"sidenavMenu.toggle()\"\n      aria-hidden=\"false\" aria-label=\"menu icon\">menu</mat-icon>\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"5px\">\n      <img mat-card-avatar [src]=\"currentUser.avatar\" alt=\"\">\n      <h3 class=\"link\" routerLink=\"/accueil/post\"> {{currentUser.pseudo}}</h3>\n    </div>\n</mat-toolbar>\n\n<mat-sidenav-container>\n  <mat-sidenav #sidenavMenu>\n    <mat-nav-list>\n      <a mat-list-item class=\"link\" routerLink=\"/accueil/profile\">Mon profil</a>\n      <!-- <a mat-list-item class=\"link\" routerLink=\"/accueil/edit-profile\">Editer mon profil</a> -->\n      <a mat-list-item class=\"link\" routerLink=\"\">Invitation en attente</a>\n      <a mat-list-item class=\"link\" routerLink=\"\">Demande en attente</a>\n    </mat-nav-list>\n    <span>Mes amis</span>\n    <mat-nav-list>\n      <li></li>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around start\">\n      <div fxFlex=\"25\">\n\n      </div>\n      <div fxFlex=\"45\">\n        <router-outlet></router-outlet>\n      </div>\n      <div fxFlex=\"25\"></div>\n    </div>\n\n    <div class=\"chat-container\">\n\n      <button class=\"chat-button\" color=accent mat-raised-button mat-accent (click)=\"openChat()\">Chat</button>\n    </div>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n");
 
 /***/ }),
 
@@ -97,7 +123,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card class=\"card-login\">\n    <mat-card-content>\n      <mat-card-header>\n        <mat-icon aria-hidden=\"false\" aria-label=\"Example home icon\">edit</mat-icon>\n        <mat-card-title>Créer une publication</mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\"\n              cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card class=\"card-login\">\n    <mat-card-content>\n      <mat-card-header>\n        <mat-icon aria-hidden=\"false\" aria-label=\"Example home icon\">edit</mat-icon>\n        <mat-card-title>Créer une publication</mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header>\n      <img mat-card-avatar [src]=\"currentUser.avatar\" alt=\"\">\n      <mat-card-title>{{currentUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{currentUser.grade}}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n      <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/edit-profile.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/edit-profile.component.html ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n\n\n  <div class=\"edit-form-container\" fxLayout=\"center center\">\n    <mat-card>\n        <h1>Modifier mon profil</h1>\n        <mat-card-content>\n          <form [formGroup]=\"editProfileForm\" fxLayout=\"column\" (ngSubmit)='submit()' novalidate>\n            <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"name\" matInput type=\"text\" placeholder=\"Nom\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('name').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"firstname\" matInput type=\"text\" placeholder=\"Prénom\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('firstname').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"pseudo\"matInput type=\"text\" placeholder=\"Pseudo\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('pseudo').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n\n                <mat-form-field>\n                  <input formControlName=\"email\" matInput type=\"text\" placeholder=\"Email\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('email').hasError('required') && isSubmitted\">Veuillez entrer votre email</p>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('email').hasError('email')\">Veuillez entrer un email sous format mail.</p>\n              </div>\n\n\n            <!-- <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"password\" matInput type=\"password\" placeholder=\"Mot de passe\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('password').invalid && isSubmitted\">Champ requis (minimum 8 caractères)</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"confirmPassword\" matInput type=\"password\" placeholder=\"Confirmer mot de passe\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('confirmPassword').hasError('isNoMatch') && isSubmitted\">le mot de passe ne correspond pas</p>\n              </div>\n            </div> -->\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"birth\" matInput [matDatepicker]=\"picker\" placeholder=\"Date de naissance\">\n                  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                  <mat-datepicker #picker></mat-datepicker>\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('birth').invalid && isSubmitted\">Champ requis</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-radio-group formControlName=\"sexe\" aria-label=\"Sexe\" fxLayoutGap=\"15px\" fxLayoutAlign=\"center center\">\n                  <mat-radio-button value=\"femme \">Femme</mat-radio-button>\n                  <mat-radio-button value=\"homme \">Homme</mat-radio-button>\n                </mat-radio-group>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('sexe').invalid && isSubmitted\">Champ requis</p>\n              </div>\n\n              <div fxLayout=\"column\">\n              <mat-form-field>\n                <mat-label>Niveau scolaire</mat-label>\n                <mat-select formControlName=\"grade\">\n                    <mat-option >6eme</mat-option>\n                    <mat-option value=\"5eme\">5eme</mat-option>\n                    <mat-option value=\"4eme\">4eme</mat-option>\n                    <mat-option value=\"3eme\">3eme</mat-option>\n                    <mat-option value=\"seconde\">seconde</mat-option>\n                    <mat-option value=\"premiere\">première</mat-option>\n                    <mat-option value=\"terminal\">terminal</mat-option>\n                    <mat-option value=\"professeur\">professeur</mat-option>\n                </mat-select>\n              </mat-form-field>\n              <p class=\"error\" *ngIf=\"editProfileForm.get('grade').invalid && isSubmitted\">Champ requis</p>\n            </div>\n            <p class=\"error\" *ngIf=\"errorMessage\">{{ errorMessage }}</p>\n            <button mat-raised-button color=\"primary\">Mettre à jour mon profil</button>\n          </form>\n        </mat-card-content>\n      </mat-card>\n    </div>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/profile.component.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/profile.component.html ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <h1>Modifier mon profil</h1> -->\n\n<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-content>\n      <mat-card fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"10px\">\n        <img mat-card-avatar [src]=\"currentUser.avatar\" alt=\"\">\n        <mat-card-title>{{currentUser.pseudo}}</mat-card-title>\n      </mat-card>\n\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Informations personnelles</mat-panel-title>\n          </mat-expansion-panel-header>\n          <mat-nav-list>\n            <h3 mat-subheader>Nom</h3>\n            <mat-list-item> {{currentUser.name}} </mat-list-item>\n            <h3 mat-subheader>Prénom</h3>\n            <mat-list-item> {{currentUser.firstname}} </mat-list-item>\n            <h3 mat-subheader>Pseudo</h3>\n            <mat-list-item> {{currentUser.pseudo}} </mat-list-item>\n            <h3 mat-subheader>Email</h3>\n            <mat-list-item> {{currentUser.email}} </mat-list-item>\n            <h3 mat-subheader>Date de naissance</h3>\n            <mat-list-item> {{currentUser.birth}} </mat-list-item>\n            <h3 mat-subheader>Sexe</h3>\n            <mat-list-item> {{currentUser.sexe}} </mat-list-item>\n            <h3 mat-subheader>Niveau scolaire</h3>\n            <mat-list-item> {{currentUser.grade}} </mat-list-item>\n          </mat-nav-list>\n        </mat-expansion-panel>\n      </mat-accordion>\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Amis</mat-panel-title>\n          </mat-expansion-panel-header>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <button mat-raised-button color=\"primary\" routerLink=\"/accueil/edit-profile\">Editer mon profil</button>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n");
 
 /***/ }),
 
@@ -110,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"row\" fxLayoutAlign=\"space-around start\" >\n  <div fxFlex=\"25\">\n\n  </div>\n  <div fxFlex=\"45\">\n    <app-post></app-post>\n  </div>\n  <div fxFlex=\"25\"></div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-topbar></app-topbar>\n\n\n");
 
 /***/ }),
 
@@ -409,20 +461,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _shared_layout_layout_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/layout/layout.module */ "./src/app/shared/layout/layout.module.ts");
-/* harmony import */ var _user_interface_user_interface_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-interface/user-interface.module */ "./src/app/user-interface/user-interface.module.ts");
-/* harmony import */ var _authentification_authentification_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./authentification/authentification.module */ "./src/app/authentification/authentification.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _shared_components_header_header_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/components/header/header.component */ "./src/app/shared/components/header/header.component.ts");
-/* harmony import */ var _shared_service_user_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/service/user.service */ "./src/app/shared/service/user.service.ts");
-/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
-/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.js");
-/* harmony import */ var _shared_interceptors_authentification_interceptor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shared/interceptors/authentification.interceptor */ "./src/app/shared/interceptors/authentification.interceptor.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/common/locales/fr */ "./node_modules/@angular/common/locales/fr.js");
-/* harmony import */ var _angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/bottom-sheet */ "./node_modules/@angular/material/esm2015/bottom-sheet.js");
+/* harmony import */ var _shared_layout_layout_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/layout/layout.module */ "./src/app/shared/layout/layout.module.ts");
+/* harmony import */ var _user_interface_user_interface_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-interface/user-interface.module */ "./src/app/user-interface/user-interface.module.ts");
+/* harmony import */ var _authentification_authentification_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./authentification/authentification.module */ "./src/app/authentification/authentification.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _shared_components_header_header_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/components/header/header.component */ "./src/app/shared/components/header/header.component.ts");
+/* harmony import */ var _shared_components_chat_chat_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/components/chat/chat.component */ "./src/app/shared/components/chat/chat.component.ts");
+/* harmony import */ var _shared_service_user_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./shared/service/user.service */ "./src/app/shared/service/user.service.ts");
+/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
+/* harmony import */ var _app_routing__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./app.routing */ "./src/app/app.routing.js");
+/* harmony import */ var _shared_interceptors_authentification_interceptor__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shared/interceptors/authentification.interceptor */ "./src/app/shared/interceptors/authentification.interceptor.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/locales/fr */ "./node_modules/@angular/common/locales/fr.js");
+/* harmony import */ var _angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_18__);
 
 // ANGULAR NATIVES MODULES
+
 
 
 
@@ -436,6 +491,8 @@ __webpack_require__.r(__webpack_exports__);
 // COMPONENTS
 
 
+// import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+
 // SERVICES
 
 // GUARDS
@@ -447,38 +504,41 @@ __webpack_require__.r(__webpack_exports__);
 // DATE
 
 
-Object(_angular_common__WEBPACK_IMPORTED_MODULE_15__["registerLocaleData"])(_angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_16___default.a);
+Object(_angular_common__WEBPACK_IMPORTED_MODULE_17__["registerLocaleData"])(_angular_common_locales_fr__WEBPACK_IMPORTED_MODULE_18___default.a);
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
-            _shared_components_header_header_component__WEBPACK_IMPORTED_MODULE_10__["HeaderComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"],
+            _shared_components_header_header_component__WEBPACK_IMPORTED_MODULE_11__["HeaderComponent"],
+            _shared_components_chat_chat_component__WEBPACK_IMPORTED_MODULE_12__["ChatComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(_app_routing__WEBPACK_IMPORTED_MODULE_13__["ROUTING"]),
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(_app_routing__WEBPACK_IMPORTED_MODULE_15__["ROUTING"]),
             _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-            _shared_layout_layout_module__WEBPACK_IMPORTED_MODULE_6__["LayoutModule"],
+            _shared_layout_layout_module__WEBPACK_IMPORTED_MODULE_7__["LayoutModule"],
             // ReactiveFormsModule,
             // FormsModule,
-            _user_interface_user_interface_module__WEBPACK_IMPORTED_MODULE_7__["UserInterfaceModule"],
-            _authentification_authentification_module__WEBPACK_IMPORTED_MODULE_8__["AuthentificationModule"]
+            _user_interface_user_interface_module__WEBPACK_IMPORTED_MODULE_8__["UserInterfaceModule"],
+            _authentification_authentification_module__WEBPACK_IMPORTED_MODULE_9__["AuthentificationModule"],
+            _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_6__["MatBottomSheetModule"]
         ],
         providers: [
             {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
-                useClass: _shared_interceptors_authentification_interceptor__WEBPACK_IMPORTED_MODULE_14__["AuthentificationInterceptor"],
+                useClass: _shared_interceptors_authentification_interceptor__WEBPACK_IMPORTED_MODULE_16__["AuthentificationInterceptor"],
                 multi: true
             },
-            _shared_service_user_service__WEBPACK_IMPORTED_MODULE_11__["UserService"],
-            _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_12__["AuthGuard"],
+            _shared_service_user_service__WEBPACK_IMPORTED_MODULE_13__["UserService"],
+            _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_14__["AuthGuard"],
             { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"],
                 useValue: 'fr-FR' }
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
+        // entryComponents: [ChatComponent],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
     })
 ], AppModule);
 
@@ -501,7 +561,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _authentification_login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authentification/login/login.component */ "./src/app/authentification/login/login.component.ts");
 /* harmony import */ var _authentification_register_register_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./authentification/register/register.component */ "./src/app/authentification/register/register.component.ts");
 /* harmony import */ var _user_interface_user_interface_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-interface/user-interface.component */ "./src/app/user-interface/user-interface.component.ts");
-/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
+/* harmony import */ var _user_interface_post_post_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-interface/post/post.component */ "./src/app/user-interface/post/post.component.ts");
+/* harmony import */ var _user_interface_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-interface/profile/profile.component */ "./src/app/user-interface/profile/profile.component.ts");
+/* harmony import */ var _user_interface_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-interface/profile/edit-profile.component */ "./src/app/user-interface/profile/edit-profile.component.ts");
+/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
+
+
+
 
 
 
@@ -515,7 +581,13 @@ const ROUTING = [ //on utilise l'interface Route native d'Angular (https://angul
   { path : '', component: _authentification_homepage_homepage_component__WEBPACK_IMPORTED_MODULE_1__["HomepageComponent"] },
   { path: 'login', component: _authentification_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]},
   { path: 'register', component: _authentification_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"]},
-  { path: 'accueil', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]], component: _user_interface_user_interface_component__WEBPACK_IMPORTED_MODULE_4__["UserInterfaceComponent"]}
+  { path: 'accueil', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_user_interface_component__WEBPACK_IMPORTED_MODULE_4__["UserInterfaceComponent"], children: [
+    { path: 'post', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_post_post_component__WEBPACK_IMPORTED_MODULE_5__["PostComponent"]},
+    { path: 'profile', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"]},
+    { path: 'edit-profile', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__["EditProfileComponent"]}
+  ]}
+  // { path: '**', component: PageNotFoundComponent }
+
 ];
 
 
@@ -583,7 +655,7 @@ AuthentificationModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGhlbnRpZmljYXRpb24vaG9tZXBhZ2UvaG9tZXBhZ2UuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".homepage-container {\r\n  padding-top : 8%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXV0aGVudGlmaWNhdGlvbi9ob21lcGFnZS9ob21lcGFnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0FBQ2xCIiwiZmlsZSI6InNyYy9hcHAvYXV0aGVudGlmaWNhdGlvbi9ob21lcGFnZS9ob21lcGFnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhvbWVwYWdlLWNvbnRhaW5lciB7XHJcbiAgcGFkZGluZy10b3AgOiA4JTtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -669,7 +741,7 @@ let LoginComponent = class LoginComponent {
         this.isSubmitted = true;
         console.log(this.loginForm.value);
         this.userService.login(this.loginForm.value).subscribe(() => {
-            this.router.navigate(['/accueil']);
+            this.router.navigate(['/accueil/post']);
         }, err => {
             console.log(err);
             // this.errorMessage = 'Un compte avec cette adresse mail existe déjà.';
@@ -771,6 +843,7 @@ let RegisterComponent = class RegisterComponent {
         console.log(this.registerForm);
         if (this.registerForm.valid) {
             this.userService.register(this.registerForm.value).subscribe((user) => {
+                this.message = 'Votre compte vient d\'être crée. Vous pouvez maintenant vous connecter.';
                 this.router.navigate(['/']);
             }, err => {
                 console.log('Erreur inscription', err);
@@ -801,6 +874,34 @@ RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/components/chat/chat.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/components/chat/chat.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ChatComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatComponent", function() { return ChatComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let ChatComponent = class ChatComponent {
+    constructor() { }
+};
+ChatComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-chat-component',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./chat.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/chat/chat.component.html")).default,
+    })
+], ChatComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/components/header/header.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/shared/components/header/header.component.css ***!
@@ -810,7 +911,7 @@ RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("/*Header*/\r\n.mat-toolbar-row, .mat-toolbar-single-row {\r\n  height : 70px !important;\r\n}\r\n.logo-container p{\r\n    margin :0;\r\n    color : #00ff9b;\r\n    font-weight : 200;\r\n  }\r\n.logo-title{\r\n    font-size : 35px;\r\n  }\r\n.logo-pipeline{\r\n    font-size : 15px;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLFNBQVM7QUFDVDtFQUNFLHdCQUF3QjtBQUMxQjtBQUNFO0lBQ0UsU0FBUztJQUNULGVBQWU7SUFDZixpQkFBaUI7RUFDbkI7QUFDQTtJQUNFLGdCQUFnQjtFQUNsQjtBQUNBO0lBQ0UsZ0JBQWdCO0VBQ2xCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLypIZWFkZXIqL1xyXG4ubWF0LXRvb2xiYXItcm93LCAubWF0LXRvb2xiYXItc2luZ2xlLXJvdyB7XHJcbiAgaGVpZ2h0IDogNzBweCAhaW1wb3J0YW50O1xyXG59XHJcbiAgLmxvZ28tY29udGFpbmVyIHB7XHJcbiAgICBtYXJnaW4gOjA7XHJcbiAgICBjb2xvciA6ICMwMGZmOWI7XHJcbiAgICBmb250LXdlaWdodCA6IDIwMDtcclxuICB9XHJcbiAgLmxvZ28tdGl0bGV7XHJcbiAgICBmb250LXNpemUgOiAzNXB4O1xyXG4gIH1cclxuICAubG9nby1waXBlbGluZXtcclxuICAgIGZvbnQtc2l6ZSA6IDE1cHg7XHJcbiAgfVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -839,6 +940,11 @@ let HeaderComponent = class HeaderComponent {
         // On subscribe au behaviour subject jwtToken cree dans le service UserService de facon à le mettre a jour dans la variable jwtToken du component à chaque modification
         this.subscription = this.userService.jwtToken.subscribe((jwtToken) => {
             this.jwtToken = jwtToken;
+            this.userService.currentUser.subscribe(currentUser => {
+                console.log('TCL: HeaderComponent -> ngOnInit -> this.userService.getCurrentUser()', this.userService.currentUser);
+                this.currentUser = currentUser;
+                console.log('TCL: HeaderComponent -> ngOnInit -> this.currentUser', this.currentUser);
+            });
         });
     }
     logout() {
@@ -861,6 +967,69 @@ HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./header.component.css */ "./src/app/shared/components/header/header.component.css")).default]
     })
 ], HeaderComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/topbar/topbar.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/shared/components/topbar/topbar.component.css ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("mat-sidenav-container {\r\n  background: transparent;\r\n  height: 100vh;\r\n}\r\n\r\nmat-sidenav-content {\r\n  margin-top: 5%;\r\n}\r\n\r\n.topbar {\r\n  height: 50px !important;\r\n}\r\n\r\n.burger:hover,\r\nh3:hover {\r\n  color: #fff;\r\n}\r\n\r\ndiv.chat-container {\r\n  position: relative;\r\n  /* z-index: 100, */\r\n}\r\n\r\nbutton.chat-button {\r\n  bottom: 0;\r\n  position: fixed;\r\n  right:0 ;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdG9wYmFyL3RvcGJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQXVCO0VBQ3ZCLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSx1QkFBdUI7QUFDekI7O0FBRUE7O0VBRUUsV0FBVztBQUNiOztBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLFNBQVM7RUFDVCxlQUFlO0VBQ2YsUUFBUTtBQUNWIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdG9wYmFyL3RvcGJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibWF0LXNpZGVuYXYtY29udGFpbmVyIHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG59XHJcblxyXG5tYXQtc2lkZW5hdi1jb250ZW50IHtcclxuICBtYXJnaW4tdG9wOiA1JTtcclxufVxyXG5cclxuLnRvcGJhciB7XHJcbiAgaGVpZ2h0OiA1MHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5idXJnZXI6aG92ZXIsXHJcbmgzOmhvdmVyIHtcclxuICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuZGl2LmNoYXQtY29udGFpbmVyIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgLyogei1pbmRleDogMTAwLCAqL1xyXG59XHJcblxyXG5idXR0b24uY2hhdC1idXR0b24ge1xyXG4gIGJvdHRvbTogMDtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgcmlnaHQ6MCA7XHJcbn1cclxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/topbar/topbar.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/shared/components/topbar/topbar.component.ts ***!
+  \**************************************************************/
+/*! exports provided: TopbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopbarComponent", function() { return TopbarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _service_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/user.service */ "./src/app/shared/service/user.service.ts");
+/* harmony import */ var _chat_chat_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../chat/chat.component */ "./src/app/shared/components/chat/chat.component.ts");
+
+
+
+
+
+let TopbarComponent = class TopbarComponent {
+    constructor(userService, bottomSheet) {
+        this.userService = userService;
+        this.bottomSheet = bottomSheet;
+    }
+    ngOnInit() {
+        this.userService.currentUser.subscribe(currentUser => {
+            this.currentUser = currentUser;
+        });
+    }
+    openChat() {
+        this.bottomSheet.open(_chat_chat_component__WEBPACK_IMPORTED_MODULE_4__["ChatComponent"]);
+    }
+};
+TopbarComponent.ctorParameters = () => [
+    { type: _service_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatBottomSheet"] }
+];
+TopbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-topbar',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./topbar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/topbar/topbar.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./topbar.component.css */ "./src/app/shared/components/topbar/topbar.component.css")).default]
+    })
+], TopbarComponent);
 
 
 
@@ -979,7 +1148,10 @@ const MODULES = [
     _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatNativeDateModule"],
     _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatRadioModule"],
     _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSelectModule"],
-    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatIconModule"]
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatIconModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSidenavModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatListModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatExpansionModule"]
 ];
 let LayoutModule = class LayoutModule {
 };
@@ -1011,15 +1183,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
 
 
 
 let PostService = class PostService {
     constructor(http) {
         this.http = http;
+        this.postList = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
     }
     createPost(sendDatas) {
         return this.http.post('/request/post/create', sendDatas);
+    }
+    getPost(userId) {
+        const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('userId', userId);
+        return this.http.get('/request/post/get', { params });
     }
 };
 PostService.ctorParameters = () => [
@@ -1058,6 +1238,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UserService = class UserService {
+    // CONSTRUCTOR
     constructor(http, router) {
         this.http = http;
         this.router = router;
@@ -1103,8 +1284,8 @@ let UserService = class UserService {
     }
     // CURRENT USER
     getCurrentUser() {
-        console.log('this.currentUser.value', this.currentUser.value);
         if (this.currentUser.value) {
+            console.log('TCL: this.currentUser from user service !!!!', this.currentUser);
             return this.currentUser;
         }
         else {
@@ -1114,6 +1295,12 @@ let UserService = class UserService {
                 return this.currentUser;
             }));
         }
+    }
+    // EDITION Profil
+    editProfile(user) {
+        return this.http.post('/request/editprofile', user).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((updatedUser) => {
+            this.currentUser.next(updatedUser);
+        }));
     }
     // DECONNEXION (suppression du token)
     logout() {
@@ -1168,18 +1355,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var src_app_shared_service_post_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/post.service */ "./src/app/shared/service/post.service.ts");
-/* harmony import */ var src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/user.service */ "./src/app/shared/service/user.service.ts");
+/* harmony import */ var src_app_shared_service_post_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/post.service */ "./src/app/shared/service/post.service.ts");
+/* harmony import */ var src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/user.service */ "./src/app/shared/service/user.service.ts");
 
 
 
-
+// import { Observable } from 'rxjs/internal/Observable';
+// import { Subscription } from 'rxjs/internal/Subscription';
 // SERVICE
 
 
-// import { User } from 'src/app/shared/models/user.model';
-// import { FormatInputPathObject } from 'path';
 let PostComponent = class PostComponent {
     constructor(userService, postService, fb) {
         this.userService = userService;
@@ -1190,30 +1375,40 @@ let PostComponent = class PostComponent {
         this.postForm = this.fb.group({
             message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
         });
+        // RECUPEARTION ID
         this.userService.getCurrentUser().subscribe(currentUser => {
             console.log(currentUser);
-            this.currentUserID = currentUser['_id'];
-            console.log(this.currentUserID);
+            // tslint:disable-next-line: no-string-literal
+            this.currentUser = currentUser;
+            // PUIS RECUPERATION MESSAGES
+            // tslint:disable-next-line: no-string-literal
+            this.postService.getPost(this.currentUser['_id']).subscribe((postArray) => {
+                this.postArray = postArray;
+                console.log('postArray ', postArray);
+            });
         });
     }
     createPost() {
         this.date = new Date();
         this.sendDatas = {
-            user_id: this.currentUserID,
+            // tslint:disable-next-line: no-string-literal
+            user_id: this.currentUser['_id'],
             message: this.postForm.value.message,
-            date: Object(_angular_common__WEBPACK_IMPORTED_MODULE_3__["formatDate"])(this.date, 'dd/MM/yyyy', 'fr-FR')
+            date: this.date
+            // date: formatDate(this.date, 'dd/MM/yyyy', 'fr-FR')
         };
         this.postService.createPost(this.sendDatas).subscribe(() => {
             console.log('greeeat');
             this.postForm.reset();
+            this.postArray.push(this.sendDatas);
         }, err => {
             console.log('ohh noooo');
         });
     }
 };
 PostComponent.ctorParameters = () => [
-    { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: src_app_shared_service_post_service__WEBPACK_IMPORTED_MODULE_4__["PostService"] },
+    { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_shared_service_post_service__WEBPACK_IMPORTED_MODULE_3__["PostService"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
 ];
 PostComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1228,6 +1423,173 @@ PostComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/user-interface/profile/edit-profile.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/user-interface/profile/edit-profile.component.css ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".edit-form-container,\r\n.mat-card {\r\n  width: 100% !important;\r\n}\r\n\r\nh1 {\r\n  /* color: #fff; */\r\n  text-align: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1pbnRlcmZhY2UvcHJvZmlsZS9lZGl0LXByb2ZpbGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFRSxzQkFBc0I7QUFDeEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCIiwiZmlsZSI6InNyYy9hcHAvdXNlci1pbnRlcmZhY2UvcHJvZmlsZS9lZGl0LXByb2ZpbGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5lZGl0LWZvcm0tY29udGFpbmVyLFxyXG4ubWF0LWNhcmQge1xyXG4gIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbmgxIHtcclxuICAvKiBjb2xvcjogI2ZmZjsgKi9cclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/user-interface/profile/edit-profile.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/user-interface/profile/edit-profile.component.ts ***!
+  \******************************************************************/
+/*! exports provided: EditProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditProfileComponent", function() { return EditProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/user.service */ "./src/app/shared/service/user.service.ts");
+
+
+
+
+// SERVICE
+
+let EditProfileComponent = class EditProfileComponent {
+    constructor(userService, fb, router) {
+        this.userService = userService;
+        this.fb = fb;
+        this.router = router;
+        this.isSubmitted = false;
+    }
+    ngOnInit() {
+        this.userService.currentUser.subscribe(currentUser => {
+            this.currentUser = currentUser;
+            this.editProfileForm = this.fb.group({
+                name: [this.currentUser.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                firstname: [this.currentUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                pseudo: [this.currentUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                email: [this.currentUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
+                // password: [this.currentUser.password, [Validators.required, Validators.minLength(8)]],
+                // confirmPassword: [this.currentUser.confirmPassword, [Validators.minLength(8)]],
+                birth: [this.currentUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                sexe: [this.currentUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                grade: [this.currentUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
+            });
+            // this.editProfileForm.setValidators(this.comparisonValidator());
+        });
+    }
+    // public comparisonValidator(): any {
+    //   return (group: FormGroup): any => {
+    //     const control1 = group.controls.password;
+    //     const control2 = group.controls.confirmPassword;
+    //     if (control1.value !== control2.value) {
+    //       control2.setErrors({isNoMatch: true});
+    //     } else {
+    //       control2.setErrors(null);
+    //     }
+    //     return;
+    //   };
+    // }
+    submit() {
+        this.isSubmitted = true;
+        if (this.editProfileForm.valid) {
+            this.editProfileForm.value['_id'] = this.currentUser['_id'];
+            this.userService.editProfile(this.editProfileForm.value).subscribe((user) => {
+                console.log('TCL: EditProfileComponent -> user', user);
+                this.router.navigate(['/accueil/post']);
+            }, err => {
+                console.log('Erreur inscription', err);
+                if (err.status === 401) {
+                    this.errorMessage = 'Vous n\'êtes pas autorisé à consulter ces informations';
+                }
+                else {
+                    this.errorMessage = 'Une erreur c\'est produite. impossible de modifier votre profil.';
+                }
+            });
+        }
+    }
+};
+EditProfileComponent.ctorParameters = () => [
+    { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+EditProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-edit-profile',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./edit-profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/edit-profile.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./edit-profile.component.css */ "./src/app/user-interface/profile/edit-profile.component.css")).default]
+    })
+], EditProfileComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/user-interface/profile/profile.component.css":
+/*!**************************************************************!*\
+  !*** ./src/app/user-interface/profile/profile.component.css ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItaW50ZXJmYWNlL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/user-interface/profile/profile.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/user-interface/profile/profile.component.ts ***!
+  \*************************************************************/
+/*! exports provided: ProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/user.service */ "./src/app/shared/service/user.service.ts");
+
+
+
+// SERVICE
+
+let ProfileComponent = class ProfileComponent {
+    constructor(userService, fb) {
+        this.userService = userService;
+        this.fb = fb;
+        this.isSubmitted = false;
+    }
+    ngOnInit() {
+        this.userService.getCurrentUser().subscribe(currentUser => {
+            this.currentUser = currentUser;
+            console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
+        });
+    }
+};
+ProfileComponent.ctorParameters = () => [
+    { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+];
+ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/profile.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./profile.component.css */ "./src/app/user-interface/profile/profile.component.css")).default]
+    })
+], ProfileComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/user-interface/user-interface.component.css":
 /*!*************************************************************!*\
   !*** ./src/app/user-interface/user-interface.component.css ***!
@@ -1237,7 +1599,7 @@ PostComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItaW50ZXJmYWNlL3VzZXItaW50ZXJmYWNlLmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItaW50ZXJmYWNlL3VzZXItaW50ZXJmYWNlLmNvbXBvbmVudC5jc3MifQ== */");
 
 /***/ }),
 
@@ -1257,8 +1619,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let UserInterfaceComponent = class UserInterfaceComponent {
     constructor() { }
-    ngOnInit() {
-    }
+    ngOnInit() { }
 };
 UserInterfaceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1290,7 +1651,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_layout_layout_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/layout/layout.module */ "./src/app/shared/layout/layout.module.ts");
 /* harmony import */ var _post_post_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./post/post.component */ "./src/app/user-interface/post/post.component.ts");
 /* harmony import */ var _user_interface_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-interface.component */ "./src/app/user-interface/user-interface.component.ts");
-/* harmony import */ var _shared_service_post_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shared/service/post.service */ "./src/app/shared/service/post.service.ts");
+/* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/user-interface/profile/profile.component.ts");
+/* harmony import */ var _profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./profile/edit-profile.component */ "./src/app/user-interface/profile/edit-profile.component.ts");
+/* harmony import */ var _shared_components_chat_chat_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../shared/components/chat/chat.component */ "./src/app/shared/components/chat/chat.component.ts");
+/* harmony import */ var _shared_components_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shared/components/topbar/topbar.component */ "./src/app/shared/components/topbar/topbar.component.ts");
+/* harmony import */ var _shared_service_post_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../shared/service/post.service */ "./src/app/shared/service/post.service.ts");
 
 
 
@@ -1301,8 +1666,10 @@ __webpack_require__.r(__webpack_exports__);
 // CUSTOM COMPONENTS
 
 
-// import { RouterModule } from '@angular/router';
-// import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+
+
+
 // CUSTOM SERVICE
 
 let UserInterfaceModule = class UserInterfaceModule {
@@ -1311,7 +1678,10 @@ UserInterfaceModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
             _post_post_component__WEBPACK_IMPORTED_MODULE_6__["PostComponent"],
-            _user_interface_component__WEBPACK_IMPORTED_MODULE_7__["UserInterfaceComponent"]
+            _user_interface_component__WEBPACK_IMPORTED_MODULE_7__["UserInterfaceComponent"],
+            _profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_9__["EditProfileComponent"],
+            _profile_profile_component__WEBPACK_IMPORTED_MODULE_8__["ProfileComponent"],
+            _shared_components_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_11__["TopbarComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -1320,7 +1690,8 @@ UserInterfaceModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             _shared_layout_layout_module__WEBPACK_IMPORTED_MODULE_5__["LayoutModule"]
         ],
-        providers: [_shared_service_post_service__WEBPACK_IMPORTED_MODULE_8__["PostService"]]
+        providers: [_shared_service_post_service__WEBPACK_IMPORTED_MODULE_12__["PostService"]],
+        entryComponents: [_shared_components_chat_chat_component__WEBPACK_IMPORTED_MODULE_10__["ChatComponent"]] // Rend le composant chat disponible partout dasn le module UI
     })
 ], UserInterfaceModule);
 
