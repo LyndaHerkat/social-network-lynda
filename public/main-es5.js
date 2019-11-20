@@ -1524,7 +1524,7 @@
             /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_2__);
             var WebsocketService = /** @class */ (function () {
                 function WebsocketService() {
-                    this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__('http://localhost:3000');
+                    this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
                 }
                 return WebsocketService;
             }());

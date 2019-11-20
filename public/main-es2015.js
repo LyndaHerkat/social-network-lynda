@@ -1625,7 +1625,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let WebsocketService = class WebsocketService {
     constructor() {
-        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__('http://localhost:3000');
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
     }
 };
 WebsocketService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
