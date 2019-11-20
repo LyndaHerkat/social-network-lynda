@@ -110,7 +110,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar class=\"topbar\" color=accent fxLayout=\"row\" fxLayoutGap=\"15px\" fxLayoutAlign=\"space-between center\">\n  <mat-icon class=\"link burger\" fxLayoutGap=\"5px\" (click)=\"sidenavMenu.toggle()\" aria-hidden=\"false\"\n    aria-label=\"menu icon\">menu</mat-icon>\n  <div class=\"search\">\n    <form [formGroup]=\"searchForm\" fxLayout=\"column\" novalidate>\n      <mat-form-field>\n        <input type=\"text\" matInput formControlName=\"search\" [matAutocomplete]=\"auto\" placeholder=\"Rechercher un profil\">\n      </mat-form-field>\n      <mat-autocomplete #auto=\"matAutocomplete\">\n        <mat-option *ngFor=\"let user of filterAllUsers | async;\" [value]=\"user._id\" (click)=getPostUser() (keyup.enter)=getPostUser()>{{user.pseudo}}</mat-option>\n        <!-- <input type=\"hidden\" formControlName=\"_id\" [value]=\"user._id\"/> -->\n\n      </mat-autocomplete>\n\n    </form>\n  </div>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"5px\">\n    <img mat-card-avatar [src]=\"currentUser.avatar\" alt=\"\">\n    <h3 class=\"link\" (click)=getPostCurrentUser()> {{currentUser.pseudo}}</h3>\n  </div>\n</mat-toolbar>\n\n<mat-sidenav-container>\n  <mat-sidenav #sidenavMenu>\n    <mat-nav-list>\n      <a mat-list-item class=\"link\" (click)=\"getCurrentProfileUser()\">Mon profil</a>\n      <!-- <a mat-list-item class=\"link\" routerLink=\"/accueil/profile/\">Mon profil</a> -->\n      <!-- <a mat-list-item class=\"link\" routerLink=\"/accueil/edit-profile\">Editer mon profil</a> -->\n      <a mat-list-item class=\"link\" routerLink=\"\">Invitation en attente</a>\n      <a mat-list-item class=\"link\" routerLink=\"\">Demande en attente</a>\n    </mat-nav-list>\n    <span>Mes amis</span>\n    <mat-nav-list>\n      <li></li>\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around start\">\n      <div fxFlex=\"25\">\n\n      </div>\n      <div fxFlex=\"45\">\n        <router-outlet></router-outlet>\n      </div>\n      <div fxFlex=\"25\"></div>\n    </div>\n\n    <div class=\"chat-container\">\n\n      <button class=\"chat-button\" color=accent mat-raised-button mat-accent (click)=\"openChat()\">Chat</button>\n    </div>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar class=\"topbar\" color=accent fxLayout=\"row\" fxLayoutGap=\"15px\" fxLayoutAlign=\"space-between center\">\n  <mat-icon class=\"link burger\" fxLayoutGap=\"5px\" (click)=\"sidenavMenu.toggle()\" aria-hidden=\"false\"\n    aria-label=\"menu icon\">menu</mat-icon>\n  <div class=\"search\">\n    <form [formGroup]=\"searchForm\" fxLayout=\"row\" fxLayoutGap=\"5px\" fxLayoutAlign=\"center center\"novalidate>\n      <mat-icon fxLayoutGap=\"15px\" aria-hidden=\"false\" aria-label=\"search icon\">search</mat-icon>\n      <mat-form-field>\n        <input type=\"text\" matInput formControlName=\"search\" [matAutocomplete]=\"auto\" placeholder=\"recherche profil\">\n      </mat-form-field>\n      <mat-autocomplete #auto=\"matAutocomplete\">\n        <mat-option *ngFor=\"let user of filterAllUsers | async;\" [value]=\"user._id\" (click)=getPostUser() (keyup.enter)=getPostUser()>{{user.pseudo}}</mat-option>\n        <!-- <input type=\"hidden\" formControlName=\"_id\" [value]=\"user._id\"/> -->\n\n      </mat-autocomplete>\n\n    </form>\n  </div>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"5px\">\n    <img mat-card-avatar [src]=\"currentUser.avatar\" alt=\"\">\n    <h3 class=\"link\" (click)=getPostCurrentUser()> {{currentUser.pseudo}}</h3>\n  </div>\n</mat-toolbar>\n\n<mat-sidenav-container>\n  <mat-sidenav #sidenavMenu>\n    <mat-nav-list>\n      <a mat-list-item class=\"link\" (click)=\"getCurrentProfileUser()\">Mon profil</a>\n      <!-- <a mat-list-item class=\"link\" routerLink=\"/accueil/profile/\">Mon profil</a> -->\n      <!-- <a mat-list-item class=\"link\" routerLink=\"/accueil/edit-profile\">Editer mon profil</a> -->\n      <a mat-list-item class=\"link\" routerLink=\"/accueil/friends\">Gestion des amis</a>\n      <!-- <a mat-list-item class=\"link\" routerLink=\"\">Demande en attente</a> -->\n    </mat-nav-list>\n    <!-- <span>Mes amis</span>\n    <mat-nav-list>\n      <li></li>\n    </mat-nav-list> -->\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around start\">\n      <div fxFlex=\"25\">\n\n      </div>\n      <div fxFlex=\"45\">\n        <router-outlet></router-outlet>\n      </div>\n      <div fxFlex=\"25\"></div>\n    </div>\n\n    <div class=\"chat-container\">\n\n      <button class=\"chat-button\" color=accent mat-raised-button mat-accent (click)=\"openChat()\">Chat</button>\n    </div>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/friend/friend.component.html":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/friend/friend.component.html ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"friendsArray !== null\">\n  <h2>Mes amis</h2>\n  <div fxLayout=\"column\">\n    <div class=\"friendsList\">\n      <mat-card *ngFor=\"let friend of friendsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"friend.avatar\" alt=\"\">\n          <mat-card-title>{{friend.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <button mat-raised-button color=\"accent\">Bloquer</button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"requestsArray !== undefined\">\n  <h2>Invitations envoyées</h2>\n  <div fxLayout=\"column\">\n    <div class=\"requestsList\">\n      <mat-card *ngFor=\"let request of requestsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"request.avatar\" alt=\"\">\n          <mat-card-title>{{request.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"primary\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button> -->\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"invitationsArray !== undefined\">\n  <h2>Invitations reçues</h2>\n  <div fxLayout=\"column\">\n    <div class=\"invitationsList\">\n      <mat-card *ngFor=\"let invitation of invitationsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"invitation.avatar\" alt=\"\">\n          <mat-card-title>{{invitation.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <button mat-raised-button color=\"primary\" (click)=\"acceptInvitation(invitation._id, currentUser._id)\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n");
 
 /***/ }),
 
@@ -149,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <h1>Modifier mon profil</h1> -->\n\n<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-content>\n      <mat-card fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"10px\">\n        <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n        <mat-card-title>{{displayedUser.pseudo}}</mat-card-title>\n      </mat-card>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Informations personnelles</mat-panel-title>\n          </mat-expansion-panel-header>\n          <mat-nav-list>\n            <h3 mat-subheader>Nom</h3>\n            <mat-list-item> {{displayedUser.name}} </mat-list-item>\n            <h3 mat-subheader>Prénom</h3>\n            <mat-list-item> {{displayedUser.firstname}} </mat-list-item>\n            <h3 mat-subheader>Pseudo</h3>\n            <mat-list-item> {{displayedUser.pseudo}} </mat-list-item>\n            <h3 mat-subheader>Email</h3>\n            <mat-list-item> {{displayedUser.email}} </mat-list-item>\n            <h3 mat-subheader>Date de naissance</h3>\n            <mat-list-item> {{displayedUser.birth}} </mat-list-item>\n            <h3 mat-subheader>Sexe</h3>\n            <mat-list-item> {{displayedUser.sexe}} </mat-list-item>\n            <h3 mat-subheader>Niveau scolaire</h3>\n            <mat-list-item> {{displayedUser.grade}} </mat-list-item>\n          </mat-nav-list>\n        </mat-expansion-panel>\n      </mat-accordion>\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Amis</mat-panel-title>\n          </mat-expansion-panel-header>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <button *ngIf=\"isCurrentUser\" mat-raised-button color=\"primary\" routerLink=\"/accueil/edit-profile\">Editer mon\n        profil</button>\n    </mat-card-content>\n\n  </mat-card>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <h1>Modifier mon profil</h1> -->\n\n<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-content>\n      <mat-card fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"10px\">\n        <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n        <mat-card-title>{{displayedUser.pseudo}}</mat-card-title>\n      </mat-card>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Informations personnelles</mat-panel-title>\n          </mat-expansion-panel-header>\n          <mat-nav-list>\n            <h3 mat-subheader>Nom</h3>\n            <mat-list-item> {{displayedUser.name}} </mat-list-item>\n            <h3 mat-subheader>Prénom</h3>\n            <mat-list-item> {{displayedUser.firstname}} </mat-list-item>\n            <h3 mat-subheader>Pseudo</h3>\n            <mat-list-item> {{displayedUser.pseudo}} </mat-list-item>\n            <h3 mat-subheader>Email</h3>\n            <mat-list-item> {{displayedUser.email}} </mat-list-item>\n            <h3 mat-subheader>Date de naissance</h3>\n            <mat-list-item> {{displayedUser.birth}} </mat-list-item>\n            <h3 mat-subheader>Sexe</h3>\n            <mat-list-item> {{displayedUser.sexe}} </mat-list-item>\n            <h3 mat-subheader>Niveau scolaire</h3>\n            <mat-list-item> {{displayedUser.grade}} </mat-list-item>\n          </mat-nav-list>\n        </mat-expansion-panel>\n      </mat-accordion>\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Amis</mat-panel-title>\n          </mat-expansion-panel-header>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <button *ngIf=\"isCurrentUser\" mat-raised-button color=\"primary\" routerLink=\"/accueil/edit-profile\">Editer mon profil</button>\n      <button *ngIf=\"!isCurrentUser\" mat-raised-button color=\"primary\" (click)=sendInvitation()>Envoyer une invitation</button>\n      <p *ngIf=\"message\">{{ message }}</p>\n      <!-- <p *ngIf=\"errorMessage\">{{ errorMessage }}</p> -->\n    </mat-card-content>\n\n  </mat-card>\n</div>\n");
 
 /***/ }),
 
@@ -568,9 +581,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_interface_post_post_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-interface/post/post.component */ "./src/app/user-interface/post/post.component.ts");
 /* harmony import */ var _user_interface_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-interface/profile/profile.component */ "./src/app/user-interface/profile/profile.component.ts");
 /* harmony import */ var _user_interface_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-interface/profile/edit-profile.component */ "./src/app/user-interface/profile/edit-profile.component.ts");
-/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
+/* harmony import */ var _user_interface_friend_friend_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-interface/friend/friend.component */ "./src/app/user-interface/friend/friend.component.ts");
+/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
 
 // INTERFACE
+
+
 
 
 
@@ -588,10 +604,11 @@ const ROUTING = [ //on utilise l'interface Route native d'Angular (https://angul
   { path : '', component: _authentification_homepage_homepage_component__WEBPACK_IMPORTED_MODULE_1__["HomepageComponent"] },
   { path: 'login', component: _authentification_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]},
   { path: 'register', component: _authentification_register_register_component__WEBPACK_IMPORTED_MODULE_3__["RegisterComponent"]},
-  { path: 'accueil', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_user_interface_component__WEBPACK_IMPORTED_MODULE_4__["UserInterfaceComponent"], children: [
-    { path: 'post/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_post_post_component__WEBPACK_IMPORTED_MODULE_5__["PostComponent"]},
-    { path: 'profile/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"]},
-    { path: 'edit-profile', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]], component: _user_interface_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__["EditProfileComponent"]}
+  { path: 'accueil', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]], component: _user_interface_user_interface_component__WEBPACK_IMPORTED_MODULE_4__["UserInterfaceComponent"], children: [
+    { path: 'post/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]], component: _user_interface_post_post_component__WEBPACK_IMPORTED_MODULE_5__["PostComponent"]},
+    { path: 'profile/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]], component: _user_interface_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"]},
+    { path: 'edit-profile', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]], component: _user_interface_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__["EditProfileComponent"]},
+    { path: 'friends', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]], component: _user_interface_friend_friend_component__WEBPACK_IMPORTED_MODULE_8__["FriendComponent"]}
   ]}
   // { path: '**', component: PageNotFoundComponent }
 
@@ -1057,16 +1074,13 @@ let TopbarComponent = class TopbarComponent {
         });
         this.userService.getAllUsers().subscribe(allUsersArray => {
             this.allUsersArray = allUsersArray;
-            // this.allUsersArrayNames = allUsersArray.map(x => x.pseudo);
-            // this.allUsersArrayNames = allUsersArray.map.forEach(x => {
-            //   pseudo: x.pseudo;
-            //   _id: x._id;
-            // });
             this.allUsersArray.forEach(elmt => {
-                this.allUsersArrayNames.push({
-                    pseudo: elmt.pseudo.toLowerCase(),
-                    _id: elmt._id
-                });
+                if (this.allUsersArrayNames.indexOf(elmt) === -1) {
+                    this.allUsersArrayNames.push({
+                        pseudo: elmt.pseudo.toLowerCase(),
+                        _id: elmt._id
+                    });
+                }
             });
             // this.allUsersArray.forEach(elmt => {
             //   this.allUsersMapId = this.allUsersArrayNames.map( x => x._id);
@@ -1090,11 +1104,11 @@ let TopbarComponent = class TopbarComponent {
         // startWith(null),
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(data => {
             if (!data) {
-                console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames coucou', this.allUsersArrayNames);
+                // console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames', this.allUsersArrayNames);
                 return;
             }
             else {
-                console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames coucou 2', this.allUsersArrayNames);
+                // console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames', this.allUsersArrayNames);
                 return this.allUsersArrayNames.filter(user => {
                     return user.pseudo.startsWith(data.toLowerCase());
                 });
@@ -1112,16 +1126,11 @@ let TopbarComponent = class TopbarComponent {
     getPostUser() {
         this.userId = this.searchForm.value.search;
         this.searchForm.reset();
-        // this.postRoute(this.userId);
         this.postService.postRoute(this.userId);
     }
     getPostCurrentUser() {
-        // this.postRoute(this.currentUser._id);
         this.postService.postRoute(this.currentUser._id);
     }
-    // public postRoute(userId) {
-    //   this.postService.postRoute(userId);
-    // }
     getCurrentProfileUser() {
         this.userService.getProfile(this.currentUser._id);
     }
@@ -1314,6 +1323,76 @@ FilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/service/friend.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/shared/service/friend.service.ts ***!
+  \**************************************************/
+/*! exports provided: FriendService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FriendService", function() { return FriendService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/user.service */ "./src/app/shared/service/user.service.ts");
+
+
+
+
+
+
+let FriendService = class FriendService {
+    constructor(http, router, userService) {
+        this.http = http;
+        this.router = router;
+        this.userService = userService;
+    }
+    sendInvitation(friendUserId, currentUserId) {
+        return this.http.post('request/friend/request', {
+            ['friendUserId']: friendUserId,
+            ['currentUserId']: currentUserId
+        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
+            console.log('TCL: FriendService -> data', data);
+            if (data !== 1 && data !== 2) {
+                // this.userService.updateCurrentUser(data.currentUser);
+                this.userService.currentUser.next(data.currentUserUpdated);
+                console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
+                console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
+                return data.currentUserUpdated;
+            }
+        }));
+    }
+    acceptInvitation(friendUserId, currentUserId) {
+        return this.http.put('request/friend/accept-invitation', {
+            ['friendUserId']: friendUserId,
+            ['currentUserId']: currentUserId
+        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
+            this.userService.currentUser.next(data.currentUser);
+            console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
+            console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
+            return data.currentUserUpdated;
+        }));
+    }
+};
+FriendService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] }
+];
+FriendService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], FriendService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/service/post.service.ts":
 /*!************************************************!*\
   !*** ./src/app/shared/service/post.service.ts ***!
@@ -1328,8 +1407,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-
 
 
 
@@ -1338,7 +1415,6 @@ let PostService = class PostService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
-        this.postList = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](null);
     }
     createPost(sendDatas) {
         return this.http.post('/request/post/create', sendDatas);
@@ -1404,6 +1480,7 @@ let UserService = class UserService {
         this.allUsersArray = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](null);
         this.checkToken(); // on verifie la presence d'un token dans le local storage lors de l'instanciation du service
         this.getCurrentUser();
+        this.getAllUsers();
     }
     // VERIFICATION TOKEN dans le localstorage (API native JS)
     checkToken() {
@@ -1448,18 +1525,28 @@ let UserService = class UserService {
             return this.http.get('/request/user/current').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((user) => {
                 this.currentUser.next(user);
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
+                console.log('TCL: this.currentUser', this.currentUser);
                 return this.currentUser;
             }));
         }
     }
+    // // UPDATE CURRENT USER
+    // public updateCurrentUser(user: User) {
+    //   this.currentUser.next(user);
+    // }
     // GET ALL USERS
     getAllUsers() {
-        return this.http.get('/request/user/all').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((allUsersArray) => {
-            this.allUsersArray.next(allUsersArray);
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
-            console.log('TCL: this.allUsersArray', this.allUsersArray);
+        if (this.allUsersArray.value) {
             return this.allUsersArray;
-        }));
+        }
+        else {
+            return this.http.get('/request/user/all').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((allUsersArray) => {
+                this.allUsersArray.next(allUsersArray);
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
+                console.log('TCL: this.allUsersArray', this.allUsersArray);
+                return this.allUsersArray;
+            }));
+        }
     }
     // GET Profil d'un user (on va sur la page de profil avec l'ID du user)
     getProfile(userID) {
@@ -1512,6 +1599,138 @@ UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/user-interface/friend/friend.component.css":
+/*!************************************************************!*\
+  !*** ./src/app/user-interface/friend/friend.component.css ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("mat-card {\r\n  margin-top: 3%;\r\n  padding : 5px;\r\n}\r\n\r\nh2 {\r\n  background-color: rgba(255, 255, 255, 0.6);\r\n  border: solid 2px #432C85;\r\n  border-radius: 5px;\r\n  -webkit-border-radius: 5px;\r\n  -moz-border-radius: 5px;\r\n  -ms-border-radius: 5px;\r\n  -o-border-radius: 5px;\r\n  /* color: #fff; */\r\n  font-weight: bold;\r\n  padding: 10px;\r\n  /* text-align: center; */\r\n  text-transform: uppercase;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1pbnRlcmZhY2UvZnJpZW5kL2ZyaWVuZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsY0FBYztFQUNkLGFBQWE7QUFDZjs7QUFFQTtFQUNFLDBDQUEwQztFQUMxQyx5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQix1QkFBdUI7RUFDdkIsc0JBQXNCO0VBQ3RCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYix3QkFBd0I7RUFDeEIseUJBQXlCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvdXNlci1pbnRlcmZhY2UvZnJpZW5kL2ZyaWVuZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibWF0LWNhcmQge1xyXG4gIG1hcmdpbi10b3A6IDMlO1xyXG4gIHBhZGRpbmcgOiA1cHg7XHJcbn1cclxuXHJcbmgyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNik7XHJcbiAgYm9yZGVyOiBzb2xpZCAycHggIzQzMkM4NTtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgLW1vei1ib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgLW1zLWJvcmRlci1yYWRpdXM6IDVweDtcclxuICAtby1ib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgLyogY29sb3I6ICNmZmY7ICovXHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICAvKiB0ZXh0LWFsaWduOiBjZW50ZXI7ICovXHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxufVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/user-interface/friend/friend.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/user-interface/friend/friend.component.ts ***!
+  \***********************************************************/
+/*! exports provided: FriendComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FriendComponent", function() { return FriendComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/service/user.service */ "./src/app/shared/service/user.service.ts");
+/* harmony import */ var src_app_shared_service_friend_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/friend.service */ "./src/app/shared/service/friend.service.ts");
+
+
+
+
+let FriendComponent = class FriendComponent {
+    constructor(userService, friendService) {
+        this.userService = userService;
+        this.friendService = friendService;
+        this.requestsArray = [];
+        this.invitationsArray = [];
+        this.friendsArray = [];
+    }
+    ngOnInit() {
+        this.sub1 = this.userService.currentUser.subscribe(currentUser => {
+            this.currentUser = currentUser;
+            console.log('TCL: FriendComponent -> ngOnInit -> this.currentUser', this.currentUser);
+            this.userService.getAllUsers().subscribe(allUsersArray => {
+                this.allUsersArray = allUsersArray;
+                console.log('TCL: FriendComponent -> ngOnInit -> this.allUsersArray', this.allUsersArray);
+                this.getFriends();
+                this.getRequests();
+                this.getInvitations();
+                console.log('TCL: FriendComponent -> friendsArray', this.friendsArray);
+                console.log('TCL: FriendComponent -> requestsArray', this.requestsArray);
+                console.log('TCL: FriendComponent -> invitationsArray', this.invitationsArray);
+            });
+        });
+    }
+    getFriends() {
+        this.sub2 = this.userService.currentUser.subscribe(currentUser => {
+            this.currentUser = currentUser;
+            console.log('TCL: FriendComponent -> getFriends -> this.currentUser', this.currentUser);
+            this.currentUser.friends.forEach(elmt1 => {
+                this.allUsersArray.forEach(elmt2 => {
+                    if (elmt1 === elmt2._id && this.friendsArray.indexOf(elmt2) === -1) {
+                        this.friendsArray.push(elmt2);
+                    }
+                });
+            });
+        });
+    }
+    getRequests() {
+        this.sub3 = this.userService.currentUser.subscribe(currentUser => {
+            this.currentUser = currentUser;
+            console.log('TCL: FriendComponent -> getRequests -> this.currentUser', this.currentUser);
+            this.currentUser.requests.forEach(elmt1 => {
+                this.allUsersArray.forEach(elmt2 => {
+                    if (elmt1 === elmt2._id && this.requestsArray.indexOf(elmt2) === -1) {
+                        this.requestsArray.push(elmt2);
+                    }
+                });
+            });
+        });
+    }
+    getInvitations() {
+        this.sub4 = this.userService.currentUser.subscribe(currentUser => {
+            this.currentUser = currentUser;
+            console.log('TCL: FriendComponent -> getInvitations -> this.currentUser', this.currentUser);
+            this.currentUser.invitations.forEach(elmt1 => {
+                this.allUsersArray.forEach(elmt2 => {
+                    if (elmt1 === elmt2._id && this.invitationsArray.indexOf(elmt2) === -1) {
+                        this.invitationsArray.push(elmt2);
+                    }
+                });
+            });
+        });
+    }
+    acceptInvitation(friendUserId, currentUserId) {
+        this.friendService.acceptInvitation(friendUserId, currentUserId).subscribe(() => {
+            this.invitationsArray.forEach(elmt => {
+                if (elmt._id === friendUserId) {
+                    const index1 = this.invitationsArray.indexOf(elmt);
+                    this.invitationsArray.splice(index1, 1);
+                    const index2 = this.invitationsArray.indexOf(elmt);
+                    this.requestsArray.splice(index2, 1);
+                    this.friendsArray.push(elmt);
+                }
+            });
+            console.log('invitation acceptée');
+            console.log('TCL: FriendComponent -> acceptInvitation ->  this.currentUser', this.currentUser);
+        });
+    }
+    ngOnDestroy() {
+        this.sub1.unsubscribe();
+        this.sub2.unsubscribe();
+        this.sub3.unsubscribe();
+        this.sub4.unsubscribe();
+    }
+};
+FriendComponent.ctorParameters = () => [
+    { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: src_app_shared_service_friend_service__WEBPACK_IMPORTED_MODULE_3__["FriendService"] }
+];
+FriendComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-friend',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./friend.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/friend/friend.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./friend.component.css */ "./src/app/user-interface/friend/friend.component.css")).default]
+    })
+], FriendComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/user-interface/post/post.component.css":
 /*!********************************************************!*\
   !*** ./src/app/user-interface/post/post.component.css ***!
@@ -1546,7 +1765,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import { Observable } from 'rxjs/internal/Observable';
-// import { Subscription } from 'rxjs/internal/Subscription';
 // SERVICES
 
 
@@ -1562,8 +1780,8 @@ let PostComponent = class PostComponent {
         this.postForm = this.fb.group({
             message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
         });
-        // RECUPEARTION ID
-        this.userService.getCurrentUser().subscribe(currentUser => {
+        // RECUPERATION ID
+        this.sub = this.userService.currentUser.subscribe(currentUser => {
             console.log(currentUser);
             // tslint:disable-next-line: no-string-literal
             this.currentUser = currentUser;
@@ -1618,6 +1836,9 @@ let PostComponent = class PostComponent {
     }
     getProfileUser() {
         this.userService.getProfile(this.displayedUser._id);
+    }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 };
 PostComponent.ctorParameters = () => [
@@ -1772,21 +1993,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/user.service */ "./src/app/shared/service/user.service.ts");
+/* harmony import */ var src_app_shared_service_friend_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/friend.service */ "./src/app/shared/service/friend.service.ts");
 
 
 
 
 // SERVICE
 
+
 let ProfileComponent = class ProfileComponent {
-    constructor(userService, fb, activatedRoute) {
+    constructor(userService, friendService, fb, activatedRoute) {
         this.userService = userService;
+        this.friendService = friendService;
         this.fb = fb;
         this.activatedRoute = activatedRoute;
         this.isCurrentUser = false;
         this.isSubmitted = false;
     }
     ngOnInit() {
+        this.sub = this.userService.currentUser.subscribe(currentUser => {
+            this.currentUser = currentUser;
+            console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
+            // if (this.userId === this.currentUser._id) {
+            //   this.isCurrentUser = true;
+            // } else {
+            //   this.isCurrentUser = false;
+            // }
+        });
         this.activatedRoute.paramMap.subscribe((paramMap) => {
             this.userId = paramMap.get('id');
             console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.userId);
@@ -1803,23 +2036,37 @@ let ProfileComponent = class ProfileComponent {
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
                         this.displayedUser = elmt;
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
+                        console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
                     }
                 });
             });
         });
-        this.userService.getCurrentUser().subscribe(currentUser => {
-            this.currentUser = currentUser;
-            console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
-            // if (this.userId === this.currentUser._id) {
-            //   this.isCurrentUser = true;
-            // } else {
-            //   this.isCurrentUser = false;
-            // }
+    }
+    sendInvitation() {
+        this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe((data) => {
+            console.log('TCL: ProfileComponent -> sendInvitation -> data', data);
+            if (data === 1) {
+                this.message = `Vous êtes déjà ami avec ${this.displayedUser.pseudo}.`;
+            }
+            else {
+                if (data === 2) {
+                    this.message = `Vous avez déjà envoyé une invitation à ${this.displayedUser.pseudo}.`;
+                }
+                else {
+                    this.message = `Votre invitation a été envoyé à ${this.displayedUser.pseudo}.`;
+                }
+            }
+        }, err => {
+            this.message = 'Impossible d\'envoyer votre invitation.';
         });
+    }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 };
 ProfileComponent.ctorParameters = () => [
     { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_shared_service_friend_service__WEBPACK_IMPORTED_MODULE_5__["FriendService"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
 ];
@@ -1900,7 +2147,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./profile/edit-profile.component */ "./src/app/user-interface/profile/edit-profile.component.ts");
 /* harmony import */ var _shared_components_chat_chat_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../shared/components/chat/chat.component */ "./src/app/shared/components/chat/chat.component.ts");
 /* harmony import */ var _shared_components_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shared/components/topbar/topbar.component */ "./src/app/shared/components/topbar/topbar.component.ts");
-/* harmony import */ var _shared_service_post_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../shared/service/post.service */ "./src/app/shared/service/post.service.ts");
+/* harmony import */ var _friend_friend_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./friend/friend.component */ "./src/app/user-interface/friend/friend.component.ts");
+/* harmony import */ var _shared_service_post_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../shared/service/post.service */ "./src/app/shared/service/post.service.ts");
+/* harmony import */ var _shared_service_friend_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../shared/service/friend.service */ "./src/app/shared/service/friend.service.ts");
 
 
 
@@ -1915,7 +2164,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // CUSTOM SERVICE
+
 
 let UserInterfaceModule = class UserInterfaceModule {
 };
@@ -1926,7 +2177,8 @@ UserInterfaceModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _user_interface_component__WEBPACK_IMPORTED_MODULE_7__["UserInterfaceComponent"],
             _profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_9__["EditProfileComponent"],
             _profile_profile_component__WEBPACK_IMPORTED_MODULE_8__["ProfileComponent"],
-            _shared_components_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_11__["TopbarComponent"]
+            _shared_components_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_11__["TopbarComponent"],
+            _friend_friend_component__WEBPACK_IMPORTED_MODULE_12__["FriendComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -1935,7 +2187,10 @@ UserInterfaceModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             _shared_layout_layout_module__WEBPACK_IMPORTED_MODULE_5__["LayoutModule"]
         ],
-        providers: [_shared_service_post_service__WEBPACK_IMPORTED_MODULE_12__["PostService"]],
+        providers: [
+            _shared_service_post_service__WEBPACK_IMPORTED_MODULE_13__["PostService"],
+            _shared_service_friend_service__WEBPACK_IMPORTED_MODULE_14__["FriendService"]
+        ],
         // bootstrap: [UserInterfaceComponent],
         entryComponents: [_shared_components_chat_chat_component__WEBPACK_IMPORTED_MODULE_10__["ChatComponent"]] // Rend le composant chat disponible partout dasn le module UI
     })

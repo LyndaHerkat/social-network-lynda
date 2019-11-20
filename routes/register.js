@@ -30,9 +30,9 @@ router.post('/', (req, res) => {
                       // ajout de proprietes au new user
                         let newUser = req.body;
                         newUser.admin = false;
-                        newUser.friends = null;
-                        newUser.invitations = null;
-                        newUser.requests = null;
+                        newUser.friends = [];
+                        newUser.invitations = [];
+                        newUser.requests = [];
                         newUser.avatar = "../../../../assets/img/default_avatar.png";
                         delete newUser.confirmPassword;
                         //cryptage du mot de passe avant enregistrement dans la bdd
