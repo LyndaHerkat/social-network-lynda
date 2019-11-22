@@ -3,7 +3,7 @@ const dbTools = require('../../my_modules/db');
 const ObjectID = require('mongodb').ObjectID;
 
 router.put('/', (req, res) => {
-    console.log('acceptation d\'invitation', req.body);
+    console.log('acceptation d\'invitation');
 
     dbTools.connectClientMongo(dbTools.URI, {
         useNewUrlParser: true

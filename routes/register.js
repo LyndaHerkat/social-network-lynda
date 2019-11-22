@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 
 router.post('/', (req, res) => {
-    console.log(req.body);
     dbTools.connectClientMongo(dbTools.URI, {
         useNewUrlParser: true
     }, err => {

@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
+var webSocketModule = require('../my_modules/websocket');
 
 /**
  * Get port from environment and store in Express.
@@ -22,14 +23,12 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
- * Create Websocket connection.
+ * Create Websocket server.
  */
-
 var io = require('socket.io').listen(server);
 
-io.on('connection', (socket) => {
-  console.log('Connection WebSocket OK');
-});
+webSocketModule(io);
+
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -5,7 +5,6 @@ const ObjectID = require('mongodb').ObjectID;
 const path = require('path');
 
 router.post('/', (req, res) => {
-    console.log(req.body);
     dbTools.connectClientMongo(dbTools.URI, {
         useNewUrlParser: true
     }, err => {
@@ -25,11 +24,10 @@ router.post('/', (req, res) => {
                     next(err);
                 } else {
                     if(data === null) {
-                        console.log('cet identifuant d\'utilisateur n\'existe pas');
+                        console.log('cet identifiant d\'utilisateur n\'existe pas');
                         res.status(500).json('cet identifuant d\'utilisateur n\'existe pas');
                     } else {
                     //   // ajout de proprietes au new user
-                    console.log('TCL: req.body.pseudo', req.body.pseudo);
                     //     newUser.admin = false;
                     //     newUser.friends = null;
                     //     newUser.invitations = null;
@@ -56,7 +54,6 @@ router.post('/', (req, res) => {
                                 console.log('TCL: err', err);
                                 console.log('Impossible d\'insérer le nouveau user dans la bdd');
                             } else {
-                                console.log('user updaté');
 
                                 myCollection.findOne({
                                     '_id' : ObjectID(req.body['_id'])
@@ -66,8 +63,6 @@ router.post('/', (req, res) => {
                                     } else {
                                         let updatedUser = data;
                                         delete updatedUser.password;
-                                        console.log('TCL: updatedUser', updatedUser);
-                                        
                                         res.status(200).json(updatedUser);
                                     }
                                 });

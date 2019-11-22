@@ -2,7 +2,7 @@ const router = require('express').Router();
 const dbTools = require('../../my_modules/db');
 
 router.post('/', (req, res) => {
-    console.log('Création post', req.body);
+    console.log('Création post');
     
 
     dbTools.connectClientMongo(dbTools.URI, {

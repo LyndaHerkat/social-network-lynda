@@ -3,7 +3,7 @@ const dbTools = require('../../my_modules/db');
 const ObjectID = require('mongodb').ObjectID;
 
 router.post('/', (req, res) => {
-    console.log('envoi invitaion', req.body);
+    console.log('envoi invitaion');
 
 
     dbTools.connectClientMongo(dbTools.URI, {
@@ -23,9 +23,6 @@ router.post('/', (req, res) => {
                     console.log('Connexion : erreur lors de la connection au client Mongo');
                     res.status(500).json('impossible de se connecter à la base de données');
                 } else {
-                    console.log('TCL: currentUser.friends', currentUser.friends);
-                    console.log('TCL: currentUser.friends.includes(req.body.friendUserId)', currentUser.friends.includes(req.body.friendUserId));
-
                     if (currentUser.friends.includes(req.body.friendUserId)) {
                         res.status(200).json(1);
                     } else {
@@ -58,15 +55,10 @@ router.post('/', (req, res) => {
                                                 console.log('Connexion : erreur lors de la connection au client Mongo');
                                                 res.status(500).json('impossible de se connecter à la base de données');
                                             } else {
-
-                                              console.log('TCL: currentUser', currentUserUpdated);
-                                              console.log('TCL: friendUser', friendUserUpdated);
                                                 let response = {
                                                     currentUserUpdated: currentUserUpdated.value,
                                                     friendUserUpdated: friendUserUpdated.value
                                                 }
-                                                console.log('TCL: response', response);
-
                                                 res.status(200).json(response);
                                             }
                                         })

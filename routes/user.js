@@ -14,13 +14,12 @@ function isUserLogged (req, res, next){
     const token = req.headers.jwttoken;
 
     if (token) {
-      console.log('TOken OK');
+    console.log('TOken OK');
         jwt.verify(token, public_key, (err, decoded) => {
             if (err) {
                 res.status(401).json('token invalide');
             } else {
                 const userID = decoded.sub; // recuparation de l'ID du user dans le token
-                console.log('userID : ', userID);
                 dbTools.connectClientMongo(dbTools.URI, {
                     useNewUrlParser: true
                 }, err => {
@@ -38,7 +37,6 @@ function isUserLogged (req, res, next){
                                 console.log('Connexion : erreur lors de la connection au client Mongo');
                                 res.status(401).json('error');
                             } else {
-                                console.log('data : ', data);
                                 req.user = data;
                                 next(); // on passe a l'execution de la route ci-dessous
                             }
@@ -54,7 +52,6 @@ function isUserLogged (req, res, next){
 }
 
 router.get('/current', isUserLogged, (req, res) => {
-    console.log( 'route /req.user', req.user);
     res.json(req.user);
 });
 
