@@ -3,22 +3,28 @@ const user = require('./user');
 const register = require('./register');
 const login = require('./login');
 const postCreate = require('./post/postCreate');
+const commentCreate = require('./post/commentCreate');
 const postGet = require('./post/postGet');
+const postDelete = require('./post/postDelete');
 const editprofile = require('./editprofile');
 const allUsers = require('./allUsers');
 const sendInvitation = require('./friend/sendInvitation');
 const getFriends = require('./friend/getFriends');
 const acceptInvitation = require('./friend/acceptInvitation');
+const deleteFriend = require('./friend/deleteFriend');
 
 router.use('/request/register', register);
 router.use('/request/login', login);
 router.use('/request/post/create', postCreate);
+router.use('/request/post/comment/create', commentCreate);
 router.use('/request/post/get', postGet);
+router.use('/request/post/delete', postDelete);
 router.use('/request/editprofile', editprofile);
 router.use('/request/user', user);
 router.use('/request/user/all', allUsers);
 router.use('/request/friend/request', sendInvitation);
 router.use('/request/friend/get', getFriends);
 router.use('/request/friend/accept-invitation', acceptInvitation);
+router.use('/request/friend/delete', deleteFriend);
 
 module.exports = router;

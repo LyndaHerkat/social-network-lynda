@@ -1,6 +1,7 @@
 function webSocketModule (io) {
     // Current User
     let currentUser;
+    let disconnectedUser;
     // tableau avec tous les users connectés
     let usersConnectedArray = [];
     
@@ -19,20 +20,26 @@ function webSocketModule (io) {
         });
         
         // Déconnection d'un user
-        let socketDisconnect = function () {
+        let socketDisconnect = function (user) {
             // Suppression du user disconnected de usersConnectedArray
-            let index = usersConnectedArray.indexOf(currentUser);
+            let index = usersConnectedArray.indexOf(user);
+            console.log('TCL: socketDisconnect -> user qui se déconnecte', user);
             usersConnectedArray.splice(index, 1);
+            console.log('TCL: socketDisconnect -> usersConnectedArray tata', usersConnectedArray);
+            socket.broadcast.emit('all users connected', usersConnectedArray);
         }
         
-        socket.on('user deconnection', () => {
+        socket.on('user deconnection', (user) => {
+          console.log('TCL: webSocketModule ->  socket.on(user deconnection user', user);
+          disconnectedUser = user;
             // Fermeture de la socket
             socket.disconnect();
         });
 
-        socket.on('disconnect', () => {
+        socket.on('disconnect', (user) => {
+        console.log('TCL: webSocketModule -> user tutu', user);
             // Suppression du user disconnected de usersConnectedArray
-            socketDisconnect();
+            socketDisconnect(disconnectedUser);
 
             // Envoi de tous les users connectes (Array)
             console.log('TCL: webSocketModule -> usersConnectedArray', usersConnectedArray);

@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=warn>\n  <div class=\"logo-container\" fxLayout=\"row nowrap\">\n    <!-- <div routerLink=\"/accueil/post\" class=\"link\"></div> -->\n    <img src=\"../../../../assets/img/logo.png\" alt=\"logo-teach\" height=\"60px\" fxFlexAlign=\"center\">\n    <div (click)=getPostUser() class=\"link\">\n      <p class=\"logo-title\">Teach</p>\n      <p class=\"logo-pipeline\">le social network du soutien scolaire</p>\n    </div>\n  </div>\n  <span fxFlex=\"auto\" class=\"link\"></span>\n  <div>\n    <!-- <span *ngIf=\"jwtToken.isLogged === false\" fxLayoutGap=\"15px\">\n      <span routerLink=\"/login\" class=\"link\">Connexion</span>\n      <span routerLink=\"/register\" class=\"link\">Inscription</span>\n    </span> -->\n    <span *ngIf=\"jwtToken.isLogged\" class=\"link\" (click)=logout() fxLayout=\"row\" fxLayoutAlign=\"center center\"\n      fxLayoutGap=\"5px\">\n      <mat-icon class=\"link\" (click)=logout()>power_settings_new</mat-icon>\n      <span>Déconnexion</span>\n    </span>\n  </div>\n</mat-toolbar>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar color=warn>\n  <div class=\"logo-container\" fxLayout=\"row nowrap\">\n    <!-- <div routerLink=\"/accueil/post\" class=\"link\"></div> -->\n    <img src=\"../../../../assets/img/logo.png\" alt=\"logo-teach\" height=\"60px\" fxFlexAlign=\"center\">\n    <div (click)=getPostUser() class=\"link\">\n      <p class=\"logo-title\">Teach</p>\n      <p class=\"logo-pipeline\" fxShow.sm=\"false\">le social network du soutien scolaire</p>\n    </div>\n  </div>\n  <span fxFlex=\"auto\" class=\"link\"></span>\n  <div>\n    <!-- <span *ngIf=\"jwtToken.isLogged === false\" fxLayoutGap=\"15px\">\n      <span routerLink=\"/login\" class=\"link\">Connexion</span>\n      <span routerLink=\"/register\" class=\"link\">Inscription</span>\n    </span> -->\n    <span *ngIf=\"jwtToken.isLogged\" class=\"link\" (click)=logout() fxLayout=\"row\" fxLayoutAlign=\"center center\"\n      fxLayoutGap=\"5px\">\n      <mat-icon class=\"link\" (click)=logout()>power_settings_new</mat-icon>\n      <span fxShow.sm=\"false\">Déconnexion</span>\n    </span>\n  </div>\n</mat-toolbar>\n\n\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar class=\"topbar\" color=accent fxLayout=\"row\" fxLayoutGap=\"15px\" fxLayoutAlign=\"space-between center\">\n  <mat-icon class=\"link burger\" fxLayoutGap=\"5px\" (click)=\"sidenavMenu.toggle()\" aria-hidden=\"false\"\n    aria-label=\"menu icon\">menu</mat-icon>\n  <div class=\"search\">\n    <form [formGroup]=\"searchForm\" fxLayout=\"row\" fxLayoutGap=\"5px\" fxLayoutAlign=\"center center\"novalidate>\n      <mat-icon fxLayoutGap=\"15px\" aria-hidden=\"false\" aria-label=\"search icon\">search</mat-icon>\n      <mat-form-field>\n        <input type=\"text\" matInput formControlName=\"search\" [matAutocomplete]=\"auto\" placeholder=\"recherche profil\"  (keyup.enter)=getPostUser()>\n      </mat-form-field>\n      <mat-autocomplete #auto=\"matAutocomplete\">\n        <mat-option *ngFor=\"let user of filterAllUsers | async;\" [value]=\"user._id\" (click)=getPostUser() (keyup.enter)=getPostUser()>{{user.pseudo}}</mat-option>\n        <!-- <input type=\"hidden\" formControlName=\"_id\" [value]=\"user._id\"/> -->\n\n      </mat-autocomplete>\n\n    </form>\n  </div>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"5px\">\n    <img mat-card-avatar [src]=\"currentUser.avatar\" alt=\"\">\n    <h3 class=\"link\" (click)=getPostCurrentUser()> {{currentUser.pseudo}}</h3>\n  </div>\n</mat-toolbar>\n\n<mat-sidenav-container>\n  <mat-sidenav #sidenavMenu>\n    <mat-nav-list>\n      <a mat-list-item class=\"link\" (click)=\"getCurrentProfileUser()\">Mon profil</a>\n      <a mat-list-item class=\"link\" routerLink=\"/accueil/friends\">Gestion des amis</a>\n\n    </mat-nav-list>\n      <mat-list-item>\n        <h2 mat-list-item>Amis en ligne</h2>\n      </mat-list-item>\n      <div *ngFor=\"let user of usersConnectedArrayWS\" class=\"user-connected\">\n        <mat-list-item *ngIf=\"user !== null && user._id !== currentUser._id\" class=\"link\" (click)=\"openDialog(user)\">{{user.pseudo}}</mat-list-item>\n      </div>\n    <mat-nav-list>\n\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around start\">\n      <div fxFlex=\"25\">\n\n      </div>\n      <div fxFlex=\"45\">\n        <router-outlet></router-outlet>\n      </div>\n      <div fxFlex=\"25\"></div>\n    </div>\n\n    <!-- <div class=\"chat-container\">\n\n      <button class=\"chat-button\" color=accent mat-raised-button mat-accent (click)=\"openChat()\">Chat</button>\n    </div> -->\n  </mat-sidenav-content>\n</mat-sidenav-container>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-toolbar class=\"topbar\" color=accent fxLayout=\"row\" fxLayoutGap=\"15px\" fxLayoutAlign=\"space-between center\">\n  <mat-icon class=\"link burger\" fxLayoutGap=\"5px\" (click)=\"sidenavMenu.toggle()\" aria-hidden=\"false\"\n    aria-label=\"menu icon\">menu</mat-icon>\n  <div class=\"search\">\n    <form [formGroup]=\"searchForm\" fxLayout=\"row\" fxLayoutGap=\"5px\" fxLayoutAlign=\"center center\"novalidate>\n      <mat-icon fxLayoutGap=\"15px\" aria-hidden=\"false\" aria-label=\"search icon\">search</mat-icon>\n      <mat-form-field>\n        <input type=\"text\" matInput formControlName=\"search\" [matAutocomplete]=\"auto\" placeholder=\"recherche profil\"  (keyup.enter)=getPostUser()>\n      </mat-form-field>\n      <mat-autocomplete #auto=\"matAutocomplete\">\n        <mat-option *ngFor=\"let user of filterAllUsers | async;\" [value]=\"user._id\" (click)=getPostUser() (keyup.enter)=getPostUser()>{{user.pseudo}}</mat-option>\n        <!-- <input type=\"hidden\" formControlName=\"_id\" [value]=\"user._id\"/> -->\n      </mat-autocomplete>\n    </form>\n  </div>\n  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"5px\">\n    <img mat-card-avatar [src]=\"currentUser.avatar\" alt=\"\">\n    <h3 class=\"link\" (click)=getPostCurrentUser()> {{currentUser.pseudo}}</h3>\n    <mat-card-subtitle *ngIf=\"currentUser.admin\">Administrateur</mat-card-subtitle>\n  </div>\n</mat-toolbar>\n\n<mat-sidenav-container>\n  <mat-sidenav #sidenavMenu>\n    <mat-nav-list>\n      <a mat-list-item class=\"link\" (click)=\"getCurrentProfileUser()\">Mon profil</a>\n      <a mat-list-item class=\"link\" routerLink=\"/accueil/friends\">Gestion des amis</a>\n\n    </mat-nav-list>\n      <mat-list-item>\n        <h2 mat-list-item>Amis en ligne</h2>\n      </mat-list-item>\n      <div *ngFor=\"let user of friendsConnected\" class=\"user-connected\">\n        <mat-list-item *ngIf=\"user !== null && user!== undefined && user._id !== currentUser._id\" class=\"link\" (click)=\"openDialog(user)\">&nbsp;&nbsp;&nbsp;{{user.pseudo}}</mat-list-item>\n      </div>\n    <mat-nav-list>\n\n    </mat-nav-list>\n  </mat-sidenav>\n  <mat-sidenav-content>\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around start\">\n      <div fxFlex=\"25\">\n\n      </div>\n      <div fxFlex=\"45\">\n        <router-outlet></router-outlet>\n      </div>\n      <div fxFlex=\"25\"></div>\n    </div>\n\n    <!-- <div class=\"chat-container\">\n\n      <button class=\"chat-button\" color=accent mat-raised-button mat-accent (click)=\"openChat()\">Chat</button>\n    </div> -->\n  </mat-sidenav-content>\n</mat-sidenav-container>\n");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>Messagerie privée </h1>\n\n<!-- <button mat-fab (click)=\"onClickUserInfo()\">\n  <mat-icon>person</mat-icon>\n</button> -->\n<div class=\"chat-container\">\n  <mat-card class=\"main-card\">\n    <mat-list class=\"chat-list\">\n      <mat-list-item *ngFor=\"let message of messagesArray\">\n        <!-- <img mat-list-avatar *ngIf=\"message.action === undefined\" [src]=\"message.from.avatar\"> -->\n        <h4 mat-line>\n          <b>{{message.user.pseudo}}</b>\n        </h4>\n        <p mat-line>\n          <span> {{message.message}} </span>\n        </p>\n        <!-- <p mat-line *ngIf=\"message.action === action.JOINED\" class=\"chat-notification\">\n          <span> <b>{{message.from.name}}</b> joined to the conversation. </span>\n        </p> -->\n        <!-- <p mat-line *ngIf=\"message.action === action.RENAME\" class=\"chat-notification\">\n          <span> <b>{{message.content.previousUsername}}</b> is now <b>{{message.content.username}}</b> </span>\n        </p> -->\n      </mat-list-item>\n    </mat-list>\n    <div class=\"chat-footer-container\">\n      <mat-icon>message</mat-icon>\n      <mat-form-field id=\"chat-input\">\n        <input matInput #inputMessage maxlength=\"140\" placeholder=\"Ecrivez votre message...\" [(ngModel)]=\"messageText\"\n          (keyup.enter)=\"sendMessage()\">\n        <mat-hint align=\"end\">{{inputMessage.value.length}}/140</mat-hint>\n      </mat-form-field>\n    </div>\n  </mat-card>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>Messagerie privée </h1>\n\n<!-- <button mat-fab (click)=\"onClickUserInfo()\">\n  <mat-icon>person</mat-icon>\n</button> -->\n<div class=\"chat-container\">\n  <mat-card class=\"main-card\">\n    <mat-list class=\"chat-list\">\n      <mat-list-item *ngFor=\"let message of messagesArray\">\n        <!-- <img mat-list-avatar *ngIf=\"message.action === undefined\" [src]=\"message.from.avatar\"> -->\n        <h4 mat-line>\n          <b>{{message.user.pseudo}}</b>\n        </h4>\n        <p mat-line>\n          <span> {{message.message}} </span>\n        </p>\n        <!-- <p mat-line *ngIf=\"message.action === action.JOINED\" class=\"chat-notification\">\n          <span> <b>{{message.from.name}}</b> joined to the conversation. </span>\n        </p> -->\n        <!-- <p mat-line *ngIf=\"message.action === action.RENAME\" class=\"chat-notification\">\n          <span> <b>{{message.content.previousUsername}}</b> is now <b>{{message.content.username}}</b> </span>\n        </p> -->\n      </mat-list-item>\n    </mat-list>\n    <div class=\"chat-footer-container\">\n      <mat-icon>message</mat-icon>\n      <mat-form-field id=\"chat-input\">\n        <input matInput #inputMessage placeholder=\"Ecrivez votre message...\" [(ngModel)]=\"messageText\"\n          (keyup.enter)=\"sendMessage()\">\n        <!-- <mat-hint align=\"end\">{{inputMessage.value.length}}/140</mat-hint> -->\n      </mat-form-field>\n    </div>\n  </mat-card>\n</div>\n");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"friendsArray !== null\">\n  <h2>Mes amis</h2>\n  <div fxLayout=\"column\">\n    <div class=\"friendsList\">\n      <mat-card *ngFor=\"let friend of friendsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"friend.avatar\" alt=\"\">\n          <mat-card-title>{{friend.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <button mat-raised-button color=\"accent\">Bloquer</button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"requestsArray !== undefined\">\n  <h2>Invitations envoyées</h2>\n  <div fxLayout=\"column\">\n    <div class=\"requestsList\">\n      <mat-card *ngFor=\"let request of requestsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"request.avatar\" alt=\"\">\n          <mat-card-title>{{request.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"primary\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button> -->\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"invitationsArray !== undefined\">\n  <h2>Invitations reçues</h2>\n  <div fxLayout=\"column\">\n    <div class=\"invitationsList\">\n      <mat-card *ngFor=\"let invitation of invitationsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"invitation.avatar\" alt=\"\">\n          <mat-card-title>{{invitation.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <button mat-raised-button color=\"primary\" (click)=\"acceptInvitation(invitation._id, currentUser._id)\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"friendsArray !== null\">\n  <h2>Mes amis</h2>\n  <div fxLayout=\"column\">\n    <div class=\"friendsList\">\n      <mat-card *ngFor=\"let friend of friendsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"friend.avatar\" alt=\"\">\n          <mat-card-title>{{friend.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">Bloquer</button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"requestsArray !== undefined\">\n  <h2>Invitations envoyées</h2>\n  <div fxLayout=\"column\">\n    <div class=\"requestsList\">\n      <mat-card *ngFor=\"let request of requestsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"request.avatar\" alt=\"\">\n          <mat-card-title>{{request.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"primary\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button> -->\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"invitationsArray !== undefined\">\n  <h2>Invitations reçues</h2>\n  <div fxLayout=\"column\">\n    <div class=\"invitationsList\">\n      <mat-card *ngFor=\"let invitation of invitationsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"invitation.avatar\" alt=\"\">\n          <mat-card-title>{{invitation.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <button mat-raised-button color=\"primary\" (click)=\"acceptInvitation(invitation._id, currentUser._id)\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n");
 
 /***/ }),
 
@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content >\n      <mat-card-header>\n        <mat-icon aria-hidden=\"false\" aria-label=\"Example home icon\">edit</mat-icon>\n        <mat-card-title>Créer une publication</mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header>\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n      <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content >\n      <mat-card-header>\n\n        <mat-card-title><mat-icon aria-hidden=\"false\">edit</mat-icon>&nbsp;Créer une publication</mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header fxLayoutAlign=\"space-between start\">\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>\n      <div class=\"cancel\">\n        <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\" (click)=\"deletePost(displayedUser._id, post._id)\">cancel</mat-icon>\n      </div>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title color=\"primary\" class=\"link\">\n              Commentaires\n            </mat-panel-title>\n          </mat-expansion-panel-header>\n          <form [formGroup]=\"commentForm\" (ngSubmit)=\"createComment(post)\" novalidate>\n            <mat-form-field class=\"comment-input\">\n              <input matInput formControlName=\"message\" placeholder=\"Saisissez votre commentaire\" >\n            </mat-form-field>\n            <button mat-raised-button color=\"primary\">Publier</button>\n          </form>\n          <mat-card class=\"comment-card\" *ngFor=\"let comment of post.commentsArray \">\n            <mat-card-header fxLayoutAlign=\"space-between start\">\n              <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n              <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{comment.pseudo}}</mat-card-title>\n              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}</mat-card-subtitle>\n              <div class=\"cancel\">\n                <!-- <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\">cancel</mat-icon> -->\n              </div>\n            </mat-card-header>\n            <mat-card-content>\n                <p>{{comment.comment}}</p>\n              </mat-card-content>\n\n\n          </mat-card>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <!-- <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions> -->\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
 
 /***/ }),
 
@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n\n\n  <div class=\"edit-form-container\" fxLayout=\"center center\">\n    <mat-card>\n        <h1>Modifier mon profil</h1>\n        <mat-card-content>\n          <form [formGroup]=\"editProfileForm\" fxLayout=\"column\" (ngSubmit)='submit()' novalidate>\n            <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"name\" matInput type=\"text\" placeholder=\"Nom\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('name').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"firstname\" matInput type=\"text\" placeholder=\"Prénom\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('firstname').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"pseudo\"matInput type=\"text\" placeholder=\"Pseudo\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('pseudo').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n\n                <mat-form-field>\n                  <input formControlName=\"email\" matInput type=\"text\" placeholder=\"Email\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('email').hasError('required') && isSubmitted\">Veuillez entrer votre email</p>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('email').hasError('email')\">Veuillez entrer un email sous format mail.</p>\n              </div>\n\n\n            <!-- <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"password\" matInput type=\"password\" placeholder=\"Mot de passe\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('password').invalid && isSubmitted\">Champ requis (minimum 8 caractères)</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"confirmPassword\" matInput type=\"password\" placeholder=\"Confirmer mot de passe\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('confirmPassword').hasError('isNoMatch') && isSubmitted\">le mot de passe ne correspond pas</p>\n              </div>\n            </div> -->\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"birth\" matInput [matDatepicker]=\"picker\" placeholder=\"Date de naissance\">\n                  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                  <mat-datepicker #picker></mat-datepicker>\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('birth').invalid && isSubmitted\">Champ requis</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-radio-group formControlName=\"sexe\" aria-label=\"Sexe\" fxLayoutGap=\"15px\" fxLayoutAlign=\"center center\">\n                  <mat-radio-button value=\"femme \">Femme</mat-radio-button>\n                  <mat-radio-button value=\"homme \">Homme</mat-radio-button>\n                </mat-radio-group>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('sexe').invalid && isSubmitted\">Champ requis</p>\n              </div>\n\n              <div fxLayout=\"column\">\n              <mat-form-field>\n                <mat-label>Niveau scolaire</mat-label>\n                <mat-select formControlName=\"grade\">\n                    <mat-option >6eme</mat-option>\n                    <mat-option value=\"5eme\">5eme</mat-option>\n                    <mat-option value=\"4eme\">4eme</mat-option>\n                    <mat-option value=\"3eme\">3eme</mat-option>\n                    <mat-option value=\"seconde\">seconde</mat-option>\n                    <mat-option value=\"premiere\">première</mat-option>\n                    <mat-option value=\"terminal\">terminal</mat-option>\n                    <mat-option value=\"professeur\">professeur</mat-option>\n                </mat-select>\n              </mat-form-field>\n              <p class=\"error\" *ngIf=\"editProfileForm.get('grade').invalid && isSubmitted\">Champ requis</p>\n            </div>\n            <p class=\"error\" *ngIf=\"errorMessage\">{{ errorMessage }}</p>\n            <button mat-raised-button color=\"primary\">Mettre à jour mon profil</button>\n          </form>\n        </mat-card-content>\n      </mat-card>\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n\n\n  <div class=\"edit-form-container\" fxLayout=\"center center\">\n    <mat-card>\n        <h1>Modifier mon profil</h1>\n        <mat-card-content>\n          <form [formGroup]=\"editProfileForm\" fxLayout=\"column\" (ngSubmit)='submit()' novalidate>\n            <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"name\" matInput type=\"text\" placeholder=\"Nom\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('name').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"firstname\" matInput type=\"text\" placeholder=\"Prénom\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('firstname').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"pseudo\"matInput type=\"text\" placeholder=\"Pseudo\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('pseudo').invalid && isSubmitted\">Champ requis (minimum 3 caractères)</p>\n              </div>\n\n                <mat-form-field>\n                  <input formControlName=\"email\" matInput type=\"text\" placeholder=\"Email\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('email').hasError('required') && isSubmitted\">Veuillez entrer votre email</p>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('email').hasError('email')\">Veuillez entrer un email sous format mail.</p>\n              </div>\n\n\n            <!-- <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"password\" matInput type=\"password\" placeholder=\"Mot de passe\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('password').invalid && isSubmitted\">Champ requis (minimum 8 caractères)</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"confirmPassword\" matInput type=\"password\" placeholder=\"Confirmer mot de passe\">\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('confirmPassword').hasError('isNoMatch') && isSubmitted\">le mot de passe ne correspond pas</p>\n              </div>\n            </div> -->\n\n              <div fxLayout=\"column\">\n                <mat-form-field>\n                  <input formControlName=\"birth\" matInput [matDatepicker]=\"picker\" placeholder=\"Date de naissance\">\n                  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                  <mat-datepicker #picker></mat-datepicker>\n                </mat-form-field>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('birth').invalid && isSubmitted\">Champ requis</p>\n              </div>\n              <div fxLayout=\"column\">\n                <mat-radio-group formControlName=\"sexe\" aria-label=\"Sexe\" fxLayoutGap=\"15px\" fxLayoutAlign=\"center center\">\n                  <mat-radio-button value=\"femme \">Femme</mat-radio-button>\n                  <mat-radio-button value=\"homme \">Homme</mat-radio-button>\n                </mat-radio-group>\n                <p class=\"error\" *ngIf=\"editProfileForm.get('sexe').invalid && isSubmitted\">Champ requis</p>\n              </div>\n\n              <div fxLayout=\"column\">\n              <mat-form-field>\n                <mat-label>Niveau scolaire</mat-label>\n                <mat-select formControlName=\"grade\">\n                    <mat-option value=\"6eme\">6eme</mat-option>\n                    <mat-option value=\"5eme\">5eme</mat-option>\n                    <mat-option value=\"4eme\">4eme</mat-option>\n                    <mat-option value=\"3eme\">3eme</mat-option>\n                    <mat-option value=\"seconde\">seconde</mat-option>\n                    <mat-option value=\"premiere\">première</mat-option>\n                    <mat-option value=\"terminal\">terminal</mat-option>\n                    <mat-option value=\"professeur\">professeur</mat-option>\n                </mat-select>\n              </mat-form-field>\n              <p class=\"error\" *ngIf=\"editProfileForm.get('grade').invalid && isSubmitted\">Champ requis</p>\n            </div>\n            <p class=\"error\" *ngIf=\"errorMessage\">{{ errorMessage }}</p>\n            <button mat-raised-button color=\"primary\">Mettre à jour mon profil</button>\n          </form>\n        </mat-card-content>\n      </mat-card>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <h1>Modifier mon profil</h1> -->\n\n<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-content>\n      <mat-card fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"10px\">\n        <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n        <mat-card-title>{{displayedUser.pseudo}}</mat-card-title>\n      </mat-card>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Informations personnelles</mat-panel-title>\n          </mat-expansion-panel-header>\n          <mat-nav-list>\n            <h3 mat-subheader>Nom</h3>\n            <mat-list-item> {{displayedUser.name}} </mat-list-item>\n            <h3 mat-subheader>Prénom</h3>\n            <mat-list-item> {{displayedUser.firstname}} </mat-list-item>\n            <h3 mat-subheader>Pseudo</h3>\n            <mat-list-item> {{displayedUser.pseudo}} </mat-list-item>\n            <h3 mat-subheader>Email</h3>\n            <mat-list-item> {{displayedUser.email}} </mat-list-item>\n            <h3 mat-subheader>Date de naissance</h3>\n            <mat-list-item> {{displayedUser.birth}} </mat-list-item>\n            <h3 mat-subheader>Sexe</h3>\n            <mat-list-item> {{displayedUser.sexe}} </mat-list-item>\n            <h3 mat-subheader>Niveau scolaire</h3>\n            <mat-list-item> {{displayedUser.grade}} </mat-list-item>\n          </mat-nav-list>\n        </mat-expansion-panel>\n      </mat-accordion>\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Amis</mat-panel-title>\n          </mat-expansion-panel-header>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <button *ngIf=\"isCurrentUser\" mat-raised-button color=\"primary\" routerLink=\"/accueil/edit-profile\">Editer mon profil</button>\n      <button *ngIf=\"!isCurrentUser\" mat-raised-button color=\"primary\" (click)=sendInvitation()>Envoyer une invitation</button>\n      <p *ngIf=\"message\">{{ message }}</p>\n      <!-- <p *ngIf=\"errorMessage\">{{ errorMessage }}</p> -->\n    </mat-card-content>\n\n  </mat-card>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <h1>Modifier mon profil</h1> -->\n\n<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-content>\n      <mat-card fxLayout=\"row\" fxLayoutAlign=\"center center\" fxLayoutGap=\"10px\">\n        <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n        <mat-card-title>{{displayedUser.pseudo}}</mat-card-title>\n      </mat-card>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Informations personnelles</mat-panel-title>\n          </mat-expansion-panel-header>\n          <mat-nav-list>\n            <h3 mat-subheader>Nom</h3>\n            <mat-list-item> {{displayedUser.name}} </mat-list-item>\n            <h3 mat-subheader>Prénom</h3>\n            <mat-list-item> {{displayedUser.firstname}} </mat-list-item>\n            <h3 mat-subheader>Pseudo</h3>\n            <mat-list-item> {{displayedUser.pseudo}} </mat-list-item>\n            <h3 mat-subheader>Email</h3>\n            <mat-list-item> {{displayedUser.email}} </mat-list-item>\n            <h3 mat-subheader>Date de naissance</h3>\n            <mat-list-item> le {{displayedUser.birth | date:'fullDate'}} </mat-list-item>\n            <h3 mat-subheader>Sexe</h3>\n            <mat-list-item> {{displayedUser.sexe}} </mat-list-item>\n            <h3 mat-subheader>Niveau scolaire</h3>\n            <mat-list-item> {{displayedUser.grade}} </mat-list-item>\n          </mat-nav-list>\n        </mat-expansion-panel>\n      </mat-accordion>\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title>Amis</mat-panel-title>\n          </mat-expansion-panel-header>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <div fxLayoutAlign=\"space-between center\">\n        <button *ngIf=\"isCurrentUser && !currentUser.admin\" mat-raised-button color=\"primary\" (click)=\"editProfil(displayedUser)\">Editer mon profil</button>\n        <!-- <button *ngIf=\"isCurrentUser\" mat-raised-button color=\"primary\" routerLink=\"/accueil/edit-profile/:\">Editer mon profil</button> -->\n        <button *ngIf=\"currentUser.admin\" mat-raised-button color=\"primary\" (click)=\"editProfil(displayedUser)\">Editer le profil</button>\n        <!-- <button *ngIf=\"currentUser.admin\" mat-raised-button color=\"primary\" routerLink=\"/accueil/edit-profile\">Editer le profil</button> -->\n        <button *ngIf=\"!isCurrentUser\" mat-raised-button color=\"primary\" (click)=sendInvitation()>Envoyer une invitation</button>\n      </div>\n      <p *ngIf=\"message\">{{ message }}</p>\n      <!-- <p *ngIf=\"errorMessage\">{{ errorMessage }}</p> -->\n    </mat-card-content>\n\n  </mat-card>\n</div>\n");
 
 /***/ }),
 
@@ -630,8 +630,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 const ROUTING = [ //on utilise l'interface Route native d'Angular (https://angular.io/api/router/Route#description). Route[] veux dire un tableau de d'objet respectant l'interface Route
   { path : '', component: _authentification_homepage_homepage_component__WEBPACK_IMPORTED_MODULE_1__["HomepageComponent"] },
   { path: 'login', component: _authentification_login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"]},
@@ -639,7 +637,7 @@ const ROUTING = [ //on utilise l'interface Route native d'Angular (https://angul
   { path: 'accueil', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]], component: _user_interface_user_interface_component__WEBPACK_IMPORTED_MODULE_4__["UserInterfaceComponent"], children: [
     { path: 'post/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]], component: _user_interface_post_post_component__WEBPACK_IMPORTED_MODULE_5__["PostComponent"]},
     { path: 'profile/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]], component: _user_interface_profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"]},
-    { path: 'edit-profile', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]], component: _user_interface_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__["EditProfileComponent"]},
+    { path: 'edit-profile/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]], component: _user_interface_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__["EditProfileComponent"]},
     { path: 'friends', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]], component: _user_interface_friend_friend_component__WEBPACK_IMPORTED_MODULE_8__["FriendComponent"]},
     { path: 'chat/:id', canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]], component: _user_interface_chat_chat_component__WEBPACK_IMPORTED_MODULE_9__["ChatComponent"]}
   ]}
@@ -808,12 +806,12 @@ let LoginComponent = class LoginComponent {
             this.userService.getCurrentUser().subscribe(currentUser => {
                 // Récupération current user
                 this.currentUser = currentUser;
-                // Ouverture Websocket
-                this.websocketService.startWS();
-                // Enregistrement du user connecté (WS)
-                this.websocketService.emitNewUserWS(this.currentUser);
-                // Redirection page d'accueil
-                this.router.navigate(['accueil', 'post', this.currentUser._id]);
+                // // Ouverture Websocket
+                // this.websocketService.startWS();
+                // // Enregistrement du user connecté (WS)
+                // this.websocketService.emitNewUserWS(this.currentUser);
+                // // Redirection page d'accueil
+                // this.router.navigate(['accueil', 'post', this.currentUser._id ]);
             });
         }, err => {
             console.log(err);
@@ -823,6 +821,17 @@ let LoginComponent = class LoginComponent {
             else {
                 this.errorMessage = 'Une erreur c\'est produite. impossible d\'accéder à votre compte';
             }
+        });
+        this.userService.login(this.loginForm.value).toPromise().then(() => {
+            this.userService.login(this.loginForm.value).toPromise().then(() => {
+                // Ouverture Websocket
+                this.websocketService.startWS();
+                // Enregistrement du user connecté (WS)
+                this.websocketService.emitNewUserWS(this.currentUser);
+                console.log('TCL: LoginComponent -> this.currentUser', this.currentUser);
+                // Redirection page d'accueil
+                this.router.navigate(['accueil', 'post', this.currentUser._id]);
+            });
         });
     }
 };
@@ -1050,7 +1059,7 @@ HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("mat-sidenav-container {\r\n  background: transparent;\r\n  height: 100vh;\r\n}\r\n\r\nmat-sidenav-content {\r\n  margin-top: 5%;\r\n}\r\n\r\n/* mat-sidenav {\r\n  padding : 0 16px !important;\r\n} */\r\n\r\n/* input::placeholder {\r\n  font-size: 15px !important;\r\n} */\r\n\r\n.topbar {\r\n  height: 50px !important;\r\n}\r\n\r\n.burger:hover,\r\nh3:hover {\r\n  color: #fff;\r\n}\r\n\r\ndiv.chat-container {\r\n  position: relative;\r\n  /* z-index: 100, */\r\n}\r\n\r\nbutton.chat-button {\r\n  bottom: 0;\r\n  position: fixed;\r\n  right:0 ;\r\n}\r\n\r\nh2 {\r\n  padding: 0 16px !important;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdG9wYmFyL3RvcGJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQXVCO0VBQ3ZCLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7O0dBRUc7O0FBQ0g7O0dBRUc7O0FBRUg7RUFDRSx1QkFBdUI7QUFDekI7O0FBRUE7O0VBRUUsV0FBVztBQUNiOztBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLFNBQVM7RUFDVCxlQUFlO0VBQ2YsUUFBUTtBQUNWOztBQUVBO0VBQ0UsMEJBQTBCO0FBQzVCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdG9wYmFyL3RvcGJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibWF0LXNpZGVuYXYtY29udGFpbmVyIHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG59XHJcblxyXG5tYXQtc2lkZW5hdi1jb250ZW50IHtcclxuICBtYXJnaW4tdG9wOiA1JTtcclxufVxyXG5cclxuLyogbWF0LXNpZGVuYXYge1xyXG4gIHBhZGRpbmcgOiAwIDE2cHggIWltcG9ydGFudDtcclxufSAqL1xyXG4vKiBpbnB1dDo6cGxhY2Vob2xkZXIge1xyXG4gIGZvbnQtc2l6ZTogMTVweCAhaW1wb3J0YW50O1xyXG59ICovXHJcblxyXG4udG9wYmFyIHtcclxuICBoZWlnaHQ6IDUwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLmJ1cmdlcjpob3ZlcixcclxuaDM6aG92ZXIge1xyXG4gIGNvbG9yOiAjZmZmO1xyXG59XHJcblxyXG5kaXYuY2hhdC1jb250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAvKiB6LWluZGV4OiAxMDAsICovXHJcbn1cclxuXHJcbmJ1dHRvbi5jaGF0LWJ1dHRvbiB7XHJcbiAgYm90dG9tOiAwO1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICByaWdodDowIDtcclxufVxyXG5cclxuaDIge1xyXG4gIHBhZGRpbmc6IDAgMTZweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("mat-sidenav-container {\r\n  background: transparent;\r\n  height: 100vh;\r\n}\r\n\r\nmat-sidenav-content {\r\n  /* margin-top: 5%; */\r\n}\r\n\r\n/* mat-sidenav {\r\n  padding : 0 16px !important;\r\n} */\r\n\r\n/* input::placeholder {\r\n  font-size: 15px !important;\r\n} */\r\n\r\n.topbar {\r\n  height: 50px !important;\r\n}\r\n\r\n.burger:hover,\r\nh3:hover {\r\n  color: #fff;\r\n}\r\n\r\ndiv.chat-container {\r\n  position: relative;\r\n  /* z-index: 100, */\r\n}\r\n\r\nbutton.chat-button {\r\n  bottom: 0;\r\n  position: fixed;\r\n  right:0 ;\r\n}\r\n\r\nh2 {\r\n  padding: 0 16px !important;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdG9wYmFyL3RvcGJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQXVCO0VBQ3ZCLGFBQWE7QUFDZjs7QUFFQTtFQUNFLG9CQUFvQjtBQUN0Qjs7QUFFQTs7R0FFRzs7QUFDSDs7R0FFRzs7QUFFSDtFQUNFLHVCQUF1QjtBQUN6Qjs7QUFFQTs7RUFFRSxXQUFXO0FBQ2I7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsU0FBUztFQUNULGVBQWU7RUFDZixRQUFRO0FBQ1Y7O0FBRUE7RUFDRSwwQkFBMEI7QUFDNUIiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy90b3BiYXIvdG9wYmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJtYXQtc2lkZW5hdi1jb250YWluZXIge1xyXG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbn1cclxuXHJcbm1hdC1zaWRlbmF2LWNvbnRlbnQge1xyXG4gIC8qIG1hcmdpbi10b3A6IDUlOyAqL1xyXG59XHJcblxyXG4vKiBtYXQtc2lkZW5hdiB7XHJcbiAgcGFkZGluZyA6IDAgMTZweCAhaW1wb3J0YW50O1xyXG59ICovXHJcbi8qIGlucHV0OjpwbGFjZWhvbGRlciB7XHJcbiAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XHJcbn0gKi9cclxuXHJcbi50b3BiYXIge1xyXG4gIGhlaWdodDogNTBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uYnVyZ2VyOmhvdmVyLFxyXG5oMzpob3ZlciB7XHJcbiAgY29sb3I6ICNmZmY7XHJcbn1cclxuXHJcbmRpdi5jaGF0LWNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIC8qIHotaW5kZXg6IDEwMCwgKi9cclxufVxyXG5cclxuYnV0dG9uLmNoYXQtYnV0dG9uIHtcclxuICBib3R0b206IDA7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHJpZ2h0OjAgO1xyXG59XHJcblxyXG5oMiB7XHJcbiAgcGFkZGluZzogMCAxNnB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -1101,24 +1110,37 @@ let TopbarComponent = class TopbarComponent {
         this.websocketService = websocketService;
         this.dialog = dialog;
         this.allUsersArrayNames = [];
+        this.friendsConnected = [];
         // });
-        this.websocketService.onUsersConnectedArray().subscribe(data => {
-            this.usersConnectedArrayWS = data;
-        });
-        console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
     }
     ngOnInit() {
         this.userService.getCurrentUser().subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
+            this.websocketService.onUsersConnectedArray().subscribe(data => {
+                this.usersConnectedArrayWS = data;
+                console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
+                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
+                console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
+                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected avant', this.friendsConnected);
+                this.friendsConnected = [];
+                this.usersConnectedArrayWS.forEach(user => {
+                    if (user && user.friends.includes(this.currentUser._id)) {
+                        this.friendsConnected.push(user);
+                    }
+                    console.log('TCL: TopbarComponent -> ngOnInit -> currentUser.admin', currentUser.admin);
+                    // if (currentUser.admin) {
+                    //   this.friendsConnected = this.usersConnectedArrayWS;
+                    //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
+                    // }
+                });
+                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', this.friendsConnected);
+            });
         });
+        console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
         this.userService.getAllUsers().subscribe(allUsersArray => {
-            console.log('TCL: TopbarComponent -> ngOnInit -> allUsersArray', allUsersArray);
-            console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArray avant', this.allUsersArray);
             this.allUsersArray = allUsersArray;
-            console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArray apres', this.allUsersArray);
             console.log('TCL: TopbarComponent -> ngOnInit -> allUsersArray', allUsersArray);
-            console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames avant', this.allUsersArrayNames);
             this.allUsersArray.forEach(elmt => {
                 if (this.allUsersArrayNames.indexOf(elmt) === -1) {
                     this.allUsersArrayNames.push({
@@ -1393,7 +1415,7 @@ let FriendService = class FriendService {
             if (data !== 1 && data !== 2) {
                 // this.userService.updateCurrentUser(data.currentUser);
                 this.userService.currentUser.next(data.currentUserUpdated);
-                console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
+                // console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
                 console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
                 return data.currentUserUpdated;
             }
@@ -1404,8 +1426,16 @@ let FriendService = class FriendService {
             ['friendUserId']: friendUserId,
             ['currentUserId']: currentUserId
         }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
-            this.userService.currentUser.next(data.currentUser);
+            // this.userService.currentUser.next(data.currentUser);
+            this.userService.currentUser.next(data.currentUserUpdated);
             console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
+            console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
+            return data.currentUserUpdated;
+        }));
+    }
+    deleteFriend(friendId, currentUserId) {
+        return this.http.put('request/friend/delete', { friendId, currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
+            this.userService.currentUser.next(data.currentUserUpdated);
             console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
             return data.currentUserUpdated;
         }));
@@ -1440,6 +1470,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
 
 
 
@@ -1448,9 +1482,21 @@ let PostService = class PostService {
     constructor(http, router) {
         this.http = http;
         this.router = router;
+        // CREATION BEHAVIOUR SUBJECT pour la liste de article
+        this.postList = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"](null);
     }
-    createPost(sendDatas) {
-        return this.http.post('/request/post/create', sendDatas);
+    createPost(newPost) {
+        return this.http.post('/request/post/create', newPost).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((postListUpdated) => {
+            this.postList.next(postListUpdated);
+        }));
+    }
+    createComment(newComment) {
+        return this.http.post('/request/post/comment/create', newComment).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((postListUpdated) => {
+            console.log('TCL: PostService -> postListUpdated titi', postListUpdated);
+            this.postList.next(postListUpdated);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
+            return this.postList;
+        }));
     }
     postRoute(userId) {
         this.router.navigate(['accueil', 'post', userId]);
@@ -1458,7 +1504,19 @@ let PostService = class PostService {
     getPost(userId) {
         const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
             .set('userId', userId);
-        return this.http.get('/request/post/get', { params });
+        return this.http.get('/request/post/get', { params }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((postListUpdated) => {
+            this.postList.next(postListUpdated);
+        }, Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
+            return this.postList;
+        })));
+    }
+    deletePost(userId, postId) {
+        const params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]()
+            .set('userId', userId)
+            .set('postId', postId);
+        return this.http.delete('/request/post/delete', { params }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((postListUpdated) => {
+            this.postList.next(postListUpdated);
+        }));
     }
 };
 PostService.ctorParameters = () => [
@@ -1578,8 +1636,8 @@ let UserService = class UserService {
         }
         else {
             return this.http.get('/request/user/all').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((allUsersArray) => {
-                console.log('TCL: allUsersArray', allUsersArray);
                 this.allUsersArray.next(allUsersArray);
+                console.log('TCL: allUsersArray', allUsersArray);
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
                 console.log('TCL: this.allUsersArray', this.allUsersArray);
                 return this.allUsersArray;
@@ -1604,10 +1662,33 @@ let UserService = class UserService {
     // }
     // EDITION Profil
     editProfile(user) {
-        return this.http.post('/request/editprofile', user).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((updatedUser) => {
-            this.currentUser.next(updatedUser);
+        return this.http.post('/request/editprofile', user).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((response) => {
+            console.log('TCL: response titi', response);
+            console.log('TCL: response.updatedUser.value._id === this.currentUser.value._id', response.updatedUser.value._id === this.currentUser.value._id);
+            console.log('TCL: response.updatedUser._id', response.updatedUser.value._id);
+            console.log('TCL: response.updatedUser', response.updatedUser);
+            console.log('TCL: this.currentUser.value._id', this.currentUser.value._id);
+            if (response.updatedUser.value._id === this.currentUser.value._id) {
+                this.currentUser.next(response.updatedUser.value);
+                this.allUsersArray.next(response.updatedAllUserArray);
+                console.log('TCL: this.currentUser titi', this.currentUser);
+                // return this.currentUser;
+            }
+            else {
+                this.allUsersArray.next(response.updatedAllUserArray);
+            }
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
+            return this.currentUser;
         }));
     }
+    // // EDITION Profil Current User
+    // public editProfile(user: User): Observable<User> {
+    //   return this.http.post<User>('/request/editprofile', user).pipe(
+    //     tap( (updatedUser: User) => {
+    //       this.currentUser.next(updatedUser);
+    //     })
+    //   );
+    // }
     // DECONNEXION (suppression du token)
     resetToken() {
         // reset du behaviour subject JwtToken dans userService avec next()
@@ -1666,8 +1747,8 @@ __webpack_require__.r(__webpack_exports__);
 let WebsocketService = class WebsocketService {
     constructor() { }
     startWS() {
-        this.socketClient = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
-        // this.socketClient = io('http://localhost:3000');
+        // this.socketClient = io();
+        this.socketClient = socket_io_client__WEBPACK_IMPORTED_MODULE_2__('http://localhost:3000');
         console.log('TCL: WebsocketService -> startWS -> ouverture websocket');
     }
     // Connection du current user
@@ -1676,6 +1757,7 @@ let WebsocketService = class WebsocketService {
     }
     // Deconnection du current user
     emitUserDeconnection(user) {
+        console.log('TCL: WebsocketService -> emitUserDeconnection -> user', user);
         this.socketClient.emit('user deconnection', user);
     }
     // Mise à jour du tableau des users connectes
@@ -1794,7 +1876,7 @@ let ChatComponent = class ChatComponent {
             this.friendUserId = paramMap.get('id');
             console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.friendUserId);
         });
-        //Rejoindre la room des la ngOnInit
+        // Rejoindre la room des la ngOnInit
         this.joinRoom();
     }
     joinRoom() {
@@ -1889,7 +1971,7 @@ let FriendComponent = class FriendComponent {
     ngOnInit() {
         this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: FriendComponent -> ngOnInit -> this.currentUser', this.currentUser);
+            console.log('TCL: FriendComponent -> ngOnInit -> this.currentUser hello', this.currentUser);
             this.userService.getAllUsers().subscribe(allUsersArray => {
                 this.allUsersArray = allUsersArray;
                 console.log('TCL: FriendComponent -> ngOnInit -> this.allUsersArray', this.allUsersArray);
@@ -1954,6 +2036,16 @@ let FriendComponent = class FriendComponent {
             });
             console.log('invitation acceptée');
             console.log('TCL: FriendComponent -> acceptInvitation ->  this.currentUser', this.currentUser);
+        });
+    }
+    deleteFriend(friendId, currentUserId) {
+        this.friendService.deleteFriend(friendId, currentUserId).subscribe(() => {
+            this.friendsArray.forEach(elmt => {
+                if (elmt._id === friendId) {
+                    const index = this.friendsArray.indexOf(elmt);
+                    this.friendsArray.splice(index, 1);
+                }
+            });
         });
     }
     ngOnDestroy() {
@@ -2098,7 +2190,7 @@ ModalModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".card-login {\r\n  margin-top: 5%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1pbnRlcmZhY2UvcG9zdC9wb3N0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFjO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvdXNlci1pbnRlcmZhY2UvcG9zdC9wb3N0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FyZC1sb2dpbiB7XHJcbiAgbWFyZ2luLXRvcDogNSU7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".card-login {\r\n  margin-top: 5%;\r\n  margin-bottom: 5%;\r\n}\r\n\r\ndiv.cancel {\r\n  /* width: 100%; */\r\n  text-align: right !important;\r\n}\r\n\r\n.comment-card .mat-card-title {\r\n  font-size: 16px !important;\r\n}\r\n\r\n.comment-input {\r\n  width: 100%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1pbnRlcmZhY2UvcG9zdC9wb3N0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFjO0VBQ2QsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLDBCQUEwQjtBQUM1Qjs7QUFFQTtFQUNFLFdBQVc7QUFDYiIsImZpbGUiOiJzcmMvYXBwL3VzZXItaW50ZXJmYWNlL3Bvc3QvcG9zdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNhcmQtbG9naW4ge1xyXG4gIG1hcmdpbi10b3A6IDUlO1xyXG4gIG1hcmdpbi1ib3R0b206IDUlO1xyXG59XHJcblxyXG5kaXYuY2FuY2VsIHtcclxuICAvKiB3aWR0aDogMTAwJTsgKi9cclxuICB0ZXh0LWFsaWduOiByaWdodCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uY29tbWVudC1jYXJkIC5tYXQtY2FyZC10aXRsZSB7XHJcbiAgZm9udC1zaXplOiAxNnB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5jb21tZW50LWlucHV0IHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -2138,26 +2230,22 @@ let PostComponent = class PostComponent {
         this.postForm = this.fb.group({
             message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
         });
+        this.commentForm = this.fb.group({
+            message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
+        });
         // RECUPERATION ID
         this.sub = this.userService.currentUser.subscribe(currentUser => {
             console.log(currentUser);
-            // tslint:disable-next-line: no-string-literal
             this.currentUser = currentUser;
-            // PUIS RECUPERATION MESSAGES
-            // tslint:disable-next-line: no-string-literal
-            // this.postService.getPost(this.currentUser['_id']).subscribe(
-            //   (postArray) => {
-            //     this.postArray = postArray;
-            //     console.log('postArray ', postArray);
-            //   }
-            // );
         });
         this.activatedRoute.paramMap.subscribe((paramMap) => {
             this.userId = paramMap.get('id');
+            // Récupération des posts en bdd
             this.postService.getPost(this.userId).subscribe((postArray) => {
                 this.postArray = postArray;
                 console.log('postArray ', postArray);
             });
+            // Le current User est-il le rédacteur des posts?
             this.userService.getAllUsers().subscribe(allUsersArray => {
                 this.allUsersArray = allUsersArray;
                 this.allUsersArray.forEach(elmt => {
@@ -2175,26 +2263,64 @@ let PostComponent = class PostComponent {
                 });
             });
         });
+        // Mise a jour du behaviour subject postList
+        this.postService.postList.subscribe(postListUpdated => {
+            this.postArray = postListUpdated;
+        });
     }
     createPost() {
         this.date = new Date();
-        this.sendDatas = {
+        this.newPost = {
             // tslint:disable-next-line: no-string-literal
             user_id: this.currentUser['_id'],
             message: this.postForm.value.message,
             date: this.date
             // date: formatDate(this.date, 'dd/MM/yyyy', 'fr-FR')
         };
-        this.postService.createPost(this.sendDatas).subscribe(() => {
+        this.postService.createPost(this.newPost).subscribe((postListUpdated) => {
             this.postForm.reset();
-            this.postArray.push(this.sendDatas);
+            // this.postService.postList.next(postListUpdated);
         }, err => {
-            console.log('ohh noooo');
+            console.log('impossible de crée un post', err);
+        });
+    }
+    createComment(post) {
+        this.date = new Date();
+        this.newComment = {
+            postId: post._id,
+            userId: this.currentUser._id,
+            pseudo: this.currentUser.pseudo,
+            date: this.date,
+            comment: this.commentForm.value.message
+        };
+        this.postService.createComment(this.newComment).subscribe((postListUpdated) => {
+            console.log('aloha');
+            this.postArray = postListUpdated;
+            this.commentForm.reset();
+        }, err => {
+            console.log('impossible de crée un commentaire', err);
         });
     }
     getProfileUser() {
         this.userService.getProfile(this.displayedUser._id);
     }
+    deletePost(userId, postId) {
+        this.postService.deletePost(userId, postId).subscribe((postListUpdated) => {
+            this.postArray = postListUpdated;
+        });
+    }
+    // public deletePost(userId: string, postId: string) {
+    //   this.postService.deletePost(userId, postId).pipe(
+    //     tap(() =>
+    //       this.postArray.forEach(elmt => {
+    //         if ( elmt._id === postId ) {
+    //           let index = this.postArray.indexOf(elmt);
+    //           this.postArray.splice(index, 1);
+    //         }
+    //       })
+    //     )
+    //   )
+    // }
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
@@ -2249,51 +2375,53 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // SERVICE
 
 let EditProfileComponent = class EditProfileComponent {
-    constructor(userService, fb, router) {
+    constructor(userService, fb, router, activatedRoute) {
         this.userService = userService;
         this.fb = fb;
         this.router = router;
+        this.activatedRoute = activatedRoute;
         this.isSubmitted = false;
     }
     ngOnInit() {
         this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            this.editProfileForm = this.fb.group({
-                name: [this.currentUser.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                firstname: [this.currentUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                pseudo: [this.currentUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                email: [this.currentUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
-                // password: [this.currentUser.password, [Validators.required, Validators.minLength(8)]],
-                // confirmPassword: [this.currentUser.confirmPassword, [Validators.minLength(8)]],
-                birth: [this.currentUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
-                sexe: [this.currentUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
-                grade: [this.currentUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
+        });
+        this.activatedRoute.paramMap.subscribe((paramMap) => {
+            this.displayedUserId = paramMap.get('id');
+            this.userService.getAllUsers().subscribe((allUsersArray) => {
+                this.allUsersArray = allUsersArray;
+                this.allUsersArray.forEach((elmt) => {
+                    if (elmt._id === this.displayedUserId) {
+                        this.displayedUser = elmt;
+                        this.editProfileForm = this.fb.group({
+                            name: [this.displayedUser.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                            firstname: [this.displayedUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                            pseudo: [this.displayedUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                            email: [this.displayedUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
+                            // password: [this.displayedUser.password, [Validators.required, Validators.minLength(8)]],
+                            // confirmPassword: [this.displayedUser.confirmPassword, [Validators.minLength(8)]],
+                            birth: [this.displayedUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                            sexe: [this.displayedUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                            grade: [this.displayedUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
+                        });
+                        // this.editProfileForm.setValidators(this.comparisonValidator());
+                    }
+                });
             });
-            // this.editProfileForm.setValidators(this.comparisonValidator());
         });
     }
-    // public comparisonValidator(): any {
-    //   return (group: FormGroup): any => {
-    //     const control1 = group.controls.password;
-    //     const control2 = group.controls.confirmPassword;
-    //     if (control1.value !== control2.value) {
-    //       control2.setErrors({isNoMatch: true});
-    //     } else {
-    //       control2.setErrors(null);
-    //     }
-    //     return;
-    //   };
-    // }
     submit() {
         this.isSubmitted = true;
         if (this.editProfileForm.valid) {
-            this.editProfileForm.value['_id'] = this.currentUser['_id'];
+            this.editProfileForm.value['_id'] = this.displayedUser._id;
             this.userService.editProfile(this.editProfileForm.value).subscribe((user) => {
+                console.log('TCL: EditProfileComponent -> this.currentUser hello', this.currentUser);
                 console.log('TCL: EditProfileComponent -> user', user);
-                this.router.navigate(['/accueil/post']);
+                this.router.navigate(['accueil', 'post', this.currentUser._id]);
             }, err => {
                 console.log('Erreur inscription', err);
                 if (err.status === 401) {
@@ -2309,7 +2437,8 @@ let EditProfileComponent = class EditProfileComponent {
 EditProfileComponent.ctorParameters = () => [
     { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
 EditProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2319,6 +2448,18 @@ EditProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
 ], EditProfileComponent);
 
+// public comparisonValidator(): any {
+//   return (group: FormGroup): any => {
+//     const control1 = group.controls.password;
+//     const control2 = group.controls.confirmPassword;
+//     if (control1.value !== control2.value) {
+//       control2.setErrors({isNoMatch: true});
+//     } else {
+//       control2.setErrors(null);
+//     }
+//     return;
+//   };
+// }
 
 
 /***/ }),
@@ -2356,22 +2497,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // SERVICE
 
 
 let ProfileComponent = class ProfileComponent {
-    constructor(userService, friendService, fb, activatedRoute) {
+    constructor(userService, friendService, fb, activatedRoute, router) {
         this.userService = userService;
         this.friendService = friendService;
         this.fb = fb;
         this.activatedRoute = activatedRoute;
+        this.router = router;
         this.isCurrentUser = false;
         this.isSubmitted = false;
     }
     ngOnInit() {
         this.sub = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
+            console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser TITI', this.currentUser);
             // if (this.userId === this.currentUser._id) {
             //   this.isCurrentUser = true;
             // } else {
@@ -2394,11 +2537,14 @@ let ProfileComponent = class ProfileComponent {
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
                         this.displayedUser = elmt;
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
-                        console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
+                        // console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
                     }
                 });
             });
         });
+    }
+    editProfil(displayedUser) {
+        this.router.navigate(['accueil', 'edit-profile', displayedUser._id]);
     }
     sendInvitation() {
         this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe((data) => {
@@ -2426,7 +2572,8 @@ ProfileComponent.ctorParameters = () => [
     { type: src_app_shared_service_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: src_app_shared_service_friend_service__WEBPACK_IMPORTED_MODULE_5__["FriendService"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
