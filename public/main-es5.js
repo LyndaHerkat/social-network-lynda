@@ -1650,8 +1650,8 @@
                 function WebsocketService() {
                 }
                 WebsocketService.prototype.startWS = function () {
-                    // this.socketClient = io();
-                    this.socketClient = socket_io_client__WEBPACK_IMPORTED_MODULE_2__('http://localhost:3000');
+                    this.socketClient = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
+                    // this.socketClient = io('http://localhost:3000');
                     console.log('TCL: WebsocketService -> startWS -> ouverture websocket');
                 };
                 // Connection du current user
