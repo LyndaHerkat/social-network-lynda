@@ -127,7 +127,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content >\n      <mat-card-header>\n\n        <mat-card-title><mat-icon aria-hidden=\"false\">edit</mat-icon>&nbsp;Créer une publication</mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header fxLayoutAlign=\"space-between start\">\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>\n      <div class=\"cancel\">\n        <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\" (click)=\"deletePost(displayedUser._id, post._id)\">cancel</mat-icon>\n      </div>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title color=\"primary\" class=\"link\">\n              Commentaires\n            </mat-panel-title>\n          </mat-expansion-panel-header>\n          <form [formGroup]=\"commentForm\" (ngSubmit)=\"createComment(post)\" novalidate>\n            <mat-form-field class=\"comment-input\">\n              <input matInput formControlName=\"message\" placeholder=\"Saisissez votre commentaire\" >\n            </mat-form-field>\n            <button mat-raised-button color=\"primary\">Publier</button>\n          </form>\n          <mat-card class=\"comment-card\" *ngFor=\"let comment of post.commentsArray \">\n            <mat-card-header fxLayoutAlign=\"space-between start\">\n              <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n              <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{comment.pseudo}}</mat-card-title>\n              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}</mat-card-subtitle>\n              <div class=\"cancel\">\n                <!-- <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\">cancel</mat-icon> -->\n              </div>\n            </mat-card-header>\n            <mat-card-content>\n                <p>{{comment.comment}}</p>\n              </mat-card-content>\n\n\n          </mat-card>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <!-- <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions> -->\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-header>\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n    </mat-card-header>\n  </mat-card>\n\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content>\n      <mat-card-header>\n\n        <mat-card-title>\n          <mat-icon aria-hidden=\"false\">edit</mat-icon>&nbsp;Créer une publication\n        </mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header fxLayoutAlign=\"space-between start\">\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>\n      <div class=\"cancel\">\n        <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\"\n          (click)=\"deletePost(displayedUser._id, post._id)\">cancel</mat-icon>\n      </div>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title color=\"primary\" class=\"link\">\n              Commentaires\n            </mat-panel-title>\n          </mat-expansion-panel-header>\n          <form [formGroup]=\"commentForm\" (ngSubmit)=\"createComment(post)\" novalidate>\n            <mat-form-field class=\"comment-input\">\n              <input matInput formControlName=\"message\" placeholder=\"Saisissez votre commentaire\">\n            </mat-form-field>\n            <button mat-raised-button color=\"primary\">Publier</button>\n          </form>\n          <mat-card class=\"comment-card\" *ngFor=\"let comment of post.commentsArray \">\n            <mat-card-header fxLayoutAlign=\"space-between start\">\n              <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n              <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{comment.pseudo}}</mat-card-title>\n              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}\n              </mat-card-subtitle>\n              <div class=\"cancel\">\n                <!-- <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\">cancel</mat-icon> -->\n              </div>\n            </mat-card-header>\n            <mat-card-content>\n              <p>{{comment.comment}}</p>\n            </mat-card-content>\n\n\n          </mat-card>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <!-- <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions> -->\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/edit-profile.component.html": 
@@ -794,6 +794,9 @@
                             _this.errorMessage = 'Une erreur c\'est produite. impossible d\'accéder à votre compte';
                         }
                     });
+                    this.userService.getAllUsers().subscribe(function (allUsersArray) {
+                        _this.allUsersArray = allUsersArray;
+                    });
                     // this.userService.login(this.loginForm.value).toPromise().then( () => {
                     //   this.userService.login(this.loginForm.value).toPromise().then( () => {
                     //     // // Ouverture Websocket
@@ -1053,36 +1056,36 @@
                 }
                 TopbarComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.userService.getCurrentUser().subscribe(function (currentUser) {
-                        _this.currentUser = currentUser;
-                        console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
-                        if (_this.currentUser.admin) {
-                            _this.backgroundColor = '#D91C5C';
-                        }
-                        _this.websocketService.onUsersConnectedArray().subscribe(function (data) {
-                            _this.usersConnectedArrayWS = data;
-                            console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', _this.usersConnectedArrayWS);
-                            console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', _this.friendsConnected);
-                            console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', _this.usersConnectedArrayWS);
-                            console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected avant', _this.friendsConnected);
-                            _this.friendsConnected = [];
-                            _this.usersConnectedArrayWS.forEach(function (user) {
-                                if (user && user.friends.includes(_this.currentUser._id)) {
-                                    _this.friendsConnected.push(user);
-                                }
-                                console.log('TCL: TopbarComponent -> ngOnInit -> currentUser.admin', currentUser.admin);
-                                // if (currentUser.admin) {
-                                //   this.friendsConnected = this.usersConnectedArrayWS;
-                                //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
-                                // }
-                            });
-                            console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', _this.friendsConnected);
-                        });
-                    });
                     console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
                     this.userService.getAllUsers().subscribe(function (allUsersArray) {
                         _this.allUsersArray = allUsersArray;
                         console.log('TCL: TopbarComponent -> ngOnInit -> allUsersArray', allUsersArray);
+                        _this.userService.getCurrentUser().subscribe(function (currentUser) {
+                            _this.currentUser = currentUser;
+                            console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
+                            if (_this.currentUser.admin) {
+                                _this.backgroundColor = '#D91C5C';
+                            }
+                            _this.websocketService.onUsersConnectedArray().subscribe(function (data) {
+                                _this.usersConnectedArrayWS = data;
+                                console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', _this.usersConnectedArrayWS);
+                                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', _this.friendsConnected);
+                                console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', _this.usersConnectedArrayWS);
+                                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected avant', _this.friendsConnected);
+                                _this.friendsConnected = [];
+                                _this.usersConnectedArrayWS.forEach(function (user) {
+                                    if (user && user.friends.includes(_this.currentUser._id)) {
+                                        _this.friendsConnected.push(user);
+                                    }
+                                    console.log('TCL: TopbarComponent -> ngOnInit -> currentUser.admin', currentUser.admin);
+                                    // if (currentUser.admin) {
+                                    //   this.friendsConnected = this.usersConnectedArrayWS;
+                                    //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
+                                    // }
+                                });
+                                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', _this.friendsConnected);
+                            });
+                        });
                         _this.allUsersArray.forEach(function (elmt) {
                             if (_this.allUsersArrayNames.indexOf(elmt) === -1) {
                                 _this.allUsersArrayNames.push({
@@ -1620,6 +1623,8 @@
                     this.websocketService.emitUserDeconnection(user);
                     // remise a zero du current user
                     this.currentUser.next(null);
+                    // remise a zero du AllUser
+                    this.allUsersArray.next(null);
                     // redirection vers la page de connexion
                     this.router.navigate(['/']);
                 };
@@ -2115,31 +2120,31 @@
                     });
                     // RECUPERATION ID
                     this.sub = this.userService.currentUser.subscribe(function (currentUser) {
-                        console.log(currentUser);
                         _this.currentUser = currentUser;
-                    });
-                    this.activatedRoute.paramMap.subscribe(function (paramMap) {
-                        _this.userId = paramMap.get('id');
-                        // Récupération des posts en bdd
-                        _this.postService.getPost(_this.userId).subscribe(function (postArray) {
-                            _this.postArray = postArray;
-                            console.log('postArray ', postArray);
-                        });
-                        // Le current User est-il le rédacteur des posts?
-                        _this.userService.getAllUsers().subscribe(function (allUsersArray) {
-                            _this.allUsersArray = allUsersArray;
-                            _this.allUsersArray.forEach(function (elmt) {
-                                if (elmt._id === _this.userId) {
-                                    if (elmt._id === _this.currentUser._id) {
-                                        _this.isCurrentUser = true;
+                        console.log(currentUser);
+                        _this.activatedRoute.paramMap.subscribe(function (paramMap) {
+                            _this.userId = paramMap.get('id');
+                            // Le current User est-il le rédacteur des posts?
+                            _this.userService.getAllUsers().subscribe(function (allUsersArray) {
+                                _this.allUsersArray = allUsersArray;
+                                _this.allUsersArray.forEach(function (elmt) {
+                                    if (elmt._id === _this.userId) {
+                                        if (elmt._id === _this.currentUser._id) {
+                                            _this.isCurrentUser = true;
+                                        }
+                                        else {
+                                            _this.isCurrentUser = false;
+                                        }
+                                        // Récupération des posts en bdd
+                                        _this.postService.getPost(_this.userId).subscribe(function (postArray) {
+                                            _this.postArray = postArray;
+                                            console.log('postArray ', postArray);
+                                            console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', _this.isCurrentUser);
+                                            _this.displayedUser = elmt;
+                                            console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', _this.displayedUser);
+                                        });
                                     }
-                                    else {
-                                        _this.isCurrentUser = false;
-                                    }
-                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', _this.isCurrentUser);
-                                    _this.displayedUser = elmt;
-                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', _this.displayedUser);
-                                }
+                                });
                             });
                         });
                     });

@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
                     console.log('Connexion : erreur lors de la connection au client Mongo');
                     res.status(500).json('impossible de se connecter à la base de données');
                 } else {
+                    console.log('TCL: documents AllUsersTITI', documents);
                     res.status(200).json(documents);
                 }
             });
