@@ -806,12 +806,12 @@ let LoginComponent = class LoginComponent {
             this.userService.getCurrentUser().subscribe(currentUser => {
                 // Récupération current user
                 this.currentUser = currentUser;
-                // // Ouverture Websocket
-                // this.websocketService.startWS();
-                // // Enregistrement du user connecté (WS)
-                // this.websocketService.emitNewUserWS(this.currentUser);
-                // // Redirection page d'accueil
-                // this.router.navigate(['accueil', 'post', this.currentUser._id ]);
+                // Ouverture Websocket
+                this.websocketService.startWS();
+                // Enregistrement du user connecté (WS)
+                this.websocketService.emitNewUserWS(this.currentUser);
+                // Redirection page d'accueil
+                this.router.navigate(['accueil', 'post', this.currentUser._id]);
             });
         }, err => {
             console.log(err);
@@ -822,17 +822,17 @@ let LoginComponent = class LoginComponent {
                 this.errorMessage = 'Une erreur c\'est produite. impossible d\'accéder à votre compte';
             }
         });
-        this.userService.login(this.loginForm.value).toPromise().then(() => {
-            this.userService.login(this.loginForm.value).toPromise().then(() => {
-                // Ouverture Websocket
-                this.websocketService.startWS();
-                // Enregistrement du user connecté (WS)
-                this.websocketService.emitNewUserWS(this.currentUser);
-                console.log('TCL: LoginComponent -> this.currentUser', this.currentUser);
-                // Redirection page d'accueil
-                this.router.navigate(['accueil', 'post', this.currentUser._id]);
-            });
-        });
+        // this.userService.login(this.loginForm.value).toPromise().then( () => {
+        //   this.userService.login(this.loginForm.value).toPromise().then( () => {
+        //     // // Ouverture Websocket
+        //     // this.websocketService.startWS();
+        //     // // Enregistrement du user connecté (WS)
+        //     // this.websocketService.emitNewUserWS(this.currentUser);
+        //     // console.log('TCL: LoginComponent -> this.currentUser', this.currentUser);
+        //     // // Redirection page d'accueil
+        //     // this.router.navigate(['accueil', 'post', this.currentUser._id ]);
+        // });
+        // });
     }
 };
 LoginComponent.ctorParameters = () => [
@@ -1119,8 +1119,7 @@ let TopbarComponent = class TopbarComponent {
             this.currentUser = currentUser;
             console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
             if (this.currentUser.admin) {
-                console.log("admiiiiiiiinn");
-                this.backgroundColor = '#F0592A';
+                this.backgroundColor = '#D91C5C';
             }
             this.websocketService.onUsersConnectedArray().subscribe(data => {
                 this.usersConnectedArrayWS = data;

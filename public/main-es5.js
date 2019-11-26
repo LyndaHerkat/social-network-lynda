@@ -778,12 +778,12 @@
                         _this.userService.getCurrentUser().subscribe(function (currentUser) {
                             // Récupération current user
                             _this.currentUser = currentUser;
-                            // // Ouverture Websocket
-                            // this.websocketService.startWS();
-                            // // Enregistrement du user connecté (WS)
-                            // this.websocketService.emitNewUserWS(this.currentUser);
-                            // // Redirection page d'accueil
-                            // this.router.navigate(['accueil', 'post', this.currentUser._id ]);
+                            // Ouverture Websocket
+                            _this.websocketService.startWS();
+                            // Enregistrement du user connecté (WS)
+                            _this.websocketService.emitNewUserWS(_this.currentUser);
+                            // Redirection page d'accueil
+                            _this.router.navigate(['accueil', 'post', _this.currentUser._id]);
                         });
                     }, function (err) {
                         console.log(err);
@@ -794,17 +794,17 @@
                             _this.errorMessage = 'Une erreur c\'est produite. impossible d\'accéder à votre compte';
                         }
                     });
-                    this.userService.login(this.loginForm.value).toPromise().then(function () {
-                        _this.userService.login(_this.loginForm.value).toPromise().then(function () {
-                            // Ouverture Websocket
-                            _this.websocketService.startWS();
-                            // Enregistrement du user connecté (WS)
-                            _this.websocketService.emitNewUserWS(_this.currentUser);
-                            console.log('TCL: LoginComponent -> this.currentUser', _this.currentUser);
-                            // Redirection page d'accueil
-                            _this.router.navigate(['accueil', 'post', _this.currentUser._id]);
-                        });
-                    });
+                    // this.userService.login(this.loginForm.value).toPromise().then( () => {
+                    //   this.userService.login(this.loginForm.value).toPromise().then( () => {
+                    //     // // Ouverture Websocket
+                    //     // this.websocketService.startWS();
+                    //     // // Enregistrement du user connecté (WS)
+                    //     // this.websocketService.emitNewUserWS(this.currentUser);
+                    //     // console.log('TCL: LoginComponent -> this.currentUser', this.currentUser);
+                    //     // // Redirection page d'accueil
+                    //     // this.router.navigate(['accueil', 'post', this.currentUser._id ]);
+                    // });
+                    // });
                 };
                 return LoginComponent;
             }());
@@ -1057,8 +1057,7 @@
                         _this.currentUser = currentUser;
                         console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
                         if (_this.currentUser.admin) {
-                            console.log("admiiiiiiiinn");
-                            _this.backgroundColor = '#F0592A';
+                            _this.backgroundColor = '#D91C5C';
                         }
                         _this.websocketService.onUsersConnectedArray().subscribe(function (data) {
                             _this.usersConnectedArrayWS = data;
