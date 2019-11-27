@@ -3,9 +3,11 @@ const dbTools = require('../../my_modules/db');
 const ObjectID = require('mongodb').ObjectID;
 
 router.put('/', (req, res) => {
-    console.log('supression d\'un ami', req.body);
-    let friendId = req.body.friendId;
+    console.log('supression invitation', req.body);
+    let invitationId = req.body.invitationId;
+    console.log('TCL: invitationId', invitationId);
     let currentUserId = req.body.currentUserId;
+    console.log('TCL: currentUserId', currentUserId);
 
     dbTools.connectClientMongo(dbTools.URI, {
         useNewUrlParser: true
@@ -21,7 +23,7 @@ router.put('/', (req, res) => {
                 _id: ObjectID(currentUserId)
             }, {
                 $pull: {
-                    friends: friendId,
+                    invitations: invitationId,
                 }
             },
             { returnOriginal: false },
@@ -31,23 +33,23 @@ router.put('/', (req, res) => {
                     res.status(500).json('impossible de se connecter à la base de données');
                 } else {
                     myCollection.findOneAndUpdate({
-                        _id: ObjectID(friendId)
+                        _id: ObjectID(invitationId)
                     }, {
                         $pull: {
-                            friends: currentUserId
+                            requests: currentUserId
                         }
                     },
                     { returnOriginal: false },
-                    (err, friendUserUpdated) => {
+                    (err, invitationUserUpdated) => {
                         if (err) {
                             console.log('Connexion : erreur lors de la connection au client Mongo');
                             res.status(500).json('impossible de se connecter à la base de données');
                         } else {
                             let response = {
                             currentUserUpdated: currentUserUpdated.value,
-                            friendUserUpdated: friendUserUpdated.value
+                            invitationUserUpdated: invitationUserUpdated.value
                             }
-                            console.log('TCL: response', response);
+                            console.log('TCL: response invitation', response);
                             res.status(200).json(response);
                         }
                     });

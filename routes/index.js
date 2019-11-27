@@ -12,6 +12,7 @@ const sendInvitation = require('./friend/sendInvitation');
 const getFriends = require('./friend/getFriends');
 const acceptInvitation = require('./friend/acceptInvitation');
 const deleteFriend = require('./friend/deleteFriend');
+const deleteInvitation = require('./friend/deleteInvitation');
 
 router.use('/request/register', register);
 router.use('/request/login', login);
@@ -26,5 +27,6 @@ router.use('/request/friend/request', sendInvitation);
 router.use('/request/friend/get', getFriends);
 router.use('/request/friend/accept-invitation', acceptInvitation);
 router.use('/request/friend/delete', deleteFriend);
+router.use('/request/friend/delete-invitation', deleteInvitation);
 
 module.exports = router;

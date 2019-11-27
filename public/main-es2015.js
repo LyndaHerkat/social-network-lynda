@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"friendsArray !== null\">\n  <h2>Mes amis</h2>\n  <div fxLayout=\"column\">\n    <div class=\"friendsList\">\n      <mat-card *ngFor=\"let friend of friendsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"friend.avatar\" alt=\"\">\n          <mat-card-title>{{friend.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">Bloquer</button> -->\n          <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">\n              <mat-icon class=\"block\">block</mat-icon>\n            </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"requestsArray !== undefined\">\n  <h2>Invitations envoyées</h2>\n  <div fxLayout=\"column\">\n    <div class=\"requestsList\">\n      <mat-card *ngFor=\"let request of requestsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"request.avatar\" alt=\"\">\n          <mat-card-title>{{request.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"primary\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button> -->\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"invitationsArray !== undefined\">\n  <h2>Invitations reçues</h2>\n  <div fxLayout=\"column\">\n    <div class=\"invitationsList\">\n      <mat-card *ngFor=\"let invitation of invitationsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"invitation.avatar\" alt=\"\">\n          <mat-card-title>{{invitation.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button color=\"primary\" (click)=\"acceptInvitation(invitation._id, currentUser._id)\">\n            <mat-icon>check_circle</mat-icon>\n          </button>\n          <button mat-raised-button color=\"accent\">\n            <mat-icon class=\"block\">block</mat-icon>\n          </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"friendsArray !== null\">\n  <h2>Mes amis</h2>\n  <div fxLayout=\"column\">\n    <div class=\"friendsList\">\n      <mat-card *ngFor=\"let friend of friendsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"friend.avatar\" alt=\"\">\n          <mat-card-title>{{friend.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">Bloquer</button> -->\n          <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">\n              <mat-icon class=\"block\">block</mat-icon>\n            </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"requestsArray !== undefined\">\n  <h2>Invitations envoyées</h2>\n  <div fxLayout=\"column\">\n    <div class=\"requestsList\">\n      <mat-card *ngFor=\"let request of requestsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"request.avatar\" alt=\"\">\n          <mat-card-title>{{request.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"primary\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button> -->\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"invitationsArray !== undefined\">\n  <h2>Invitations reçues</h2>\n  <div fxLayout=\"column\">\n    <div class=\"invitationsList\">\n      <mat-card *ngFor=\"let invitation of invitationsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"invitation.avatar\" alt=\"\">\n          <mat-card-title>{{invitation.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button color=\"primary\" (click)=\"acceptInvitation(invitation._id, currentUser._id)\">\n            <mat-icon>check_circle</mat-icon>\n          </button>\n          <button mat-raised-button color=\"accent\" (click)= \"deleteInvitation(invitation._id, currentUser._id)\" >\n            <mat-icon class=\"block\">block</mat-icon>\n          </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n");
 
 /***/ }),
 
@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-header>\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n    </mat-card-header>\n  </mat-card>\n\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content>\n      <mat-card-header>\n\n        <mat-card-title>\n          <mat-icon aria-hidden=\"false\">edit</mat-icon>&nbsp;Créer une publication\n        </mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header fxLayoutAlign=\"space-between start\">\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>\n      <div class=\"cancel\">\n        <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\"\n          (click)=\"deletePost(displayedUser._id, post._id)\">cancel</mat-icon>\n      </div>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title color=\"primary\" class=\"link\">\n              Commentaires\n            </mat-panel-title>\n          </mat-expansion-panel-header>\n          <form [formGroup]=\"commentForm\" (ngSubmit)=\"createComment(post)\" novalidate>\n            <mat-form-field class=\"comment-input\">\n              <input matInput formControlName=\"message\" placeholder=\"Saisissez votre commentaire\">\n            </mat-form-field>\n            <button mat-raised-button color=\"primary\">Publier</button>\n          </form>\n          <mat-card class=\"comment-card\" *ngFor=\"let comment of post.commentsArray \">\n            <mat-card-header fxLayoutAlign=\"space-between start\">\n              <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n              <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{comment.pseudo}}</mat-card-title>\n              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}\n              </mat-card-subtitle>\n              <div class=\"cancel\">\n                <!-- <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\">cancel</mat-icon> -->\n              </div>\n            </mat-card-header>\n            <mat-card-content>\n              <p>{{comment.comment}}</p>\n            </mat-card-content>\n\n\n          </mat-card>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <!-- <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions> -->\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-header>\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle *ngIf=\"displayedUser.admin\">Teacher</mat-card-subtitle>\n    </mat-card-header>\n  </mat-card>\n\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content>\n      <mat-card-header>\n\n        <mat-card-title>\n          <mat-icon aria-hidden=\"false\">edit</mat-icon>&nbsp;Créer une publication\n        </mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header fxLayoutAlign=\"space-between start\">\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>\n      <div class=\"cancel\">\n        <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\"\n          (click)=\"deletePost(displayedUser._id, post._id)\">cancel</mat-icon>\n      </div>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title color=\"primary\" class=\"link\">\n              Commentaires\n            </mat-panel-title>\n          </mat-expansion-panel-header>\n          <form *ngIf=\"currentUser.admin || areFriends || isCurrentUser \" [formGroup]=\"commentForm\" (ngSubmit)=\"createComment(post)\" novalidate>\n            <mat-form-field class=\"comment-input\">\n              <input matInput formControlName=\"message\" placeholder=\"Saisissez votre commentaire\">\n            </mat-form-field>\n            <button mat-raised-button color=\"primary\">Publier</button>\n          </form>\n          <mat-card class=\"comment-card\" *ngFor=\"let comment of post.commentsArray \">\n            <mat-card-header fxLayoutAlign=\"space-between start\">\n              <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n              <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{comment.pseudo}}</mat-card-title>\n              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}\n              </mat-card-subtitle>\n              <div class=\"cancel\">\n                <!-- <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\">cancel</mat-icon> -->\n              </div>\n            </mat-card-header>\n            <mat-card-content>\n              <p>{{comment.comment}}</p>\n            </mat-card-content>\n\n\n          </mat-card>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <!-- <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions> -->\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
 
 /***/ }),
 
@@ -450,12 +450,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { WebsocketService } from './shared/service/websocket.service';
 let AppComponent = class AppComponent {
-    // title = 'client';
-    constructor(userService
-    // private websocketService: WebsocketService
-    ) {
+    constructor(userService) {
         this.userService = userService;
     }
     unloadHandler(event) {
@@ -808,6 +804,7 @@ let LoginComponent = class LoginComponent {
                 this.currentUser = currentUser;
                 // Ouverture Websocket
                 this.websocketService.startWS();
+                console.log('TCL: LoginComponent -> this.websocketService.startWS');
                 // Enregistrement du user connecté (WS)
                 this.websocketService.emitNewUserWS(this.currentUser);
                 // Redirection page d'accueil
@@ -825,17 +822,6 @@ let LoginComponent = class LoginComponent {
         this.userService.getAllUsers().subscribe(allUsersArray => {
             this.allUsersArray = allUsersArray;
         });
-        // this.userService.login(this.loginForm.value).toPromise().then( () => {
-        //   this.userService.login(this.loginForm.value).toPromise().then( () => {
-        //     // // Ouverture Websocket
-        //     // this.websocketService.startWS();
-        //     // // Enregistrement du user connecté (WS)
-        //     // this.websocketService.emitNewUserWS(this.currentUser);
-        //     // console.log('TCL: LoginComponent -> this.currentUser', this.currentUser);
-        //     // // Redirection page d'accueil
-        //     // this.router.navigate(['accueil', 'post', this.currentUser._id ]);
-        // });
-        // });
     }
 };
 LoginComponent.ctorParameters = () => [
@@ -890,6 +876,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let RegisterComponent = class RegisterComponent {
+    // public errorMessage: string;
     constructor(fb, userService, router) {
         this.fb = fb;
         this.userService = userService;
@@ -933,10 +920,12 @@ let RegisterComponent = class RegisterComponent {
             }, err => {
                 console.log('Erreur inscription', err);
                 if (err.status === 401) {
-                    this.errorMessage = 'Un compte avec cette adresse mail existe déjà.';
+                    // this.errorMessage = 'Un compte avec cette adresse mail existe déjà.';
+                    this.message = 'Un compte avec cette adresse mail existe déjà.';
                 }
                 else {
-                    this.errorMessage = 'Une erreur c\'est produite. impossible de créer un compte.';
+                    // this.errorMessage = 'Une erreur c\'est produite. impossible de créer un compte.';
+                    this.message = 'Une erreur c\'est produite. impossible de créer un compte.';
                 }
             });
         }
@@ -1004,9 +993,9 @@ let HeaderComponent = class HeaderComponent {
     ngOnInit() {
         // tslint:disable-next-line: max-line-length
         // On subscribe au behaviour subject jwtToken cree dans le service UserService de facon à le mettre a jour dans la variable jwtToken du component à chaque modification
-        this.subscription = this.userService.jwtToken.subscribe((jwtToken) => {
+        this.sub1 = this.userService.jwtToken.subscribe((jwtToken) => {
             this.jwtToken = jwtToken;
-            this.userService.currentUser.subscribe(currentUser => {
+            this.sub2 = this.userService.currentUser.subscribe(currentUser => {
                 console.log('TCL1: HeaderComponent -> ngOnInit -> this.userService.currentUser', this.userService.currentUser);
                 this.currentUser = currentUser;
                 console.log('TCL2: HeaderComponent -> ngOnInit -> this.currentUser', this.currentUser);
@@ -1030,8 +1019,11 @@ let HeaderComponent = class HeaderComponent {
     }
     ngOnDestroy() {
         // on coupe la subscription lors de la destruction du component
-        if (this.subscription) {
-            this.subscription.unsubscribe();
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
+        if (this.sub2) {
+            this.sub2.unsubscribe();
         }
     }
 };
@@ -1103,9 +1095,6 @@ let TopbarComponent = class TopbarComponent {
     constructor(router, userService, postService, fb, 
     // private bottomSheet: MatBottomSheet,
     websocketService, dialog) {
-        // console.log('TCL: UserInterfaceComponent -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
-        // this.websocketService.onUsersConnectedArray().subscribe( data => {
-        //   this.usersConnectedArrayWS = data;
         this.router = router;
         this.userService = userService;
         this.postService = postService;
@@ -1115,48 +1104,47 @@ let TopbarComponent = class TopbarComponent {
         this.allUsersArrayNames = [];
         this.friendsConnected = [];
         this.backgroundColor = '#00ff9b';
-        // });
     }
     ngOnInit() {
         console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
-        this.userService.getAllUsers().subscribe(allUsersArray => {
+        this.sub1 = this.userService.getAllUsers().subscribe(allUsersArray => {
             this.allUsersArray = allUsersArray;
             console.log('TCL: TopbarComponent -> ngOnInit -> allUsersArray', allUsersArray);
-            this.userService.getCurrentUser().subscribe(currentUser => {
+            this.sub2 = this.userService.getCurrentUser().subscribe(currentUser => {
                 this.currentUser = currentUser;
                 console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
-                if (this.currentUser.admin) {
+                if (this.currentUser && this.currentUser.admin) {
                     this.backgroundColor = '#D91C5C';
                 }
-                this.websocketService.onUsersConnectedArray().subscribe(data => {
+                this.sub3 = this.websocketService.onUsersConnectedArray().subscribe(data => {
                     this.usersConnectedArrayWS = data;
                     console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
-                    console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
-                    console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
-                    console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected avant', this.friendsConnected);
                     this.friendsConnected = [];
-                    this.usersConnectedArrayWS.forEach(user => {
-                        if (user && user.friends.includes(this.currentUser._id)) {
-                            this.friendsConnected.push(user);
-                        }
-                        console.log('TCL: TopbarComponent -> ngOnInit -> currentUser.admin', currentUser.admin);
-                        // if (currentUser.admin) {
-                        //   this.friendsConnected = this.usersConnectedArrayWS;
-                        //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
-                        // }
-                    });
-                    console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', this.friendsConnected);
+                    if (this.usersConnectedArrayWS && this.currentUser) {
+                        this.usersConnectedArrayWS.forEach(user => {
+                            if (user && user.friends.includes(this.currentUser._id)) {
+                                this.friendsConnected.push(user);
+                            }
+                            // if (currentUser.admin) {
+                            //   this.friendsConnected = this.usersConnectedArrayWS;
+                            //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
+                            // }
+                            console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', this.friendsConnected);
+                        });
+                    }
                 });
             });
-            this.allUsersArray.forEach(elmt => {
-                if (this.allUsersArrayNames.indexOf(elmt) === -1) {
-                    this.allUsersArrayNames.push({
-                        pseudo: elmt.pseudo.toLowerCase(),
-                        _id: elmt._id
-                    });
-                }
-            });
-            console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames après', this.allUsersArrayNames);
+            if (this.allUsersArray) {
+                this.allUsersArray.forEach(elmt => {
+                    if (this.allUsersArrayNames.indexOf(elmt) === -1) {
+                        this.allUsersArrayNames.push({
+                            pseudo: elmt.pseudo.toLowerCase(),
+                            _id: elmt._id
+                        });
+                    }
+                });
+                console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames après', this.allUsersArrayNames);
+            }
         });
         // Moteur de recherche Users
         this.searchForm = this.fb.group({
@@ -1196,6 +1184,17 @@ let TopbarComponent = class TopbarComponent {
         });
         dialogRef.afterClosed().subscribe(res => {
         });
+    }
+    ngOnDestroy() {
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
+        if (this.sub2) {
+            this.sub2.unsubscribe();
+        }
+        if (this.sub3) {
+            this.sub3.unsubscribe();
+        }
     }
 };
 TopbarComponent.ctorParameters = () => [
@@ -1442,10 +1441,21 @@ let FriendService = class FriendService {
         }));
     }
     deleteFriend(friendId, currentUserId) {
-        return this.http.put('request/friend/delete', { friendId, currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
+        return this.http.put('/request/friend/delete', { friendId, currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
             this.userService.currentUser.next(data.currentUserUpdated);
             console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
-            return data.currentUserUpdated;
+            // return data.currentUserUpdated;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(() => {
+            return this.userService.currentUser;
+        }));
+    }
+    deleteInvitation(invitationId, currentUserId) {
+        return this.http.put('/request/friend/delete-invitation', { invitationId, currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
+            this.userService.currentUser.next(data.currentUserUpdated);
+            console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
+            // return data.currentUserUpdated;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(() => {
+            return this.userService.currentUser;
         }));
     }
 };
@@ -1759,7 +1769,6 @@ let WebsocketService = class WebsocketService {
     startWS() {
         this.socketClient = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
         // this.socketClient = io('http://localhost:3000');
-        console.log('TCL: WebsocketService -> startWS -> ouverture websocket');
     }
     // Connection du current user
     emitNewUserWS(user) {
@@ -1769,15 +1778,18 @@ let WebsocketService = class WebsocketService {
     emitUserDeconnection(user) {
         console.log('TCL: WebsocketService -> emitUserDeconnection -> user', user);
         this.socketClient.emit('user deconnection', user);
+        // this.socketClient.disconnect();
+        // console.log('TCL: WebsocketService -> emitUserDeconnection -> socketClient.disconnected', this.socketClient.disconnected);
     }
     // Mise à jour du tableau des users connectes
     onUsersConnectedArray() {
         this.usersConnectedArray = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
             this.socketClient.on('all users connected', (data) => {
                 observer.next(data);
+                console.log('TCL: WebsocketService -> onUsersConnectedArray -> titi data', data);
             });
             // Error
-            return () => { this.socketClient.disconnect(); };
+            // return () => { this.socketClient.disconnect(); };
         });
         return this.usersConnectedArray;
     }
@@ -1786,12 +1798,12 @@ let WebsocketService = class WebsocketService {
         this.socketClient.emit('join', data);
     }
     newUserJoined() {
-        let observable = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
+        const observable = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
             this.socketClient.on('new user joined', (data) => {
                 observer.next(data);
             });
             return () => {
-                this.socketClient.disconnect();
+                // this.socketClient.disconnect();
             };
         });
         return observable;
@@ -1801,12 +1813,12 @@ let WebsocketService = class WebsocketService {
         this.socketClient.emit('leave', data);
     }
     userLeftRoom() {
-        let observable = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
+        const observable = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
             this.socketClient.on('user left room', (data) => {
                 observer.next(data);
             });
             return () => {
-                this.socketClient.disconnect();
+                // this.socketClient.disconnect();
             };
         });
         return observable;
@@ -1815,12 +1827,12 @@ let WebsocketService = class WebsocketService {
         this.socketClient.emit('message', data);
     }
     newMessageReceived() {
-        let observable = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
+        const observable = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
             this.socketClient.on('new message', (data) => {
                 observer.next(data);
             });
             return () => {
-                this.socketClient.disconnect();
+                // this.socketClient.disconnect();
             };
         });
         return observable;
@@ -1860,19 +1872,19 @@ let ChatComponent = class ChatComponent {
         this.userService = userService;
         this.websocketService = websocketService;
         this.messagesArray = [];
-        this.websocketService.newUserJoined().subscribe(data => {
+        this.sub3 = this.websocketService.newUserJoined().subscribe(data => {
             this.messagesArray.push(data);
         });
-        this.websocketService.userLeftRoom().subscribe(data => {
+        this.sub4 = this.websocketService.userLeftRoom().subscribe(data => {
             this.messagesArray.push(data);
         });
-        this.websocketService.newMessageReceived().subscribe(data => {
+        this.sub5 = this.websocketService.newMessageReceived().subscribe(data => {
             this.messagesArray.push(data);
         });
     }
     ngOnInit() {
         console.log('TCL: ChatComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
-        this.sub = this.userService.currentUser.subscribe(currentUser => {
+        this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
             // if (this.userId === this.currentUser._id) {
@@ -1882,7 +1894,7 @@ let ChatComponent = class ChatComponent {
             // }
         });
         // Récupération du friendUserId dans l'url
-        this.activatedRoute.paramMap.subscribe((paramMap) => {
+        this.sub2 = this.activatedRoute.paramMap.subscribe((paramMap) => {
             this.friendUserId = paramMap.get('id');
             console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.friendUserId);
         });
@@ -1920,7 +1932,21 @@ let ChatComponent = class ChatComponent {
     }
     ngOnDestroy() {
         this.leaveRoom();
-        this.sub.unsubscribe();
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
+        if (this.sub2) {
+            this.sub2.unsubscribe();
+        }
+        if (this.sub3) {
+            this.sub3.unsubscribe();
+        }
+        if (this.sub4) {
+            this.sub4.unsubscribe();
+        }
+        if (this.sub5) {
+            this.sub5.unsubscribe();
+        }
     }
 };
 ChatComponent.ctorParameters = () => [
@@ -1982,7 +2008,7 @@ let FriendComponent = class FriendComponent {
         this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log('TCL: FriendComponent -> ngOnInit -> this.currentUser hello', this.currentUser);
-            this.userService.getAllUsers().subscribe(allUsersArray => {
+            this.sub2 = this.userService.getAllUsers().subscribe(allUsersArray => {
                 this.allUsersArray = allUsersArray;
                 console.log('TCL: FriendComponent -> ngOnInit -> this.allUsersArray', this.allUsersArray);
                 this.getFriends();
@@ -1995,46 +2021,52 @@ let FriendComponent = class FriendComponent {
         });
     }
     getFriends() {
-        this.sub2 = this.userService.currentUser.subscribe(currentUser => {
+        this.sub3 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log('TCL: FriendComponent -> getFriends -> this.currentUser', this.currentUser);
-            this.currentUser.friends.forEach(elmt1 => {
-                this.allUsersArray.forEach(elmt2 => {
-                    if (elmt1 === elmt2._id && this.friendsArray.indexOf(elmt2) === -1) {
-                        this.friendsArray.push(elmt2);
-                    }
+            if (this.currentUser && this.currentUser.friends) {
+                this.currentUser.friends.forEach(elmt1 => {
+                    this.allUsersArray.forEach(elmt2 => {
+                        if (elmt1 === elmt2._id && this.friendsArray.indexOf(elmt2) === -1) {
+                            this.friendsArray.push(elmt2);
+                        }
+                    });
                 });
-            });
+            }
         });
     }
     getRequests() {
-        this.sub3 = this.userService.currentUser.subscribe(currentUser => {
+        this.sub4 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log('TCL: FriendComponent -> getRequests -> this.currentUser', this.currentUser);
-            this.currentUser.requests.forEach(elmt1 => {
-                this.allUsersArray.forEach(elmt2 => {
-                    if (elmt1 === elmt2._id && this.requestsArray.indexOf(elmt2) === -1) {
-                        this.requestsArray.push(elmt2);
-                    }
+            if (this.currentUser && this.currentUser.requests) {
+                this.currentUser.requests.forEach(elmt1 => {
+                    this.allUsersArray.forEach(elmt2 => {
+                        if (elmt1 === elmt2._id && this.requestsArray.indexOf(elmt2) === -1) {
+                            this.requestsArray.push(elmt2);
+                        }
+                    });
                 });
-            });
+            }
         });
     }
     getInvitations() {
-        this.sub4 = this.userService.currentUser.subscribe(currentUser => {
+        this.sub5 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log('TCL: FriendComponent -> getInvitations -> this.currentUser', this.currentUser);
-            this.currentUser.invitations.forEach(elmt1 => {
-                this.allUsersArray.forEach(elmt2 => {
-                    if (elmt1 === elmt2._id && this.invitationsArray.indexOf(elmt2) === -1) {
-                        this.invitationsArray.push(elmt2);
-                    }
+            if (this.currentUser && this.currentUser.invitations) {
+                this.currentUser.invitations.forEach(elmt1 => {
+                    this.allUsersArray.forEach(elmt2 => {
+                        if (elmt1 === elmt2._id && this.invitationsArray.indexOf(elmt2) === -1) {
+                            this.invitationsArray.push(elmt2);
+                        }
+                    });
                 });
-            });
+            }
         });
     }
     acceptInvitation(friendUserId, currentUserId) {
-        this.friendService.acceptInvitation(friendUserId, currentUserId).subscribe(() => {
+        this.sub6 = this.friendService.acceptInvitation(friendUserId, currentUserId).subscribe(() => {
             this.invitationsArray.forEach(elmt => {
                 if (elmt._id === friendUserId) {
                     const index1 = this.invitationsArray.indexOf(elmt);
@@ -2049,7 +2081,7 @@ let FriendComponent = class FriendComponent {
         });
     }
     deleteFriend(friendId, currentUserId) {
-        this.friendService.deleteFriend(friendId, currentUserId).subscribe(() => {
+        this.sub7 = this.friendService.deleteFriend(friendId, currentUserId).subscribe(() => {
             this.friendsArray.forEach(elmt => {
                 if (elmt._id === friendId) {
                     const index = this.friendsArray.indexOf(elmt);
@@ -2058,11 +2090,41 @@ let FriendComponent = class FriendComponent {
             });
         });
     }
+    deleteInvitation(invitationId, currentUserId) {
+        this.sub8 = this.friendService.deleteInvitation(invitationId, currentUserId).subscribe(() => {
+            this.invitationsArray.forEach(elmt => {
+                if (elmt._id === invitationId) {
+                    const index = this.invitationsArray.indexOf(elmt);
+                    this.invitationsArray.splice(index, 1);
+                }
+            });
+        });
+    }
     ngOnDestroy() {
-        this.sub1.unsubscribe();
-        this.sub2.unsubscribe();
-        this.sub3.unsubscribe();
-        this.sub4.unsubscribe();
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
+        if (this.sub2) {
+            this.sub2.unsubscribe();
+        }
+        if (this.sub3) {
+            this.sub3.unsubscribe();
+        }
+        if (this.sub4) {
+            this.sub4.unsubscribe();
+        }
+        if (this.sub5) {
+            this.sub5.unsubscribe();
+        }
+        if (this.sub6) {
+            this.sub6.unsubscribe();
+        }
+        if (this.sub7) {
+            this.sub7.unsubscribe();
+        }
+        if (this.sub8) {
+            this.sub8.unsubscribe();
+        }
     }
 };
 FriendComponent.ctorParameters = () => [
@@ -2118,18 +2180,11 @@ let ModalComponent = class ModalComponent {
     constructor(dialogRef, router, 
     // public websocketService: WebsocketService,
     data) {
-        // this.usersConnectedArrayWS = data;
-        // console.log('TCL: ModalComponent -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
-        // this.websocketService.onUsersConnectedArray().subscribe( data => {
-        //   this.usersConnectedArrayWS = data;
         this.dialogRef = dialogRef;
         this.router = router;
         this.data = data;
-        //   console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray TITI', this.usersConnectedArrayWS);
-        // });
     }
-    ngOnInit() {
-    }
+    ngOnInit() { }
     onNoClick() {
         this.dialogRef.close();
         // console.log('TCL: ModalComponent -> usersConnectedArrayWS', this.usersConnectedArrayWS);
@@ -2244,37 +2299,44 @@ let PostComponent = class PostComponent {
             message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
         });
         // RECUPERATION ID
-        this.sub = this.userService.currentUser.subscribe(currentUser => {
+        this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log(currentUser);
-            this.activatedRoute.paramMap.subscribe((paramMap) => {
+            this.sub2 = this.activatedRoute.paramMap.subscribe((paramMap) => {
                 this.userId = paramMap.get('id');
                 // Le current User est-il le rédacteur des posts?
-                this.userService.getAllUsers().subscribe(allUsersArray => {
+                this.sub3 = this.userService.getAllUsers().subscribe(allUsersArray => {
                     this.allUsersArray = allUsersArray;
-                    this.allUsersArray.forEach(elmt => {
-                        if (elmt._id === this.userId) {
-                            if (elmt._id === this.currentUser._id) {
-                                this.isCurrentUser = true;
+                    if (this.allUsersArray) {
+                        this.allUsersArray.forEach(elmt => {
+                            if (elmt._id === this.userId) {
+                                if (this.currentUser && elmt._id === this.currentUser._id) {
+                                    this.isCurrentUser = true;
+                                    this.displayedUser = elmt;
+                                    this.areFriends = this.displayedUser.friends.includes(this.currentUser._id);
+                                }
+                                else {
+                                    if (this.currentUser) {
+                                        this.isCurrentUser = false;
+                                        this.displayedUser = elmt;
+                                        this.areFriends = this.displayedUser.friends.includes(this.currentUser._id);
+                                    }
+                                }
+                                // Récupération des posts en bdd
+                                this.sub4 = this.postService.getPost(this.userId).subscribe((postArray) => {
+                                    this.postArray = postArray;
+                                    console.log('postArray ', postArray);
+                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
+                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
+                                });
                             }
-                            else {
-                                this.isCurrentUser = false;
-                            }
-                            // Récupération des posts en bdd
-                            this.postService.getPost(this.userId).subscribe((postArray) => {
-                                this.postArray = postArray;
-                                console.log('postArray ', postArray);
-                                console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
-                                this.displayedUser = elmt;
-                                console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
-                            });
-                        }
-                    });
+                        });
+                    }
                 });
             });
         });
         // Mise a jour du behaviour subject postList
-        this.postService.postList.subscribe(postListUpdated => {
+        this.sub5 = this.postService.postList.subscribe(postListUpdated => {
             this.postArray = postListUpdated;
         });
     }
@@ -2287,7 +2349,7 @@ let PostComponent = class PostComponent {
             date: this.date
             // date: formatDate(this.date, 'dd/MM/yyyy', 'fr-FR')
         };
-        this.postService.createPost(this.newPost).subscribe((postListUpdated) => {
+        this.sub6 = this.postService.createPost(this.newPost).subscribe((postListUpdated) => {
             this.postForm.reset();
             // this.postService.postList.next(postListUpdated);
         }, err => {
@@ -2303,7 +2365,7 @@ let PostComponent = class PostComponent {
             date: this.date,
             comment: this.commentForm.value.message
         };
-        this.postService.createComment(this.newComment).subscribe((postListUpdated) => {
+        this.sub7 = this.postService.createComment(this.newComment).subscribe((postListUpdated) => {
             this.postArray = postListUpdated;
             this.commentForm.reset();
         }, err => {
@@ -2314,7 +2376,7 @@ let PostComponent = class PostComponent {
         this.userService.getProfile(this.displayedUser._id);
     }
     deletePost(userId, postId) {
-        this.postService.deletePost(userId, postId).subscribe((postListUpdated) => {
+        this.sub8 = this.postService.deletePost(userId, postId).subscribe((postListUpdated) => {
             this.postArray = postListUpdated;
         });
     }
@@ -2331,7 +2393,30 @@ let PostComponent = class PostComponent {
     //   )
     // }
     ngOnDestroy() {
-        this.sub.unsubscribe();
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
+        if (this.sub2) {
+            this.sub2.unsubscribe();
+        }
+        if (this.sub3) {
+            this.sub3.unsubscribe();
+        }
+        if (this.sub4) {
+            this.sub4.unsubscribe();
+        }
+        if (this.sub5) {
+            this.sub5.unsubscribe();
+        }
+        if (this.sub6) {
+            this.sub6.unsubscribe();
+        }
+        if (this.sub7) {
+            this.sub7.unsubscribe();
+        }
+        if (this.sub8) {
+            this.sub8.unsubscribe();
+        }
     }
 };
 PostComponent.ctorParameters = () => [
@@ -2396,38 +2481,40 @@ let EditProfileComponent = class EditProfileComponent {
         this.isSubmitted = false;
     }
     ngOnInit() {
-        this.userService.currentUser.subscribe(currentUser => {
+        this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
         });
-        this.activatedRoute.paramMap.subscribe((paramMap) => {
+        this.sub2 = this.activatedRoute.paramMap.subscribe((paramMap) => {
             this.displayedUserId = paramMap.get('id');
-            this.userService.getAllUsers().subscribe((allUsersArray) => {
+            this.sub3 = this.userService.getAllUsers().subscribe((allUsersArray) => {
                 this.allUsersArray = allUsersArray;
-                this.allUsersArray.forEach((elmt) => {
-                    if (elmt._id === this.displayedUserId) {
-                        this.displayedUser = elmt;
-                        this.editProfileForm = this.fb.group({
-                            name: [this.displayedUser.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                            firstname: [this.displayedUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                            pseudo: [this.displayedUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                            email: [this.displayedUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
-                            // password: [this.displayedUser.password, [Validators.required, Validators.minLength(8)]],
-                            // confirmPassword: [this.displayedUser.confirmPassword, [Validators.minLength(8)]],
-                            birth: [this.displayedUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
-                            sexe: [this.displayedUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
-                            grade: [this.displayedUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
-                        });
-                        // this.editProfileForm.setValidators(this.comparisonValidator());
-                    }
-                });
+                if (this.allUsersArray) {
+                    this.allUsersArray.forEach((elmt) => {
+                        if (elmt._id === this.displayedUserId) {
+                            this.displayedUser = elmt;
+                            this.editProfileForm = this.fb.group({
+                                name: [this.displayedUser.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                                firstname: [this.displayedUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                                pseudo: [this.displayedUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                                email: [this.displayedUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
+                                // password: [this.displayedUser.password, [Validators.required, Validators.minLength(8)]],
+                                // confirmPassword: [this.displayedUser.confirmPassword, [Validators.minLength(8)]],
+                                birth: [this.displayedUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                                sexe: [this.displayedUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                                grade: [this.displayedUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
+                            });
+                            // this.editProfileForm.setValidators(this.comparisonValidator());
+                        }
+                    });
+                }
             });
         });
     }
     submit() {
         this.isSubmitted = true;
         if (this.editProfileForm.valid) {
-            this.editProfileForm.value['_id'] = this.displayedUser._id;
-            this.userService.editProfile(this.editProfileForm.value).subscribe((user) => {
+            this.editProfileForm.value._id = this.displayedUser._id;
+            this.sub4 = this.userService.editProfile(this.editProfileForm.value).subscribe((user) => {
                 console.log('TCL: EditProfileComponent -> this.currentUser hello', this.currentUser);
                 console.log('TCL: EditProfileComponent -> user', user);
                 this.router.navigate(['accueil', 'post', this.currentUser._id]);
@@ -2440,6 +2527,20 @@ let EditProfileComponent = class EditProfileComponent {
                     this.errorMessage = 'Une erreur c\'est produite. impossible de modifier votre profil.';
                 }
             });
+        }
+    }
+    ngOnDestroy() {
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
+        if (this.sub2) {
+            this.sub2.unsubscribe();
+        }
+        if (this.sub3) {
+            this.sub3.unsubscribe();
+        }
+        if (this.sub4) {
+            this.sub4.unsubscribe();
         }
     }
 };
@@ -2521,7 +2622,7 @@ let ProfileComponent = class ProfileComponent {
         this.isSubmitted = false;
     }
     ngOnInit() {
-        this.sub = this.userService.currentUser.subscribe(currentUser => {
+        this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
             console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser TITI', this.currentUser);
             // if (this.userId === this.currentUser._id) {
@@ -2530,25 +2631,27 @@ let ProfileComponent = class ProfileComponent {
             //   this.isCurrentUser = false;
             // }
         });
-        this.activatedRoute.paramMap.subscribe((paramMap) => {
+        this.sub2 = this.activatedRoute.paramMap.subscribe((paramMap) => {
             this.userId = paramMap.get('id');
             console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.userId);
-            this.userService.getAllUsers().subscribe(allUsersArray => {
+            this.sub3 = this.userService.getAllUsers().subscribe(allUsersArray => {
                 this.allUsersArray = allUsersArray;
-                this.allUsersArray.forEach(elmt => {
-                    if (elmt._id === this.userId) {
-                        if (elmt._id === this.currentUser._id) {
-                            this.isCurrentUser = true;
+                if (this.allUsersArray && this.currentUser) {
+                    this.allUsersArray.forEach(elmt => {
+                        if (elmt._id === this.userId) {
+                            if (elmt._id === this.currentUser._id) {
+                                this.isCurrentUser = true;
+                            }
+                            else {
+                                this.isCurrentUser = false;
+                            }
+                            console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
+                            this.displayedUser = elmt;
+                            console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
+                            // console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
                         }
-                        else {
-                            this.isCurrentUser = false;
-                        }
-                        console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
-                        this.displayedUser = elmt;
-                        console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
-                        // console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
-                    }
-                });
+                    });
+                }
             });
         });
     }
@@ -2556,7 +2659,7 @@ let ProfileComponent = class ProfileComponent {
         this.router.navigate(['accueil', 'edit-profile', displayedUser._id]);
     }
     sendInvitation() {
-        this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe((data) => {
+        this.sub4 = this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe((data) => {
             console.log('TCL: ProfileComponent -> sendInvitation -> data', data);
             if (data === 1) {
                 this.message = `Vous êtes déjà ami avec ${this.displayedUser.pseudo}.`;
@@ -2574,7 +2677,18 @@ let ProfileComponent = class ProfileComponent {
         });
     }
     ngOnDestroy() {
-        this.sub.unsubscribe();
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
+        if (this.sub2) {
+            this.sub2.unsubscribe();
+        }
+        if (this.sub3) {
+            this.sub3.unsubscribe();
+        }
+        if (this.sub4) {
+            this.sub4.unsubscribe();
+        }
     }
 };
 ProfileComponent.ctorParameters = () => [
@@ -2633,7 +2747,7 @@ let UserInterfaceComponent = class UserInterfaceComponent {
     dialog) {
         this.websocketService = websocketService;
         this.dialog = dialog;
-        this.websocketService.onUsersConnectedArray().subscribe(data => {
+        this.sub1 = this.websocketService.onUsersConnectedArray().subscribe(data => {
             this.usersConnectedArrayWS = data;
             console.log('TCL: UserInterfaceComponent -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
             console.log('coucou UserInterfaceComponent');
@@ -2641,6 +2755,9 @@ let UserInterfaceComponent = class UserInterfaceComponent {
     }
     ngOnInit() { }
     ngOnDestroy() {
+        if (this.sub1) {
+            this.sub1.unsubscribe();
+        }
     }
 };
 UserInterfaceComponent.ctorParameters = () => [

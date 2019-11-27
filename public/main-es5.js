@@ -105,7 +105,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"friendsArray !== null\">\n  <h2>Mes amis</h2>\n  <div fxLayout=\"column\">\n    <div class=\"friendsList\">\n      <mat-card *ngFor=\"let friend of friendsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"friend.avatar\" alt=\"\">\n          <mat-card-title>{{friend.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">Bloquer</button> -->\n          <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">\n              <mat-icon class=\"block\">block</mat-icon>\n            </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"requestsArray !== undefined\">\n  <h2>Invitations envoyées</h2>\n  <div fxLayout=\"column\">\n    <div class=\"requestsList\">\n      <mat-card *ngFor=\"let request of requestsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"request.avatar\" alt=\"\">\n          <mat-card-title>{{request.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"primary\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button> -->\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"invitationsArray !== undefined\">\n  <h2>Invitations reçues</h2>\n  <div fxLayout=\"column\">\n    <div class=\"invitationsList\">\n      <mat-card *ngFor=\"let invitation of invitationsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"invitation.avatar\" alt=\"\">\n          <mat-card-title>{{invitation.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button color=\"primary\" (click)=\"acceptInvitation(invitation._id, currentUser._id)\">\n            <mat-icon>check_circle</mat-icon>\n          </button>\n          <button mat-raised-button color=\"accent\">\n            <mat-icon class=\"block\">block</mat-icon>\n          </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"friendsArray !== null\">\n  <h2>Mes amis</h2>\n  <div fxLayout=\"column\">\n    <div class=\"friendsList\">\n      <mat-card *ngFor=\"let friend of friendsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"friend.avatar\" alt=\"\">\n          <mat-card-title>{{friend.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">Bloquer</button> -->\n          <button mat-raised-button color=\"accent\" (click)=\"deleteFriend(friend._id, currentUser._id)\">\n              <mat-icon class=\"block\">block</mat-icon>\n            </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"requestsArray !== undefined\">\n  <h2>Invitations envoyées</h2>\n  <div fxLayout=\"column\">\n    <div class=\"requestsList\">\n      <mat-card *ngFor=\"let request of requestsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"request.avatar\" alt=\"\">\n          <mat-card-title>{{request.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" >\n          <!-- <button mat-raised-button color=\"primary\">Accepter</button>\n          <button mat-raised-button color=\"accent\">Refuser</button> -->\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"invitationsArray !== undefined\">\n  <h2>Invitations reçues</h2>\n  <div fxLayout=\"column\">\n    <div class=\"invitationsList\">\n      <mat-card *ngFor=\"let invitation of invitationsArray\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"10px\">\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\" fxLayoutGap=\"10px\">\n          <img mat-card-avatar [src]=\"invitation.avatar\" alt=\"\">\n          <mat-card-title>{{invitation.pseudo}}</mat-card-title>\n        </div>\n        <div fxLayout=\"row\" fxLayoutAlign=\"end center\" fxLayoutGap=\"5px\">\n          <button mat-raised-button color=\"primary\" (click)=\"acceptInvitation(invitation._id, currentUser._id)\">\n            <mat-icon>check_circle</mat-icon>\n          </button>\n          <button mat-raised-button color=\"accent\" (click)= \"deleteInvitation(invitation._id, currentUser._id)\" >\n            <mat-icon class=\"block\">block</mat-icon>\n          </button>\n        </div>\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/modal/modal.component.html": 
@@ -127,7 +127,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-header>\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n    </mat-card-header>\n  </mat-card>\n\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content>\n      <mat-card-header>\n\n        <mat-card-title>\n          <mat-icon aria-hidden=\"false\">edit</mat-icon>&nbsp;Créer une publication\n        </mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header fxLayoutAlign=\"space-between start\">\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>\n      <div class=\"cancel\">\n        <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\"\n          (click)=\"deletePost(displayedUser._id, post._id)\">cancel</mat-icon>\n      </div>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title color=\"primary\" class=\"link\">\n              Commentaires\n            </mat-panel-title>\n          </mat-expansion-panel-header>\n          <form [formGroup]=\"commentForm\" (ngSubmit)=\"createComment(post)\" novalidate>\n            <mat-form-field class=\"comment-input\">\n              <input matInput formControlName=\"message\" placeholder=\"Saisissez votre commentaire\">\n            </mat-form-field>\n            <button mat-raised-button color=\"primary\">Publier</button>\n          </form>\n          <mat-card class=\"comment-card\" *ngFor=\"let comment of post.commentsArray \">\n            <mat-card-header fxLayoutAlign=\"space-between start\">\n              <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n              <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{comment.pseudo}}</mat-card-title>\n              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}\n              </mat-card-subtitle>\n              <div class=\"cancel\">\n                <!-- <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\">cancel</mat-icon> -->\n              </div>\n            </mat-card-header>\n            <mat-card-content>\n              <p>{{comment.comment}}</p>\n            </mat-card-content>\n\n\n          </mat-card>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <!-- <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions> -->\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div fxLayout=\"center center\">\n  <mat-card>\n    <mat-card-header>\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle *ngIf=\"displayedUser.admin\">Teacher</mat-card-subtitle>\n    </mat-card-header>\n  </mat-card>\n\n  <mat-card *ngIf=\"isCurrentUser\" class=\"card-login\">\n    <mat-card-content>\n      <mat-card-header>\n\n        <mat-card-title>\n          <mat-icon aria-hidden=\"false\">edit</mat-icon>&nbsp;Créer une publication\n        </mat-card-title>\n      </mat-card-header>\n      <form [formGroup]=\"postForm\" fxLayout=\"column\" (ngSubmit)=\"createPost()\" novalidate>\n        <div class=\"form-field-container\" fxLayout=\"column\" fxLayoutGap=\"15px\">\n          <mat-form-field>\n            <textarea formControlName=\"message\" placeholder=\"Ecrivez un message...\" matInput cdkTextareaAutosize\n              #autosize=\"cdkTextareaAutosize\" cdkAutosizeMinRows=\"5\" cdkAutosizeMaxRows=\"10\"></textarea>\n          </mat-form-field>\n        </div>\n        <button mat-raised-button color=\"primary\">Publier</button>\n      </form>\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<div fxLayout=\"center center\" *ngFor=\"let post of postArray\">\n  <mat-card class=\"card-login\">\n\n    <mat-card-header fxLayoutAlign=\"space-between start\">\n      <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n      <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{displayedUser.pseudo}}</mat-card-title>\n      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>\n      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>\n      <div class=\"cancel\">\n        <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\"\n          (click)=\"deletePost(displayedUser._id, post._id)\">cancel</mat-icon>\n      </div>\n    </mat-card-header>\n    <mat-card-content>\n      <mat-card-content>\n        <p>{{post.message}}</p>\n      </mat-card-content>\n\n      <mat-accordion>\n        <mat-expansion-panel>\n          <mat-expansion-panel-header>\n            <mat-panel-title color=\"primary\" class=\"link\">\n              Commentaires\n            </mat-panel-title>\n          </mat-expansion-panel-header>\n          <form *ngIf=\"currentUser.admin || areFriends || isCurrentUser \" [formGroup]=\"commentForm\" (ngSubmit)=\"createComment(post)\" novalidate>\n            <mat-form-field class=\"comment-input\">\n              <input matInput formControlName=\"message\" placeholder=\"Saisissez votre commentaire\">\n            </mat-form-field>\n            <button mat-raised-button color=\"primary\">Publier</button>\n          </form>\n          <mat-card class=\"comment-card\" *ngFor=\"let comment of post.commentsArray \">\n            <mat-card-header fxLayoutAlign=\"space-between start\">\n              <img mat-card-avatar [src]=\"displayedUser.avatar\" alt=\"\">\n              <mat-card-title class=\"link\" (click)=\"getProfileUser()\">{{comment.pseudo}}</mat-card-title>\n              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}\n              </mat-card-subtitle>\n              <div class=\"cancel\">\n                <!-- <mat-icon *ngIf=\"isCurrentUser || currentUser.admin\" color=\"primary\" class=\"link\">cancel</mat-icon> -->\n              </div>\n            </mat-card-header>\n            <mat-card-content>\n              <p>{{comment.comment}}</p>\n            </mat-card-content>\n\n\n          </mat-card>\n        </mat-expansion-panel>\n      </mat-accordion>\n\n      <!-- <mat-card-actions fxLayoutAlign=\"end center\">\n        <button mat-button color=\"primary\">Commentaires</button>\n      </mat-card-actions> -->\n    </mat-card-content>\n  </mat-card>\n</div>\n\n<!-- <button [routerLink]=\"['/']\" routerLinkActive=\"router-link-active\" ></button> -->\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-interface/profile/edit-profile.component.html": 
@@ -486,12 +486,8 @@
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _shared_service_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/service/user.service */ "./src/app/shared/service/user.service.ts");
-            // import { WebsocketService } from './shared/service/websocket.service';
             var AppComponent = /** @class */ (function () {
-                // title = 'client';
-                function AppComponent(userService
-                // private websocketService: WebsocketService
-                ) {
+                function AppComponent(userService) {
                     this.userService = userService;
                 }
                 AppComponent.prototype.unloadHandler = function (event) {
@@ -780,6 +776,7 @@
                             _this.currentUser = currentUser;
                             // Ouverture Websocket
                             _this.websocketService.startWS();
+                            console.log('TCL: LoginComponent -> this.websocketService.startWS');
                             // Enregistrement du user connecté (WS)
                             _this.websocketService.emitNewUserWS(_this.currentUser);
                             // Redirection page d'accueil
@@ -797,17 +794,6 @@
                     this.userService.getAllUsers().subscribe(function (allUsersArray) {
                         _this.allUsersArray = allUsersArray;
                     });
-                    // this.userService.login(this.loginForm.value).toPromise().then( () => {
-                    //   this.userService.login(this.loginForm.value).toPromise().then( () => {
-                    //     // // Ouverture Websocket
-                    //     // this.websocketService.startWS();
-                    //     // // Enregistrement du user connecté (WS)
-                    //     // this.websocketService.emitNewUserWS(this.currentUser);
-                    //     // console.log('TCL: LoginComponent -> this.currentUser', this.currentUser);
-                    //     // // Redirection page d'accueil
-                    //     // this.router.navigate(['accueil', 'post', this.currentUser._id ]);
-                    // });
-                    // });
                 };
                 return LoginComponent;
             }());
@@ -852,6 +838,7 @@
             /* harmony import */ var _shared_service_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/service/user.service */ "./src/app/shared/service/user.service.ts");
             /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
             var RegisterComponent = /** @class */ (function () {
+                // public errorMessage: string;
                 function RegisterComponent(fb, userService, router) {
                     this.fb = fb;
                     this.userService = userService;
@@ -896,10 +883,12 @@
                         }, function (err) {
                             console.log('Erreur inscription', err);
                             if (err.status === 401) {
-                                _this.errorMessage = 'Un compte avec cette adresse mail existe déjà.';
+                                // this.errorMessage = 'Un compte avec cette adresse mail existe déjà.';
+                                _this.message = 'Un compte avec cette adresse mail existe déjà.';
                             }
                             else {
-                                _this.errorMessage = 'Une erreur c\'est produite. impossible de créer un compte.';
+                                // this.errorMessage = 'Une erreur c\'est produite. impossible de créer un compte.';
+                                _this.message = 'Une erreur c\'est produite. impossible de créer un compte.';
                             }
                         });
                     }
@@ -957,9 +946,9 @@
                     var _this = this;
                     // tslint:disable-next-line: max-line-length
                     // On subscribe au behaviour subject jwtToken cree dans le service UserService de facon à le mettre a jour dans la variable jwtToken du component à chaque modification
-                    this.subscription = this.userService.jwtToken.subscribe(function (jwtToken) {
+                    this.sub1 = this.userService.jwtToken.subscribe(function (jwtToken) {
                         _this.jwtToken = jwtToken;
-                        _this.userService.currentUser.subscribe(function (currentUser) {
+                        _this.sub2 = _this.userService.currentUser.subscribe(function (currentUser) {
                             console.log('TCL1: HeaderComponent -> ngOnInit -> this.userService.currentUser', _this.userService.currentUser);
                             _this.currentUser = currentUser;
                             console.log('TCL2: HeaderComponent -> ngOnInit -> this.currentUser', _this.currentUser);
@@ -983,8 +972,11 @@
                 };
                 HeaderComponent.prototype.ngOnDestroy = function () {
                     // on coupe la subscription lors de la destruction du component
-                    if (this.subscription) {
-                        this.subscription.unsubscribe();
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
+                    if (this.sub2) {
+                        this.sub2.unsubscribe();
                     }
                 };
                 return HeaderComponent;
@@ -1040,9 +1032,6 @@
                 function TopbarComponent(router, userService, postService, fb, 
                 // private bottomSheet: MatBottomSheet,
                 websocketService, dialog) {
-                    // console.log('TCL: UserInterfaceComponent -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
-                    // this.websocketService.onUsersConnectedArray().subscribe( data => {
-                    //   this.usersConnectedArrayWS = data;
                     this.router = router;
                     this.userService = userService;
                     this.postService = postService;
@@ -1052,49 +1041,48 @@
                     this.allUsersArrayNames = [];
                     this.friendsConnected = [];
                     this.backgroundColor = '#00ff9b';
-                    // });
                 }
                 TopbarComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
-                    this.userService.getAllUsers().subscribe(function (allUsersArray) {
+                    this.sub1 = this.userService.getAllUsers().subscribe(function (allUsersArray) {
                         _this.allUsersArray = allUsersArray;
                         console.log('TCL: TopbarComponent -> ngOnInit -> allUsersArray', allUsersArray);
-                        _this.userService.getCurrentUser().subscribe(function (currentUser) {
+                        _this.sub2 = _this.userService.getCurrentUser().subscribe(function (currentUser) {
                             _this.currentUser = currentUser;
                             console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
-                            if (_this.currentUser.admin) {
+                            if (_this.currentUser && _this.currentUser.admin) {
                                 _this.backgroundColor = '#D91C5C';
                             }
-                            _this.websocketService.onUsersConnectedArray().subscribe(function (data) {
+                            _this.sub3 = _this.websocketService.onUsersConnectedArray().subscribe(function (data) {
                                 _this.usersConnectedArrayWS = data;
                                 console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', _this.usersConnectedArrayWS);
-                                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', _this.friendsConnected);
-                                console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', _this.usersConnectedArrayWS);
-                                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected avant', _this.friendsConnected);
                                 _this.friendsConnected = [];
-                                _this.usersConnectedArrayWS.forEach(function (user) {
-                                    if (user && user.friends.includes(_this.currentUser._id)) {
-                                        _this.friendsConnected.push(user);
-                                    }
-                                    console.log('TCL: TopbarComponent -> ngOnInit -> currentUser.admin', currentUser.admin);
-                                    // if (currentUser.admin) {
-                                    //   this.friendsConnected = this.usersConnectedArrayWS;
-                                    //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
-                                    // }
-                                });
-                                console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', _this.friendsConnected);
+                                if (_this.usersConnectedArrayWS && _this.currentUser) {
+                                    _this.usersConnectedArrayWS.forEach(function (user) {
+                                        if (user && user.friends.includes(_this.currentUser._id)) {
+                                            _this.friendsConnected.push(user);
+                                        }
+                                        // if (currentUser.admin) {
+                                        //   this.friendsConnected = this.usersConnectedArrayWS;
+                                        //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
+                                        // }
+                                        console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', _this.friendsConnected);
+                                    });
+                                }
                             });
                         });
-                        _this.allUsersArray.forEach(function (elmt) {
-                            if (_this.allUsersArrayNames.indexOf(elmt) === -1) {
-                                _this.allUsersArrayNames.push({
-                                    pseudo: elmt.pseudo.toLowerCase(),
-                                    _id: elmt._id
-                                });
-                            }
-                        });
-                        console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames après', _this.allUsersArrayNames);
+                        if (_this.allUsersArray) {
+                            _this.allUsersArray.forEach(function (elmt) {
+                                if (_this.allUsersArrayNames.indexOf(elmt) === -1) {
+                                    _this.allUsersArrayNames.push({
+                                        pseudo: elmt.pseudo.toLowerCase(),
+                                        _id: elmt._id
+                                    });
+                                }
+                            });
+                            console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames après', _this.allUsersArrayNames);
+                        }
                     });
                     // Moteur de recherche Users
                     this.searchForm = this.fb.group({
@@ -1134,6 +1122,17 @@
                     });
                     dialogRef.afterClosed().subscribe(function (res) {
                     });
+                };
+                TopbarComponent.prototype.ngOnDestroy = function () {
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
+                    if (this.sub2) {
+                        this.sub2.unsubscribe();
+                    }
+                    if (this.sub3) {
+                        this.sub3.unsubscribe();
+                    }
                 };
                 return TopbarComponent;
             }());
@@ -1362,10 +1361,22 @@
                 };
                 FriendService.prototype.deleteFriend = function (friendId, currentUserId) {
                     var _this = this;
-                    return this.http.put('request/friend/delete', { friendId: friendId, currentUserId: currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (data) {
+                    return this.http.put('/request/friend/delete', { friendId: friendId, currentUserId: currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (data) {
                         _this.userService.currentUser.next(data.currentUserUpdated);
                         console.log('TCL: FriendService -> this.userService.currentUser', _this.userService.currentUser);
-                        return data.currentUserUpdated;
+                        // return data.currentUserUpdated;
+                    }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () {
+                        return _this.userService.currentUser;
+                    }));
+                };
+                FriendService.prototype.deleteInvitation = function (invitationId, currentUserId) {
+                    var _this = this;
+                    return this.http.put('/request/friend/delete-invitation', { invitationId: invitationId, currentUserId: currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (data) {
+                        _this.userService.currentUser.next(data.currentUserUpdated);
+                        console.log('TCL: FriendService -> this.userService.currentUser', _this.userService.currentUser);
+                        // return data.currentUserUpdated;
+                    }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function () {
+                        return _this.userService.currentUser;
                     }));
                 };
                 return FriendService;
@@ -1662,7 +1673,6 @@
                 WebsocketService.prototype.startWS = function () {
                     this.socketClient = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
                     // this.socketClient = io('http://localhost:3000');
-                    console.log('TCL: WebsocketService -> startWS -> ouverture websocket');
                 };
                 // Connection du current user
                 WebsocketService.prototype.emitNewUserWS = function (user) {
@@ -1672,6 +1682,8 @@
                 WebsocketService.prototype.emitUserDeconnection = function (user) {
                     console.log('TCL: WebsocketService -> emitUserDeconnection -> user', user);
                     this.socketClient.emit('user deconnection', user);
+                    // this.socketClient.disconnect();
+                    // console.log('TCL: WebsocketService -> emitUserDeconnection -> socketClient.disconnected', this.socketClient.disconnected);
                 };
                 // Mise à jour du tableau des users connectes
                 WebsocketService.prototype.onUsersConnectedArray = function () {
@@ -1679,9 +1691,10 @@
                     this.usersConnectedArray = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (observer) {
                         _this.socketClient.on('all users connected', function (data) {
                             observer.next(data);
+                            console.log('TCL: WebsocketService -> onUsersConnectedArray -> titi data', data);
                         });
                         // Error
-                        return function () { _this.socketClient.disconnect(); };
+                        // return () => { this.socketClient.disconnect(); };
                     });
                     return this.usersConnectedArray;
                 };
@@ -1696,7 +1709,7 @@
                             observer.next(data);
                         });
                         return function () {
-                            _this.socketClient.disconnect();
+                            // this.socketClient.disconnect();
                         };
                     });
                     return observable;
@@ -1712,7 +1725,7 @@
                             observer.next(data);
                         });
                         return function () {
-                            _this.socketClient.disconnect();
+                            // this.socketClient.disconnect();
                         };
                     });
                     return observable;
@@ -1727,7 +1740,7 @@
                             observer.next(data);
                         });
                         return function () {
-                            _this.socketClient.disconnect();
+                            // this.socketClient.disconnect();
                         };
                     });
                     return observable;
@@ -1760,20 +1773,20 @@
                     this.userService = userService;
                     this.websocketService = websocketService;
                     this.messagesArray = [];
-                    this.websocketService.newUserJoined().subscribe(function (data) {
+                    this.sub3 = this.websocketService.newUserJoined().subscribe(function (data) {
                         _this.messagesArray.push(data);
                     });
-                    this.websocketService.userLeftRoom().subscribe(function (data) {
+                    this.sub4 = this.websocketService.userLeftRoom().subscribe(function (data) {
                         _this.messagesArray.push(data);
                     });
-                    this.websocketService.newMessageReceived().subscribe(function (data) {
+                    this.sub5 = this.websocketService.newMessageReceived().subscribe(function (data) {
                         _this.messagesArray.push(data);
                     });
                 }
                 ChatComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     console.log('TCL: ChatComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
-                    this.sub = this.userService.currentUser.subscribe(function (currentUser) {
+                    this.sub1 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', _this.currentUser);
                         // if (this.userId === this.currentUser._id) {
@@ -1783,7 +1796,7 @@
                         // }
                     });
                     // Récupération du friendUserId dans l'url
-                    this.activatedRoute.paramMap.subscribe(function (paramMap) {
+                    this.sub2 = this.activatedRoute.paramMap.subscribe(function (paramMap) {
                         _this.friendUserId = paramMap.get('id');
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', _this.friendUserId);
                     });
@@ -1821,7 +1834,21 @@
                 };
                 ChatComponent.prototype.ngOnDestroy = function () {
                     this.leaveRoom();
-                    this.sub.unsubscribe();
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
+                    if (this.sub2) {
+                        this.sub2.unsubscribe();
+                    }
+                    if (this.sub3) {
+                        this.sub3.unsubscribe();
+                    }
+                    if (this.sub4) {
+                        this.sub4.unsubscribe();
+                    }
+                    if (this.sub5) {
+                        this.sub5.unsubscribe();
+                    }
                 };
                 return ChatComponent;
             }());
@@ -1875,7 +1902,7 @@
                     this.sub1 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                         console.log('TCL: FriendComponent -> ngOnInit -> this.currentUser hello', _this.currentUser);
-                        _this.userService.getAllUsers().subscribe(function (allUsersArray) {
+                        _this.sub2 = _this.userService.getAllUsers().subscribe(function (allUsersArray) {
                             _this.allUsersArray = allUsersArray;
                             console.log('TCL: FriendComponent -> ngOnInit -> this.allUsersArray', _this.allUsersArray);
                             _this.getFriends();
@@ -1889,49 +1916,55 @@
                 };
                 FriendComponent.prototype.getFriends = function () {
                     var _this = this;
-                    this.sub2 = this.userService.currentUser.subscribe(function (currentUser) {
+                    this.sub3 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                         console.log('TCL: FriendComponent -> getFriends -> this.currentUser', _this.currentUser);
-                        _this.currentUser.friends.forEach(function (elmt1) {
-                            _this.allUsersArray.forEach(function (elmt2) {
-                                if (elmt1 === elmt2._id && _this.friendsArray.indexOf(elmt2) === -1) {
-                                    _this.friendsArray.push(elmt2);
-                                }
+                        if (_this.currentUser && _this.currentUser.friends) {
+                            _this.currentUser.friends.forEach(function (elmt1) {
+                                _this.allUsersArray.forEach(function (elmt2) {
+                                    if (elmt1 === elmt2._id && _this.friendsArray.indexOf(elmt2) === -1) {
+                                        _this.friendsArray.push(elmt2);
+                                    }
+                                });
                             });
-                        });
+                        }
                     });
                 };
                 FriendComponent.prototype.getRequests = function () {
                     var _this = this;
-                    this.sub3 = this.userService.currentUser.subscribe(function (currentUser) {
+                    this.sub4 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                         console.log('TCL: FriendComponent -> getRequests -> this.currentUser', _this.currentUser);
-                        _this.currentUser.requests.forEach(function (elmt1) {
-                            _this.allUsersArray.forEach(function (elmt2) {
-                                if (elmt1 === elmt2._id && _this.requestsArray.indexOf(elmt2) === -1) {
-                                    _this.requestsArray.push(elmt2);
-                                }
+                        if (_this.currentUser && _this.currentUser.requests) {
+                            _this.currentUser.requests.forEach(function (elmt1) {
+                                _this.allUsersArray.forEach(function (elmt2) {
+                                    if (elmt1 === elmt2._id && _this.requestsArray.indexOf(elmt2) === -1) {
+                                        _this.requestsArray.push(elmt2);
+                                    }
+                                });
                             });
-                        });
+                        }
                     });
                 };
                 FriendComponent.prototype.getInvitations = function () {
                     var _this = this;
-                    this.sub4 = this.userService.currentUser.subscribe(function (currentUser) {
+                    this.sub5 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                         console.log('TCL: FriendComponent -> getInvitations -> this.currentUser', _this.currentUser);
-                        _this.currentUser.invitations.forEach(function (elmt1) {
-                            _this.allUsersArray.forEach(function (elmt2) {
-                                if (elmt1 === elmt2._id && _this.invitationsArray.indexOf(elmt2) === -1) {
-                                    _this.invitationsArray.push(elmt2);
-                                }
+                        if (_this.currentUser && _this.currentUser.invitations) {
+                            _this.currentUser.invitations.forEach(function (elmt1) {
+                                _this.allUsersArray.forEach(function (elmt2) {
+                                    if (elmt1 === elmt2._id && _this.invitationsArray.indexOf(elmt2) === -1) {
+                                        _this.invitationsArray.push(elmt2);
+                                    }
+                                });
                             });
-                        });
+                        }
                     });
                 };
                 FriendComponent.prototype.acceptInvitation = function (friendUserId, currentUserId) {
                     var _this = this;
-                    this.friendService.acceptInvitation(friendUserId, currentUserId).subscribe(function () {
+                    this.sub6 = this.friendService.acceptInvitation(friendUserId, currentUserId).subscribe(function () {
                         _this.invitationsArray.forEach(function (elmt) {
                             if (elmt._id === friendUserId) {
                                 var index1 = _this.invitationsArray.indexOf(elmt);
@@ -1947,7 +1980,7 @@
                 };
                 FriendComponent.prototype.deleteFriend = function (friendId, currentUserId) {
                     var _this = this;
-                    this.friendService.deleteFriend(friendId, currentUserId).subscribe(function () {
+                    this.sub7 = this.friendService.deleteFriend(friendId, currentUserId).subscribe(function () {
                         _this.friendsArray.forEach(function (elmt) {
                             if (elmt._id === friendId) {
                                 var index = _this.friendsArray.indexOf(elmt);
@@ -1956,11 +1989,42 @@
                         });
                     });
                 };
+                FriendComponent.prototype.deleteInvitation = function (invitationId, currentUserId) {
+                    var _this = this;
+                    this.sub8 = this.friendService.deleteInvitation(invitationId, currentUserId).subscribe(function () {
+                        _this.invitationsArray.forEach(function (elmt) {
+                            if (elmt._id === invitationId) {
+                                var index = _this.invitationsArray.indexOf(elmt);
+                                _this.invitationsArray.splice(index, 1);
+                            }
+                        });
+                    });
+                };
                 FriendComponent.prototype.ngOnDestroy = function () {
-                    this.sub1.unsubscribe();
-                    this.sub2.unsubscribe();
-                    this.sub3.unsubscribe();
-                    this.sub4.unsubscribe();
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
+                    if (this.sub2) {
+                        this.sub2.unsubscribe();
+                    }
+                    if (this.sub3) {
+                        this.sub3.unsubscribe();
+                    }
+                    if (this.sub4) {
+                        this.sub4.unsubscribe();
+                    }
+                    if (this.sub5) {
+                        this.sub5.unsubscribe();
+                    }
+                    if (this.sub6) {
+                        this.sub6.unsubscribe();
+                    }
+                    if (this.sub7) {
+                        this.sub7.unsubscribe();
+                    }
+                    if (this.sub8) {
+                        this.sub8.unsubscribe();
+                    }
                 };
                 return FriendComponent;
             }());
@@ -2007,18 +2071,11 @@
                 function ModalComponent(dialogRef, router, 
                 // public websocketService: WebsocketService,
                 data) {
-                    // this.usersConnectedArrayWS = data;
-                    // console.log('TCL: ModalComponent -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
-                    // this.websocketService.onUsersConnectedArray().subscribe( data => {
-                    //   this.usersConnectedArrayWS = data;
                     this.dialogRef = dialogRef;
                     this.router = router;
                     this.data = data;
-                    //   console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray TITI', this.usersConnectedArrayWS);
-                    // });
                 }
-                ModalComponent.prototype.ngOnInit = function () {
-                };
+                ModalComponent.prototype.ngOnInit = function () { };
                 ModalComponent.prototype.onNoClick = function () {
                     this.dialogRef.close();
                     // console.log('TCL: ModalComponent -> usersConnectedArrayWS', this.usersConnectedArrayWS);
@@ -2119,37 +2176,44 @@
                         message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
                     });
                     // RECUPERATION ID
-                    this.sub = this.userService.currentUser.subscribe(function (currentUser) {
+                    this.sub1 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                         console.log(currentUser);
-                        _this.activatedRoute.paramMap.subscribe(function (paramMap) {
+                        _this.sub2 = _this.activatedRoute.paramMap.subscribe(function (paramMap) {
                             _this.userId = paramMap.get('id');
                             // Le current User est-il le rédacteur des posts?
-                            _this.userService.getAllUsers().subscribe(function (allUsersArray) {
+                            _this.sub3 = _this.userService.getAllUsers().subscribe(function (allUsersArray) {
                                 _this.allUsersArray = allUsersArray;
-                                _this.allUsersArray.forEach(function (elmt) {
-                                    if (elmt._id === _this.userId) {
-                                        if (elmt._id === _this.currentUser._id) {
-                                            _this.isCurrentUser = true;
+                                if (_this.allUsersArray) {
+                                    _this.allUsersArray.forEach(function (elmt) {
+                                        if (elmt._id === _this.userId) {
+                                            if (_this.currentUser && elmt._id === _this.currentUser._id) {
+                                                _this.isCurrentUser = true;
+                                                _this.displayedUser = elmt;
+                                                _this.areFriends = _this.displayedUser.friends.includes(_this.currentUser._id);
+                                            }
+                                            else {
+                                                if (_this.currentUser) {
+                                                    _this.isCurrentUser = false;
+                                                    _this.displayedUser = elmt;
+                                                    _this.areFriends = _this.displayedUser.friends.includes(_this.currentUser._id);
+                                                }
+                                            }
+                                            // Récupération des posts en bdd
+                                            _this.sub4 = _this.postService.getPost(_this.userId).subscribe(function (postArray) {
+                                                _this.postArray = postArray;
+                                                console.log('postArray ', postArray);
+                                                console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', _this.isCurrentUser);
+                                                console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', _this.displayedUser);
+                                            });
                                         }
-                                        else {
-                                            _this.isCurrentUser = false;
-                                        }
-                                        // Récupération des posts en bdd
-                                        _this.postService.getPost(_this.userId).subscribe(function (postArray) {
-                                            _this.postArray = postArray;
-                                            console.log('postArray ', postArray);
-                                            console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', _this.isCurrentUser);
-                                            _this.displayedUser = elmt;
-                                            console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', _this.displayedUser);
-                                        });
-                                    }
-                                });
+                                    });
+                                }
                             });
                         });
                     });
                     // Mise a jour du behaviour subject postList
-                    this.postService.postList.subscribe(function (postListUpdated) {
+                    this.sub5 = this.postService.postList.subscribe(function (postListUpdated) {
                         _this.postArray = postListUpdated;
                     });
                 };
@@ -2163,7 +2227,7 @@
                         date: this.date
                         // date: formatDate(this.date, 'dd/MM/yyyy', 'fr-FR')
                     };
-                    this.postService.createPost(this.newPost).subscribe(function (postListUpdated) {
+                    this.sub6 = this.postService.createPost(this.newPost).subscribe(function (postListUpdated) {
                         _this.postForm.reset();
                         // this.postService.postList.next(postListUpdated);
                     }, function (err) {
@@ -2180,7 +2244,7 @@
                         date: this.date,
                         comment: this.commentForm.value.message
                     };
-                    this.postService.createComment(this.newComment).subscribe(function (postListUpdated) {
+                    this.sub7 = this.postService.createComment(this.newComment).subscribe(function (postListUpdated) {
                         _this.postArray = postListUpdated;
                         _this.commentForm.reset();
                     }, function (err) {
@@ -2192,7 +2256,7 @@
                 };
                 PostComponent.prototype.deletePost = function (userId, postId) {
                     var _this = this;
-                    this.postService.deletePost(userId, postId).subscribe(function (postListUpdated) {
+                    this.sub8 = this.postService.deletePost(userId, postId).subscribe(function (postListUpdated) {
                         _this.postArray = postListUpdated;
                     });
                 };
@@ -2209,7 +2273,30 @@
                 //   )
                 // }
                 PostComponent.prototype.ngOnDestroy = function () {
-                    this.sub.unsubscribe();
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
+                    if (this.sub2) {
+                        this.sub2.unsubscribe();
+                    }
+                    if (this.sub3) {
+                        this.sub3.unsubscribe();
+                    }
+                    if (this.sub4) {
+                        this.sub4.unsubscribe();
+                    }
+                    if (this.sub5) {
+                        this.sub5.unsubscribe();
+                    }
+                    if (this.sub6) {
+                        this.sub6.unsubscribe();
+                    }
+                    if (this.sub7) {
+                        this.sub7.unsubscribe();
+                    }
+                    if (this.sub8) {
+                        this.sub8.unsubscribe();
+                    }
                 };
                 return PostComponent;
             }());
@@ -2264,30 +2351,32 @@
                 }
                 EditProfileComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.userService.currentUser.subscribe(function (currentUser) {
+                    this.sub1 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                     });
-                    this.activatedRoute.paramMap.subscribe(function (paramMap) {
+                    this.sub2 = this.activatedRoute.paramMap.subscribe(function (paramMap) {
                         _this.displayedUserId = paramMap.get('id');
-                        _this.userService.getAllUsers().subscribe(function (allUsersArray) {
+                        _this.sub3 = _this.userService.getAllUsers().subscribe(function (allUsersArray) {
                             _this.allUsersArray = allUsersArray;
-                            _this.allUsersArray.forEach(function (elmt) {
-                                if (elmt._id === _this.displayedUserId) {
-                                    _this.displayedUser = elmt;
-                                    _this.editProfileForm = _this.fb.group({
-                                        name: [_this.displayedUser.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                                        firstname: [_this.displayedUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                                        pseudo: [_this.displayedUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
-                                        email: [_this.displayedUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
-                                        // password: [this.displayedUser.password, [Validators.required, Validators.minLength(8)]],
-                                        // confirmPassword: [this.displayedUser.confirmPassword, [Validators.minLength(8)]],
-                                        birth: [_this.displayedUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
-                                        sexe: [_this.displayedUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
-                                        grade: [_this.displayedUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
-                                    });
-                                    // this.editProfileForm.setValidators(this.comparisonValidator());
-                                }
-                            });
+                            if (_this.allUsersArray) {
+                                _this.allUsersArray.forEach(function (elmt) {
+                                    if (elmt._id === _this.displayedUserId) {
+                                        _this.displayedUser = elmt;
+                                        _this.editProfileForm = _this.fb.group({
+                                            name: [_this.displayedUser.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                                            firstname: [_this.displayedUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                                            pseudo: [_this.displayedUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
+                                            email: [_this.displayedUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
+                                            // password: [this.displayedUser.password, [Validators.required, Validators.minLength(8)]],
+                                            // confirmPassword: [this.displayedUser.confirmPassword, [Validators.minLength(8)]],
+                                            birth: [_this.displayedUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                                            sexe: [_this.displayedUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
+                                            grade: [_this.displayedUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
+                                        });
+                                        // this.editProfileForm.setValidators(this.comparisonValidator());
+                                    }
+                                });
+                            }
                         });
                     });
                 };
@@ -2295,8 +2384,8 @@
                     var _this = this;
                     this.isSubmitted = true;
                     if (this.editProfileForm.valid) {
-                        this.editProfileForm.value['_id'] = this.displayedUser._id;
-                        this.userService.editProfile(this.editProfileForm.value).subscribe(function (user) {
+                        this.editProfileForm.value._id = this.displayedUser._id;
+                        this.sub4 = this.userService.editProfile(this.editProfileForm.value).subscribe(function (user) {
                             console.log('TCL: EditProfileComponent -> this.currentUser hello', _this.currentUser);
                             console.log('TCL: EditProfileComponent -> user', user);
                             _this.router.navigate(['accueil', 'post', _this.currentUser._id]);
@@ -2309,6 +2398,20 @@
                                 _this.errorMessage = 'Une erreur c\'est produite. impossible de modifier votre profil.';
                             }
                         });
+                    }
+                };
+                EditProfileComponent.prototype.ngOnDestroy = function () {
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
+                    if (this.sub2) {
+                        this.sub2.unsubscribe();
+                    }
+                    if (this.sub3) {
+                        this.sub3.unsubscribe();
+                    }
+                    if (this.sub4) {
+                        this.sub4.unsubscribe();
                     }
                 };
                 return EditProfileComponent;
@@ -2379,7 +2482,7 @@
                 }
                 ProfileComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.sub = this.userService.currentUser.subscribe(function (currentUser) {
+                    this.sub1 = this.userService.currentUser.subscribe(function (currentUser) {
                         _this.currentUser = currentUser;
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser TITI', _this.currentUser);
                         // if (this.userId === this.currentUser._id) {
@@ -2388,25 +2491,27 @@
                         //   this.isCurrentUser = false;
                         // }
                     });
-                    this.activatedRoute.paramMap.subscribe(function (paramMap) {
+                    this.sub2 = this.activatedRoute.paramMap.subscribe(function (paramMap) {
                         _this.userId = paramMap.get('id');
                         console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', _this.userId);
-                        _this.userService.getAllUsers().subscribe(function (allUsersArray) {
+                        _this.sub3 = _this.userService.getAllUsers().subscribe(function (allUsersArray) {
                             _this.allUsersArray = allUsersArray;
-                            _this.allUsersArray.forEach(function (elmt) {
-                                if (elmt._id === _this.userId) {
-                                    if (elmt._id === _this.currentUser._id) {
-                                        _this.isCurrentUser = true;
+                            if (_this.allUsersArray && _this.currentUser) {
+                                _this.allUsersArray.forEach(function (elmt) {
+                                    if (elmt._id === _this.userId) {
+                                        if (elmt._id === _this.currentUser._id) {
+                                            _this.isCurrentUser = true;
+                                        }
+                                        else {
+                                            _this.isCurrentUser = false;
+                                        }
+                                        console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', _this.isCurrentUser);
+                                        _this.displayedUser = elmt;
+                                        console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', _this.displayedUser);
+                                        // console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
                                     }
-                                    else {
-                                        _this.isCurrentUser = false;
-                                    }
-                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', _this.isCurrentUser);
-                                    _this.displayedUser = elmt;
-                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', _this.displayedUser);
-                                    // console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
-                                }
-                            });
+                                });
+                            }
                         });
                     });
                 };
@@ -2415,7 +2520,7 @@
                 };
                 ProfileComponent.prototype.sendInvitation = function () {
                     var _this = this;
-                    this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe(function (data) {
+                    this.sub4 = this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe(function (data) {
                         console.log('TCL: ProfileComponent -> sendInvitation -> data', data);
                         if (data === 1) {
                             _this.message = "Vous \u00EAtes d\u00E9j\u00E0 ami avec " + _this.displayedUser.pseudo + ".";
@@ -2433,7 +2538,18 @@
                     });
                 };
                 ProfileComponent.prototype.ngOnDestroy = function () {
-                    this.sub.unsubscribe();
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
+                    if (this.sub2) {
+                        this.sub2.unsubscribe();
+                    }
+                    if (this.sub3) {
+                        this.sub3.unsubscribe();
+                    }
+                    if (this.sub4) {
+                        this.sub4.unsubscribe();
+                    }
                 };
                 return ProfileComponent;
             }());
@@ -2484,7 +2600,7 @@
                     var _this = this;
                     this.websocketService = websocketService;
                     this.dialog = dialog;
-                    this.websocketService.onUsersConnectedArray().subscribe(function (data) {
+                    this.sub1 = this.websocketService.onUsersConnectedArray().subscribe(function (data) {
                         _this.usersConnectedArrayWS = data;
                         console.log('TCL: UserInterfaceComponent -> this.usersConnectedArrayWS', _this.usersConnectedArrayWS);
                         console.log('coucou UserInterfaceComponent');
@@ -2492,6 +2608,9 @@
                 }
                 UserInterfaceComponent.prototype.ngOnInit = function () { };
                 UserInterfaceComponent.prototype.ngOnDestroy = function () {
+                    if (this.sub1) {
+                        this.sub1.unsubscribe();
+                    }
                 };
                 return UserInterfaceComponent;
             }());

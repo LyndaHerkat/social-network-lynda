@@ -11,8 +11,10 @@ function webSocketModule (io) {
         // Ajout d'un nouveau user connecté
         socket.on('new User', (user) => {
             currentUser = user;
-            usersConnectedArray.push(user);
-            console.log('TCL: webSocketModule -> usersConnectedArray', usersConnectedArray);
+            // if(usersConnectedArray.includes(user)) {
+              usersConnectedArray.push(user);
+              console.log('TCL: webSocketModule -> usersConnectedArray', usersConnectedArray);
+            // }
 
             // Envoi de tous les users connectes (Array)
             io.emit('all users connected', usersConnectedArray);
@@ -21,30 +23,54 @@ function webSocketModule (io) {
         
         // Déconnection d'un user
         let socketDisconnect = function (user) {
+
             // Suppression du user disconnected de usersConnectedArray
-            let index = usersConnectedArray.indexOf(user);
-            console.log('TCL: socketDisconnect -> user qui se déconnecte', user);
-            usersConnectedArray.splice(index, 1);
-            console.log('TCL: socketDisconnect -> usersConnectedArray tata', usersConnectedArray);
+            console.log('TCL: socketDisconnect -> usersConnectedArray tata 1', usersConnectedArray);
+            for( let i = 0; i < usersConnectedArray.length; i++) {
+              if ( usersConnectedArray[i] && usersConnectedArray[i]._id === user._id ) {
+                usersConnectedArray.splice(i,1);
+                i--;
+              } else {
+                if(usersConnectedArray[i] === null) {
+                  usersConnectedArray.splice(i,1);
+                  i--;
+                }
+              }
+            }
+            // let index = usersConnectedArray.indexOf(user);
+            // console.log('index ', index);
+            // console.log('TCL: socketDisconnect -> user qui se déconnecte', user);
+            // usersConnectedArray.splice(index, 1);
+            // console.log('TCL: socketDisconnect -> usersConnectedArray tata 2', usersConnectedArray);
+
             socket.broadcast.emit('all users connected', usersConnectedArray);
         }
         
         socket.on('user deconnection', (user) => {
           console.log('TCL: webSocketModule ->  socket.on(user deconnection user', user);
-          disconnectedUser = user;
-            // Fermeture de la socket
             socket.disconnect();
-        });
-
-        socket.on('disconnect', (user) => {
-        console.log('TCL: webSocketModule -> user tutu', user);
-            // Suppression du user disconnected de usersConnectedArray
-            socketDisconnect(disconnectedUser);
+          // disconnectedUser = user;
+          // Suppression du user disconnected de usersConnectedArray
+            socketDisconnect(user);
+            // disconnectedUser = ''
 
             // Envoi de tous les users connectes (Array)
-            console.log('TCL: webSocketModule -> usersConnectedArray', usersConnectedArray);
+            console.log('TCL: webSocketModule -> usersConnectedArray apres deconnection', usersConnectedArray);
             io.emit('all users connected', usersConnectedArray);
             // socket.emit('deconnection');
+            // Fermeture de la socket
+        });
+
+        socket.on('disconnect', (reason) => {
+        console.log('TCL: webSocketModule -> user tutu', reason);
+            // // Suppression du user disconnected de usersConnectedArray
+            // socketDisconnect(disconnectedUser);
+            // disconnectedUser = ''
+
+            // // Envoi de tous les users connectes (Array)
+            // console.log('TCL: webSocketModule -> usersConnectedArray apres deconnection', usersConnectedArray);
+            // io.emit('all users connected', usersConnectedArray);
+            // // socket.emit('deconnection');
         });
 
         // rejoindre une conversation privee
