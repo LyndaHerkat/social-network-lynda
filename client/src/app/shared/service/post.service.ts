@@ -12,8 +12,8 @@ import { PostModel } from '../models/post.model';
   providedIn: 'root'
 })
 export class PostService {
-    // CREATION BEHAVIOUR SUBJECT pour la liste de article
 
+    // CREATION BEHAVIOUR SUBJECT pour la liste de article
   public postList: BehaviorSubject<PostModel[]> = new BehaviorSubject(null);
   public url: string;
 
@@ -33,7 +33,6 @@ export class PostService {
   public createComment(newComment: any): Observable<any> {
     return this.http.post<any>('/request/post/comment/create', newComment).pipe(
       tap((postListUpdated) => {
-        console.log('TCL: PostService -> postListUpdated titi', postListUpdated);
         this.postList.next(postListUpdated);
       }),
       switchMap(() => {
@@ -69,7 +68,5 @@ export class PostService {
       })
     );
   }
-
-
 
 }

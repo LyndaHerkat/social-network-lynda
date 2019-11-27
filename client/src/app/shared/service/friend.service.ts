@@ -28,12 +28,8 @@ export class FriendService {
       ['currentUserId']: currentUserId
     }).pipe(
       tap ( (data) => {
-        console.log('TCL: FriendService -> data', data);
         if ( data !== 1 && data !== 2 ) {
-          // this.userService.updateCurrentUser(data.currentUser);
           this.userService.currentUser.next(data.currentUserUpdated);
-          // console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
-          console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
           return data.currentUserUpdated;
         }
       })
@@ -46,10 +42,7 @@ export class FriendService {
       ['currentUserId']: currentUserId
     }).pipe(
       tap( (data) => {
-        // this.userService.currentUser.next(data.currentUser);
       this.userService.currentUser.next(data.currentUserUpdated);
-      console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
-      console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
       return data.currentUserUpdated;
     })
     );
@@ -59,10 +52,8 @@ export class FriendService {
     return this.http.put<any>('/request/friend/delete', {friendId, currentUserId}).pipe(
       tap( (data) => {
         this.userService.currentUser.next(data.currentUserUpdated);
-        console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
-        // return data.currentUserUpdated;
       }),
-      switchMap(()=> {
+      switchMap(() => {
         return this.userService.currentUser;
       })
     );
@@ -72,8 +63,6 @@ export class FriendService {
     return this.http.put<any>('/request/friend/delete-invitation', {invitationId, currentUserId}).pipe(
       tap( (data) => {
         this.userService.currentUser.next(data.currentUserUpdated);
-        console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
-        // return data.currentUserUpdated;
       }),
       switchMap(() => {
         return this.userService.currentUser;

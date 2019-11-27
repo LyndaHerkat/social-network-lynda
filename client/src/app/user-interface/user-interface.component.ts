@@ -2,11 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Subscription } from 'rxjs/internal/Subscription';
 
-
-import { ModalComponent } from './modal/modal.component';
-
 import { WebsocketService } from '../shared/service/websocket.service';
-// import { UserService } from '../shared/service/user.service';
 
 import { User } from '../shared/models/user.model';
 
@@ -22,7 +18,6 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
 
   constructor(
     private websocketService: WebsocketService,
-    // private userService: UserService,
     public dialog: MatDialog
   ) {
     this.sub1 = this.websocketService.onUsersConnectedArray().subscribe( data => {
@@ -41,6 +36,3 @@ export class UserInterfaceComponent implements OnInit, OnDestroy {
   }
 
 }
-
-
-

@@ -28,25 +28,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
-    // tslint:disable-next-line: max-line-length
     // On subscribe au behaviour subject jwtToken cree dans le service UserService de facon à le mettre a jour dans la variable jwtToken du component à chaque modification
     this.sub1 = this.userService.jwtToken.subscribe ((jwtToken: JwtToken) => {
       this.jwtToken = jwtToken;
       this.sub2 = this.userService.currentUser.subscribe( currentUser => {
-        console.log('TCL1: HeaderComponent -> ngOnInit -> this.userService.currentUser', this.userService.currentUser);
         this.currentUser = currentUser;
-        console.log('TCL2: HeaderComponent -> ngOnInit -> this.currentUser', this.currentUser);
       });
-
     });
 }
 
   public getPostUser() {
-
     if (this.currentUser === null) {
       this.router.navigate(['/']);
     } else {
-      console.log('TCL: HeaderComponent -> getPostUser -> this.currentUser._id', this.currentUser._id);
       this.postService.postRoute(this.currentUser._id);
     }
   }
@@ -54,9 +48,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public logout(): void {
     // deconnection du reseau
     this.userService.logout(this.currentUser);
-
-    // // deconnection websocket
-    // this.websocketService.emitUserDeconnection(this.currentUser);
   }
 
   ngOnDestroy() {

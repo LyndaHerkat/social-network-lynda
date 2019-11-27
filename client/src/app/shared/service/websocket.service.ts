@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
-import { UserService } from './user.service';
 
 @Injectable()
 
@@ -24,23 +23,15 @@ export class WebsocketService {
 
   // Deconnection du current user
   public emitUserDeconnection(user: User) {
-    console.log('TCL: WebsocketService -> emitUserDeconnection -> user', user);
     this.socketClient.emit('user deconnection', user);
-    // this.socketClient.disconnect();
-    // console.log('TCL: WebsocketService -> emitUserDeconnection -> socketClient.disconnected', this.socketClient.disconnected);
   }
 
   // Mise à jour du tableau des users connectes
-  
   public onUsersConnectedArray() {
     this.usersConnectedArray = new Observable<User[]> (observer => {
       this.socketClient.on('all users connected', (data: User[]) => {
         observer.next(data);
-        console.log('TCL: WebsocketService -> onUsersConnectedArray -> titi data', data);
-
       });
-      // Error
-      // return () => { this.socketClient.disconnect(); };
     });
     return this.usersConnectedArray;
   }
@@ -56,7 +47,6 @@ export class WebsocketService {
         observer.next(data);
       });
       return () => {
-        // this.socketClient.disconnect();
       };
     });
     return observable;
@@ -73,7 +63,6 @@ export class WebsocketService {
         observer.next(data);
       });
       return () => {
-        // this.socketClient.disconnect();
       };
     });
     return observable;
@@ -89,7 +78,6 @@ export class WebsocketService {
         observer.next(data);
       });
       return () => {
-        // this.socketClient.disconnect();
       };
     });
     return observable;

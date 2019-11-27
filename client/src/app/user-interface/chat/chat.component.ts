@@ -43,22 +43,14 @@ export class ChatComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-      console.log('TCL: ChatComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
 
       this.sub1 = this.userService.currentUser.subscribe(
         currentUser => {
           this.currentUser = currentUser;
-          console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
-          // if (this.userId === this.currentUser._id) {
-          //   this.isCurrentUser = true;
-          // } else {
-          //   this.isCurrentUser = false;
-          // }
       });
       // Récupération du friendUserId dans l'url
       this.sub2 = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
         this.friendUserId = paramMap.get('id');
-        console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.friendUserId);
         });
 
       // Rejoindre la room des la ngOnInit

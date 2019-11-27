@@ -34,18 +34,12 @@ export class FriendComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub1 = this.userService.currentUser.subscribe( currentUser => {
       this.currentUser = currentUser;
-      console.log('TCL: FriendComponent -> ngOnInit -> this.currentUser hello', this.currentUser);
 
       this.sub2 = this.userService.getAllUsers().subscribe( allUsersArray => {
         this.allUsersArray = allUsersArray;
-        console.log('TCL: FriendComponent -> ngOnInit -> this.allUsersArray', this.allUsersArray);
-
         this.getFriends();
         this.getRequests();
         this.getInvitations();
-        console.log('TCL: FriendComponent -> friendsArray', this.friendsArray);
-        console.log('TCL: FriendComponent -> requestsArray', this.requestsArray);
-        console.log('TCL: FriendComponent -> invitationsArray', this.invitationsArray);
       });
     });
   }
@@ -53,7 +47,6 @@ export class FriendComponent implements OnInit, OnDestroy {
   public getFriends() {
     this.sub3 = this.userService.currentUser.subscribe( currentUser => {
       this.currentUser = currentUser;
-      console.log('TCL: FriendComponent -> getFriends -> this.currentUser', this.currentUser);
       if ( this.currentUser && this.currentUser.friends ) {
         this.currentUser.friends.forEach ( elmt1 => {
           this.allUsersArray.forEach ( elmt2 => {
@@ -69,8 +62,6 @@ export class FriendComponent implements OnInit, OnDestroy {
   public getRequests() {
     this.sub4 = this.userService.currentUser.subscribe( currentUser => {
       this.currentUser = currentUser;
-      console.log('TCL: FriendComponent -> getRequests -> this.currentUser', this.currentUser);
-
       if ( this.currentUser && this.currentUser.requests) {
         this.currentUser.requests.forEach ( elmt1 => {
           this.allUsersArray.forEach ( elmt2 => {
@@ -86,7 +77,6 @@ export class FriendComponent implements OnInit, OnDestroy {
   public getInvitations() {
     this.sub5 = this.userService.currentUser.subscribe( currentUser => {
       this.currentUser = currentUser;
-      console.log('TCL: FriendComponent -> getInvitations -> this.currentUser', this.currentUser);
       if (this.currentUser && this.currentUser.invitations) {
         this.currentUser.invitations.forEach ( elmt1 => {
           this.allUsersArray.forEach ( elmt2 => {
@@ -110,8 +100,6 @@ export class FriendComponent implements OnInit, OnDestroy {
           this.friendsArray.push(elmt);
         }
       });
-      console.log('invitation acceptée');
-      console.log('TCL: FriendComponent -> acceptInvitation ->  this.currentUser', this.currentUser);
     });
   }
 

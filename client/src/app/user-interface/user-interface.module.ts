@@ -20,8 +20,6 @@ import { ModalComponent } from './modal/modal.component';
 // CUSTOM SERVICE
 import { PostService } from '../shared/service/post.service';
 import { FriendService } from '../shared/service/friend.service';
-// import { WebsocketService } from '../shared/service/websocket.service';
-
 
 @NgModule({
   declarations: [
@@ -44,10 +42,8 @@ import { FriendService } from '../shared/service/friend.service';
   ],
   providers: [
     PostService,
-    FriendService,
-    // WebsocketService
+    FriendService
   ],
-  // bootstrap: [UserInterfaceComponent],
   entryComponents: [ModalComponent] // Rend le composant modal disponible partout dasn le module UI
 })
 export class UserInterfaceModule { }

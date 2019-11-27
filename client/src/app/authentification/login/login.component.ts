@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
 
           // Ouverture Websocket
           this.websocketService.startWS();
-          console.log('TCL: LoginComponent -> this.websocketService.startWS');
 
           // Enregistrement du user connecté (WS)
           this.websocketService.emitNewUserWS(this.currentUser);
@@ -58,7 +57,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['accueil', 'post', this.currentUser._id ]);
       });
     }, err => {
-      console.log(err);
       if (err.status === 401) {
         this.errorMessage = 'Ce compte n\'existe pas. Veuillez créer un nouveau compte';
       } else {

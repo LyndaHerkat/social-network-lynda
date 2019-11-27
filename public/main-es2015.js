@@ -804,14 +804,12 @@ let LoginComponent = class LoginComponent {
                 this.currentUser = currentUser;
                 // Ouverture Websocket
                 this.websocketService.startWS();
-                console.log('TCL: LoginComponent -> this.websocketService.startWS');
                 // Enregistrement du user connecté (WS)
                 this.websocketService.emitNewUserWS(this.currentUser);
                 // Redirection page d'accueil
                 this.router.navigate(['accueil', 'post', this.currentUser._id]);
             });
         }, err => {
-            console.log(err);
             if (err.status === 401) {
                 this.errorMessage = 'Ce compte n\'existe pas. Veuillez créer un nouveau compte';
             }
@@ -912,7 +910,6 @@ let RegisterComponent = class RegisterComponent {
     }
     submit() {
         this.isSubmitted = true;
-        console.log(this.registerForm);
         if (this.registerForm.valid) {
             this.userService.register(this.registerForm.value).subscribe((user) => {
                 this.message = 'Votre compte vient d\'être crée. Vous pouvez maintenant vous connecter.';
@@ -991,14 +988,11 @@ let HeaderComponent = class HeaderComponent {
         this.websocketService = websocketService;
     }
     ngOnInit() {
-        // tslint:disable-next-line: max-line-length
         // On subscribe au behaviour subject jwtToken cree dans le service UserService de facon à le mettre a jour dans la variable jwtToken du component à chaque modification
         this.sub1 = this.userService.jwtToken.subscribe((jwtToken) => {
             this.jwtToken = jwtToken;
             this.sub2 = this.userService.currentUser.subscribe(currentUser => {
-                console.log('TCL1: HeaderComponent -> ngOnInit -> this.userService.currentUser', this.userService.currentUser);
                 this.currentUser = currentUser;
-                console.log('TCL2: HeaderComponent -> ngOnInit -> this.currentUser', this.currentUser);
             });
         });
     }
@@ -1007,15 +1001,12 @@ let HeaderComponent = class HeaderComponent {
             this.router.navigate(['/']);
         }
         else {
-            console.log('TCL: HeaderComponent -> getPostUser -> this.currentUser._id', this.currentUser._id);
             this.postService.postRoute(this.currentUser._id);
         }
     }
     logout() {
         // deconnection du reseau
         this.userService.logout(this.currentUser);
-        // // deconnection websocket
-        // this.websocketService.emitUserDeconnection(this.currentUser);
     }
     ngOnDestroy() {
         // on coupe la subscription lors de la destruction du component
@@ -1088,13 +1079,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { ChatComponent } from '../chat/chat.component';
 
 
 let TopbarComponent = class TopbarComponent {
-    constructor(router, userService, postService, fb, 
-    // private bottomSheet: MatBottomSheet,
-    websocketService, dialog) {
+    constructor(router, userService, postService, fb, websocketService, dialog) {
         this.router = router;
         this.userService = userService;
         this.postService = postService;
@@ -1106,30 +1094,21 @@ let TopbarComponent = class TopbarComponent {
         this.backgroundColor = '#00ff9b';
     }
     ngOnInit() {
-        console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
         this.sub1 = this.userService.getAllUsers().subscribe(allUsersArray => {
             this.allUsersArray = allUsersArray;
-            console.log('TCL: TopbarComponent -> ngOnInit -> allUsersArray', allUsersArray);
             this.sub2 = this.userService.getCurrentUser().subscribe(currentUser => {
                 this.currentUser = currentUser;
-                console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
                 if (this.currentUser && this.currentUser.admin) {
                     this.backgroundColor = '#D91C5C';
                 }
                 this.sub3 = this.websocketService.onUsersConnectedArray().subscribe(data => {
                     this.usersConnectedArrayWS = data;
-                    console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
                     this.friendsConnected = [];
                     if (this.usersConnectedArrayWS && this.currentUser) {
                         this.usersConnectedArrayWS.forEach(user => {
                             if (user && user.friends.includes(this.currentUser._id)) {
                                 this.friendsConnected.push(user);
                             }
-                            // if (currentUser.admin) {
-                            //   this.friendsConnected = this.usersConnectedArrayWS;
-                            //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
-                            // }
-                            console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', this.friendsConnected);
                         });
                     }
                 });
@@ -1143,7 +1122,6 @@ let TopbarComponent = class TopbarComponent {
                         });
                     }
                 });
-                console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames après', this.allUsersArrayNames);
             }
         });
         // Moteur de recherche Users
@@ -1154,7 +1132,6 @@ let TopbarComponent = class TopbarComponent {
         // startWith(null),
         Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(data => {
             if (!data) {
-                // console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames', this.allUsersArrayNames);
                 return;
             }
             else {
@@ -1418,12 +1395,8 @@ let FriendService = class FriendService {
             ['friendUserId']: friendUserId,
             ['currentUserId']: currentUserId
         }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
-            console.log('TCL: FriendService -> data', data);
             if (data !== 1 && data !== 2) {
-                // this.userService.updateCurrentUser(data.currentUser);
                 this.userService.currentUser.next(data.currentUserUpdated);
-                // console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
-                console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
                 return data.currentUserUpdated;
             }
         }));
@@ -1433,18 +1406,13 @@ let FriendService = class FriendService {
             ['friendUserId']: friendUserId,
             ['currentUserId']: currentUserId
         }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
-            // this.userService.currentUser.next(data.currentUser);
             this.userService.currentUser.next(data.currentUserUpdated);
-            console.log('TCL: FriendService -> data.currentUserUpdated', data.currentUserUpdated);
-            console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
             return data.currentUserUpdated;
         }));
     }
     deleteFriend(friendId, currentUserId) {
         return this.http.put('/request/friend/delete', { friendId, currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
             this.userService.currentUser.next(data.currentUserUpdated);
-            console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
-            // return data.currentUserUpdated;
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(() => {
             return this.userService.currentUser;
         }));
@@ -1452,8 +1420,6 @@ let FriendService = class FriendService {
     deleteInvitation(invitationId, currentUserId) {
         return this.http.put('/request/friend/delete-invitation', { invitationId, currentUserId }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((data) => {
             this.userService.currentUser.next(data.currentUserUpdated);
-            console.log('TCL: FriendService -> this.userService.currentUser', this.userService.currentUser);
-            // return data.currentUserUpdated;
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(() => {
             return this.userService.currentUser;
         }));
@@ -1510,7 +1476,6 @@ let PostService = class PostService {
     }
     createComment(newComment) {
         return this.http.post('/request/post/comment/create', newComment).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((postListUpdated) => {
-            console.log('TCL: PostService -> postListUpdated titi', postListUpdated);
             this.postList.next(postListUpdated);
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
             return this.postList;
@@ -1624,29 +1589,21 @@ let UserService = class UserService {
             });
             // Stockage du token recupere depuis le serveur dans le localstorage du client
             localStorage.setItem('jwt', token);
-            // Récupération du current user
-            // this.getCurrentUser();
         }));
     }
     // GET CURRENT USER
     getCurrentUser() {
         if (this.currentUser.value) {
-            console.log('TCL: this.currentUser from user service !!!!', this.currentUser);
             return this.currentUser;
         }
         else {
             return this.http.get('/request/user/current').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((user) => {
                 this.currentUser.next(user);
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
-                console.log('TCL: this.currentUser', this.currentUser);
                 return this.currentUser;
             }));
         }
     }
-    // // UPDATE CURRENT USER
-    // public updateCurrentUser(user: User) {
-    //   this.currentUser.next(user);
-    // }
     // GET ALL USERS
     getAllUsers() {
         if (this.allUsersArray.value) {
@@ -1655,9 +1612,7 @@ let UserService = class UserService {
         else {
             return this.http.get('/request/user/all').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((allUsersArray) => {
                 this.allUsersArray.next(allUsersArray);
-                console.log('TCL: allUsersArray', allUsersArray);
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
-                console.log('TCL: this.allUsersArray', this.allUsersArray);
                 return this.allUsersArray;
             }));
         }
@@ -1667,30 +1622,12 @@ let UserService = class UserService {
         console.log('TCL: getProfil -> userID', userID);
         this.router.navigate(['accueil', 'profile', userID]);
     }
-    // // DISPLAY Profil d'un user (en fonction de son ID)
-    // public displayProfile(userID: string) {
-    //   this.allUsersArray.subscribe( (allUsersArray) => {
-    //     allUsersArray.forEach(elmt => {
-    //       if (elmt._id === userID) {
-    //         console.log('TCL: displayProfile -> elmt', elmt);
-    //         return elmt;
-    //       }
-    //     });
-    //   });
-    // }
     // EDITION Profil
     editProfile(user) {
         return this.http.post('/request/editprofile', user).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])((response) => {
-            console.log('TCL: response titi', response);
-            console.log('TCL: response.updatedUser.value._id === this.currentUser.value._id', response.updatedUser.value._id === this.currentUser.value._id);
-            console.log('TCL: response.updatedUser._id', response.updatedUser.value._id);
-            console.log('TCL: response.updatedUser', response.updatedUser);
-            console.log('TCL: this.currentUser.value._id', this.currentUser.value._id);
             if (response.updatedUser.value._id === this.currentUser.value._id) {
                 this.currentUser.next(response.updatedUser.value);
                 this.allUsersArray.next(response.updatedAllUserArray);
-                console.log('TCL: this.currentUser titi', this.currentUser);
-                // return this.currentUser;
             }
             else {
                 this.allUsersArray.next(response.updatedAllUserArray);
@@ -1699,14 +1636,6 @@ let UserService = class UserService {
             return this.currentUser;
         }));
     }
-    // // EDITION Profil Current User
-    // public editProfile(user: User): Observable<User> {
-    //   return this.http.post<User>('/request/editprofile', user).pipe(
-    //     tap( (updatedUser: User) => {
-    //       this.currentUser.next(updatedUser);
-    //     })
-    //   );
-    // }
     // DECONNEXION (suppression du token)
     resetToken() {
         // reset du behaviour subject JwtToken dans userService avec next()
@@ -1776,20 +1705,14 @@ let WebsocketService = class WebsocketService {
     }
     // Deconnection du current user
     emitUserDeconnection(user) {
-        console.log('TCL: WebsocketService -> emitUserDeconnection -> user', user);
         this.socketClient.emit('user deconnection', user);
-        // this.socketClient.disconnect();
-        // console.log('TCL: WebsocketService -> emitUserDeconnection -> socketClient.disconnected', this.socketClient.disconnected);
     }
     // Mise à jour du tableau des users connectes
     onUsersConnectedArray() {
         this.usersConnectedArray = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](observer => {
             this.socketClient.on('all users connected', (data) => {
                 observer.next(data);
-                console.log('TCL: WebsocketService -> onUsersConnectedArray -> titi data', data);
             });
-            // Error
-            // return () => { this.socketClient.disconnect(); };
         });
         return this.usersConnectedArray;
     }
@@ -1803,7 +1726,6 @@ let WebsocketService = class WebsocketService {
                 observer.next(data);
             });
             return () => {
-                // this.socketClient.disconnect();
             };
         });
         return observable;
@@ -1818,7 +1740,6 @@ let WebsocketService = class WebsocketService {
                 observer.next(data);
             });
             return () => {
-                // this.socketClient.disconnect();
             };
         });
         return observable;
@@ -1832,7 +1753,6 @@ let WebsocketService = class WebsocketService {
                 observer.next(data);
             });
             return () => {
-                // this.socketClient.disconnect();
             };
         });
         return observable;
@@ -1883,20 +1803,12 @@ let ChatComponent = class ChatComponent {
         });
     }
     ngOnInit() {
-        console.log('TCL: ChatComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
         this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
-            // if (this.userId === this.currentUser._id) {
-            //   this.isCurrentUser = true;
-            // } else {
-            //   this.isCurrentUser = false;
-            // }
         });
         // Récupération du friendUserId dans l'url
         this.sub2 = this.activatedRoute.paramMap.subscribe((paramMap) => {
             this.friendUserId = paramMap.get('id');
-            console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.friendUserId);
         });
         // Rejoindre la room des la ngOnInit
         this.joinRoom();
@@ -2007,23 +1919,17 @@ let FriendComponent = class FriendComponent {
     ngOnInit() {
         this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: FriendComponent -> ngOnInit -> this.currentUser hello', this.currentUser);
             this.sub2 = this.userService.getAllUsers().subscribe(allUsersArray => {
                 this.allUsersArray = allUsersArray;
-                console.log('TCL: FriendComponent -> ngOnInit -> this.allUsersArray', this.allUsersArray);
                 this.getFriends();
                 this.getRequests();
                 this.getInvitations();
-                console.log('TCL: FriendComponent -> friendsArray', this.friendsArray);
-                console.log('TCL: FriendComponent -> requestsArray', this.requestsArray);
-                console.log('TCL: FriendComponent -> invitationsArray', this.invitationsArray);
             });
         });
     }
     getFriends() {
         this.sub3 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: FriendComponent -> getFriends -> this.currentUser', this.currentUser);
             if (this.currentUser && this.currentUser.friends) {
                 this.currentUser.friends.forEach(elmt1 => {
                     this.allUsersArray.forEach(elmt2 => {
@@ -2038,7 +1944,6 @@ let FriendComponent = class FriendComponent {
     getRequests() {
         this.sub4 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: FriendComponent -> getRequests -> this.currentUser', this.currentUser);
             if (this.currentUser && this.currentUser.requests) {
                 this.currentUser.requests.forEach(elmt1 => {
                     this.allUsersArray.forEach(elmt2 => {
@@ -2053,7 +1958,6 @@ let FriendComponent = class FriendComponent {
     getInvitations() {
         this.sub5 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: FriendComponent -> getInvitations -> this.currentUser', this.currentUser);
             if (this.currentUser && this.currentUser.invitations) {
                 this.currentUser.invitations.forEach(elmt1 => {
                     this.allUsersArray.forEach(elmt2 => {
@@ -2076,8 +1980,6 @@ let FriendComponent = class FriendComponent {
                     this.friendsArray.push(elmt);
                 }
             });
-            console.log('invitation acceptée');
-            console.log('TCL: FriendComponent -> acceptInvitation ->  this.currentUser', this.currentUser);
         });
     }
     deleteFriend(friendId, currentUserId) {
@@ -2174,12 +2076,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { ModalData } from '../model-data';
 let ModalComponent = class ModalComponent {
-    // public usersConnectedArrayWS: User[];
-    constructor(dialogRef, router, 
-    // public websocketService: WebsocketService,
-    data) {
+    constructor(dialogRef, router, data) {
         this.dialogRef = dialogRef;
         this.router = router;
         this.data = data;
@@ -2187,11 +2085,8 @@ let ModalComponent = class ModalComponent {
     ngOnInit() { }
     onNoClick() {
         this.dialogRef.close();
-        // console.log('TCL: ModalComponent -> usersConnectedArrayWS', this.usersConnectedArrayWS);
     }
     onOkClick(userId) {
-        console.log('ok click modal');
-        console.log('TCL: ModalComponent -> userId', userId);
         this.router.navigate(['accueil', 'chat', userId]);
     }
 };
@@ -2301,7 +2196,6 @@ let PostComponent = class PostComponent {
         // RECUPERATION ID
         this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log(currentUser);
             this.sub2 = this.activatedRoute.paramMap.subscribe((paramMap) => {
                 this.userId = paramMap.get('id');
                 // Le current User est-il le rédacteur des posts?
@@ -2325,9 +2219,6 @@ let PostComponent = class PostComponent {
                                 // Récupération des posts en bdd
                                 this.sub4 = this.postService.getPost(this.userId).subscribe((postArray) => {
                                     this.postArray = postArray;
-                                    console.log('postArray ', postArray);
-                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
-                                    console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
                                 });
                             }
                         });
@@ -2347,11 +2238,9 @@ let PostComponent = class PostComponent {
             user_id: this.currentUser['_id'],
             message: this.postForm.value.message,
             date: this.date
-            // date: formatDate(this.date, 'dd/MM/yyyy', 'fr-FR')
         };
         this.sub6 = this.postService.createPost(this.newPost).subscribe((postListUpdated) => {
             this.postForm.reset();
-            // this.postService.postList.next(postListUpdated);
         }, err => {
             console.log('impossible de crée un post', err);
         });
@@ -2380,18 +2269,6 @@ let PostComponent = class PostComponent {
             this.postArray = postListUpdated;
         });
     }
-    // public deletePost(userId: string, postId: string) {
-    //   this.postService.deletePost(userId, postId).pipe(
-    //     tap(() =>
-    //       this.postArray.forEach(elmt => {
-    //         if ( elmt._id === postId ) {
-    //           let index = this.postArray.indexOf(elmt);
-    //           this.postArray.splice(index, 1);
-    //         }
-    //       })
-    //     )
-    //   )
-    // }
     ngOnDestroy() {
         if (this.sub1) {
             this.sub1.unsubscribe();
@@ -2497,13 +2374,10 @@ let EditProfileComponent = class EditProfileComponent {
                                 firstname: [this.displayedUser.firstname, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
                                 pseudo: [this.displayedUser.pseudo, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(3)]],
                                 email: [this.displayedUser.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
-                                // password: [this.displayedUser.password, [Validators.required, Validators.minLength(8)]],
-                                // confirmPassword: [this.displayedUser.confirmPassword, [Validators.minLength(8)]],
                                 birth: [this.displayedUser.birth, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
                                 sexe: [this.displayedUser.sexe, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]],
                                 grade: [this.displayedUser.grade, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]]
                             });
-                            // this.editProfileForm.setValidators(this.comparisonValidator());
                         }
                     });
                 }
@@ -2515,8 +2389,6 @@ let EditProfileComponent = class EditProfileComponent {
         if (this.editProfileForm.valid) {
             this.editProfileForm.value._id = this.displayedUser._id;
             this.sub4 = this.userService.editProfile(this.editProfileForm.value).subscribe((user) => {
-                console.log('TCL: EditProfileComponent -> this.currentUser hello', this.currentUser);
-                console.log('TCL: EditProfileComponent -> user', user);
                 this.router.navigate(['accueil', 'post', this.currentUser._id]);
             }, err => {
                 console.log('Erreur inscription', err);
@@ -2624,16 +2496,9 @@ let ProfileComponent = class ProfileComponent {
     ngOnInit() {
         this.sub1 = this.userService.currentUser.subscribe(currentUser => {
             this.currentUser = currentUser;
-            console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser TITI', this.currentUser);
-            // if (this.userId === this.currentUser._id) {
-            //   this.isCurrentUser = true;
-            // } else {
-            //   this.isCurrentUser = false;
-            // }
         });
         this.sub2 = this.activatedRoute.paramMap.subscribe((paramMap) => {
             this.userId = paramMap.get('id');
-            console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.userId);
             this.sub3 = this.userService.getAllUsers().subscribe(allUsersArray => {
                 this.allUsersArray = allUsersArray;
                 if (this.allUsersArray && this.currentUser) {
@@ -2645,10 +2510,7 @@ let ProfileComponent = class ProfileComponent {
                             else {
                                 this.isCurrentUser = false;
                             }
-                            console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
                             this.displayedUser = elmt;
-                            console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
-                            // console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
                         }
                     });
                 }
@@ -2660,7 +2522,6 @@ let ProfileComponent = class ProfileComponent {
     }
     sendInvitation() {
         this.sub4 = this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe((data) => {
-            console.log('TCL: ProfileComponent -> sendInvitation -> data', data);
             if (data === 1) {
                 this.message = `Vous êtes déjà ami avec ${this.displayedUser.pseudo}.`;
             }
@@ -2674,6 +2535,7 @@ let ProfileComponent = class ProfileComponent {
             }
         }, err => {
             this.message = 'Impossible d\'envoyer votre invitation.';
+            console.log('TCL: ProfileComponent -> sendInvitation -> err', err);
         });
     }
     ngOnDestroy() {
@@ -2742,9 +2604,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UserInterfaceComponent = class UserInterfaceComponent {
-    constructor(websocketService, 
-    // private userService: UserService,
-    dialog) {
+    constructor(websocketService, dialog) {
         this.websocketService = websocketService;
         this.dialog = dialog;
         this.sub1 = this.websocketService.onUsersConnectedArray().subscribe(data => {
@@ -2823,7 +2683,6 @@ __webpack_require__.r(__webpack_exports__);
 // CUSTOM SERVICE
 
 
-// import { WebsocketService } from '../shared/service/websocket.service';
 let UserInterfaceModule = class UserInterfaceModule {
 };
 UserInterfaceModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2848,9 +2707,8 @@ UserInterfaceModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         providers: [
             _shared_service_post_service__WEBPACK_IMPORTED_MODULE_15__["PostService"],
-            _shared_service_friend_service__WEBPACK_IMPORTED_MODULE_16__["FriendService"],
+            _shared_service_friend_service__WEBPACK_IMPORTED_MODULE_16__["FriendService"]
         ],
-        // bootstrap: [UserInterfaceComponent],
         entryComponents: [_modal_modal_component__WEBPACK_IMPORTED_MODULE_14__["ModalComponent"]] // Rend le composant modal disponible partout dasn le module UI
     })
 ], UserInterfaceModule);

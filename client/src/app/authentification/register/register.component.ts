@@ -58,7 +58,6 @@ export class RegisterComponent implements OnInit {
 
 public submit(): void {
   this.isSubmitted = true;
-  console.log(this.registerForm);
   if (this.registerForm.valid) {
     this.userService.register(this.registerForm.value).subscribe(
       (user: User) => {

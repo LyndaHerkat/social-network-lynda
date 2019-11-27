@@ -73,8 +73,6 @@ export class UserService {
         });
         // Stockage du token recupere depuis le serveur dans le localstorage du client
         localStorage.setItem('jwt', token);
-        // Récupération du current user
-        // this.getCurrentUser();
       })
     );
   }
@@ -82,7 +80,6 @@ export class UserService {
   // GET CURRENT USER
   public getCurrentUser(): Observable<User> {
     if (this.currentUser.value) {
-      console.log('TCL: this.currentUser from user service !!!!', this.currentUser);
       return this.currentUser;
     } else {
       return this.http.get<User>('/request/user/current').pipe(
@@ -90,17 +87,11 @@ export class UserService {
         this.currentUser.next(user);
       }),
       switchMap( () => { // permet de retourner un nouvel observable this.currentUser et non la valeur de retour du call http
-          console.log('TCL: this.currentUser', this.currentUser);
           return this.currentUser;
         })
       );
     }
   }
-
-  // // UPDATE CURRENT USER
-  // public updateCurrentUser(user: User) {
-  //   this.currentUser.next(user);
-  // }
 
   // GET ALL USERS
   public getAllUsers(): Observable<User[]> {
@@ -110,10 +101,8 @@ export class UserService {
       return this.http.get<User[]>('/request/user/all').pipe(
         tap( (allUsersArray: User[]) => {
           this.allUsersArray.next(allUsersArray);
-          console.log('TCL: allUsersArray', allUsersArray);
         }),
         switchMap ( () => {
-          console.log('TCL: this.allUsersArray', this.allUsersArray);
           return this.allUsersArray;
           }
         )
@@ -121,39 +110,19 @@ export class UserService {
     }
   }
 
-
   // GET Profil d'un user (on va sur la page de profil avec l'ID du user)
   public getProfile(userID) {
     console.log('TCL: getProfil -> userID', userID);
     this.router.navigate(['accueil', 'profile', userID]);
   }
 
-  // // DISPLAY Profil d'un user (en fonction de son ID)
-  // public displayProfile(userID: string) {
-  //   this.allUsersArray.subscribe( (allUsersArray) => {
-  //     allUsersArray.forEach(elmt => {
-  //       if (elmt._id === userID) {
-  //         console.log('TCL: displayProfile -> elmt', elmt);
-  //         return elmt;
-  //       }
-  //     });
-  //   });
-  // }
-
   // EDITION Profil
   public editProfile(user: User): Observable<User> {
     return this.http.post<any>('/request/editprofile', user).pipe(
       tap( (response) => {
-        console.log('TCL: response titi', response);
-        console.log('TCL: response.updatedUser.value._id === this.currentUser.value._id', response.updatedUser.value._id === this.currentUser.value._id);
-        console.log('TCL: response.updatedUser._id', response.updatedUser.value._id);
-        console.log('TCL: response.updatedUser', response.updatedUser);
-        console.log('TCL: this.currentUser.value._id', this.currentUser.value._id);
         if ( response.updatedUser.value._id === this.currentUser.value._id){
           this.currentUser.next(response.updatedUser.value);
           this.allUsersArray.next(response.updatedAllUserArray);
-          console.log('TCL: this.currentUser titi', this.currentUser);
-          // return this.currentUser;
         } else {
           this.allUsersArray.next(response.updatedAllUserArray);
         }
@@ -163,15 +132,6 @@ export class UserService {
       })
     );
   }
-
-  // // EDITION Profil Current User
-  // public editProfile(user: User): Observable<User> {
-  //   return this.http.post<User>('/request/editprofile', user).pipe(
-  //     tap( (updatedUser: User) => {
-  //       this.currentUser.next(updatedUser);
-  //     })
-  //   );
-  // }
 
   // DECONNEXION (suppression du token)
   public resetToken() {

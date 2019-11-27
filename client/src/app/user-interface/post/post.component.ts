@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import {formatDate } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { tap } from 'rxjs/operators';
@@ -65,7 +64,6 @@ export class PostComponent implements OnInit, OnDestroy {
     this.sub1 = this.userService.currentUser.subscribe(
       currentUser => {
         this.currentUser = currentUser;
-        console.log(currentUser);
 
         this.sub2 = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
           this.userId = paramMap.get('id');
@@ -91,10 +89,6 @@ export class PostComponent implements OnInit, OnDestroy {
                   this.sub4 = this.postService.getPost(this.userId).subscribe(
                     (postArray) => {
                       this.postArray = postArray;
-                      console.log('postArray ', postArray);
-                      console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
-                      console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
-
                     }
                   );
                 }
@@ -120,11 +114,9 @@ export class PostComponent implements OnInit, OnDestroy {
       user_id: this.currentUser['_id'],
       message: this.postForm.value.message,
       date: this.date
-      // date: formatDate(this.date, 'dd/MM/yyyy', 'fr-FR')
     };
     this.sub6 = this.postService.createPost(this.newPost).subscribe( (postListUpdated) => {
       this.postForm.reset();
-      // this.postService.postList.next(postListUpdated);
     }, err => {
       console.log('impossible de crée un post', err);
     });
@@ -158,18 +150,6 @@ export class PostComponent implements OnInit, OnDestroy {
       }
     );
   }
-  // public deletePost(userId: string, postId: string) {
-  //   this.postService.deletePost(userId, postId).pipe(
-  //     tap(() =>
-  //       this.postArray.forEach(elmt => {
-  //         if ( elmt._id === postId ) {
-  //           let index = this.postArray.indexOf(elmt);
-  //           this.postArray.splice(index, 1);
-  //         }
-  //       })
-  //     )
-  //   )
-  // }
 
   ngOnDestroy() {
     if ( this.sub1 ) {

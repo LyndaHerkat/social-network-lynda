@@ -12,7 +12,6 @@ import { WebsocketService } from '../../service/websocket.service';
 
 import { User } from '../../models/user.model';
 
-// import { ChatComponent } from '../chat/chat.component';
 import { ModalComponent } from '../../../user-interface/modal/modal.component';
 
 import { FilterPipe } from '../../pipes/filter.pipe';
@@ -43,31 +42,24 @@ export class TopbarComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private postService: PostService,
     private fb: FormBuilder,
-    // private bottomSheet: MatBottomSheet,
     private websocketService: WebsocketService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit() {
 
-    console.log('TCL: TopbarComponent -> ngOnInit -> usersConnectedArray', this.usersConnectedArrayWS);
-
     this.sub1 = this.userService.getAllUsers().subscribe( allUsersArray => {
 
       this.allUsersArray = allUsersArray;
-      console.log('TCL: TopbarComponent -> ngOnInit -> allUsersArray', allUsersArray);
-
 
       this.sub2 = this.userService.getCurrentUser().subscribe( currentUser => {
         this.currentUser = currentUser;
-        console.log('TCL: TopbarComponent -> ngOnInit -> currentUser', currentUser);
         if (this.currentUser && this.currentUser.admin) {
           this.backgroundColor = '#D91C5C';
         }
 
         this.sub3 = this.websocketService.onUsersConnectedArray().subscribe( data => {
           this.usersConnectedArrayWS = data;
-          console.log('TCL: TopbarComponent -> ngOnInit -> this.usersConnectedArrayWS', this.usersConnectedArrayWS);
 
           this.friendsConnected = [];
 
@@ -76,11 +68,6 @@ export class TopbarComponent implements OnInit, OnDestroy {
               if (user && user.friends.includes(this.currentUser._id)) {
                 this.friendsConnected.push(user);
               }
-              // if (currentUser.admin) {
-              //   this.friendsConnected = this.usersConnectedArrayWS;
-              //   console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected', this.friendsConnected);
-              // }
-              console.log('TCL: TopbarComponent -> ngOnInit -> this.friendsConnected après', this.friendsConnected);
             });
           }
         });
@@ -95,7 +82,6 @@ export class TopbarComponent implements OnInit, OnDestroy {
             });
           }
         });
-        console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames après', this.allUsersArrayNames);
       }
 
     });
@@ -109,7 +95,6 @@ export class TopbarComponent implements OnInit, OnDestroy {
       // startWith(null),
       map( data => {
         if (!data) {
-          // console.log('TCL: TopbarComponent -> ngOnInit -> this.allUsersArrayNames', this.allUsersArrayNames);
           return;
         } else {
           return this.allUsersArrayNames.filter( user => {

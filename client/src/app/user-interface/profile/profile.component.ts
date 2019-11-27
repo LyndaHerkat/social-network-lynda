@@ -43,17 +43,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.sub1 = this.userService.currentUser.subscribe(
       currentUser => {
         this.currentUser = currentUser;
-        console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser TITI', this.currentUser);
-        // if (this.userId === this.currentUser._id) {
-        //   this.isCurrentUser = true;
-        // } else {
-        //   this.isCurrentUser = false;
-        // }
     });
 
     this.sub2 = this.activatedRoute.paramMap.subscribe( (paramMap: ParamMap) => {
       this.userId = paramMap.get('id');
-      console.log('TCL: ProfileComponent -> ngOnInit -> this.userId', this.userId);
 
       this.sub3 = this.userService.getAllUsers().subscribe( allUsersArray => {
         this.allUsersArray = allUsersArray;
@@ -65,10 +58,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
               } else {
                 this.isCurrentUser = false;
               }
-              console.log('TCL: ProfileComponent -> ngOnInit -> this.isCurrentUser', this.isCurrentUser);
               this.displayedUser = elmt;
-              console.log('TCL: ProfileComponent -> ngOnInit -> this.displayedUser', this.displayedUser);
-              // console.log('TCL: ProfileComponent -> ngOnInit -> this.currentUser', this.currentUser);
             }
           });
         }
@@ -82,7 +72,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   public sendInvitation() {
     this.sub4 = this.friendService.sendInvitation(this.displayedUser._id, this.currentUser._id).subscribe( (data) => {
-    console.log('TCL: ProfileComponent -> sendInvitation -> data', data);
     if (data === 1) {
       this.message = `Vous êtes déjà ami avec ${this.displayedUser.pseudo}.`;
     } else {
@@ -94,6 +83,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     }
     }, err => {
       this.message = 'Impossible d\'envoyer votre invitation.';
+      console.log('TCL: ProfileComponent -> sendInvitation -> err', err);
     });
   }
 
@@ -111,6 +101,5 @@ export class ProfileComponent implements OnInit, OnDestroy {
     if ( this.sub4 ) {
       this.sub4.unsubscribe();
     }
-
   }
 }

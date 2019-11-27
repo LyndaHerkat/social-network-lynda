@@ -56,21 +56,16 @@ export class EditProfileComponent implements OnInit, OnDestroy {
                 firstname: [ this.displayedUser.firstname, [Validators.required, Validators.minLength(3)]],
                 pseudo: [ this.displayedUser.pseudo, [Validators.required, Validators.minLength(3)]],
                 email: [ this.displayedUser.email, [Validators.required, Validators.email]],
-                // password: [this.displayedUser.password, [Validators.required, Validators.minLength(8)]],
-                // confirmPassword: [this.displayedUser.confirmPassword, [Validators.minLength(8)]],
                 birth: [ this.displayedUser.birth, [Validators.required]],
                 sexe: [this.displayedUser.sexe, [Validators.required]],
                 grade: [ this.displayedUser.grade, [Validators.required]]
               });
-              // this.editProfileForm.setValidators(this.comparisonValidator());
             }
           });
         }
       });
     });
-
   }
-
 
   public submit(): void {
     this.isSubmitted = true;
@@ -79,8 +74,6 @@ export class EditProfileComponent implements OnInit, OnDestroy {
 
       this.sub4 = this.userService.editProfile(this.editProfileForm.value).subscribe(
         (user: User) => {
-          console.log('TCL: EditProfileComponent -> this.currentUser hello', this.currentUser);
-          console.log('TCL: EditProfileComponent -> user', user);
           this.router.navigate(['accueil', 'post', this.currentUser._id]);
         },
         err => {
