@@ -1,0 +1,61 @@
+<mat-toolbar class="topbar" [ngStyle]="{
+  backgroundColor: backgroundColor
+}" color=accent fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+  <mat-icon class="link burger" fxLayoutGap="5px" fxFlex= "33%" fxFlex.lt-sm= "5%" (click)="sidenavMenu.toggle()" aria-hidden="false"
+    aria-label="menu icon">menu</mat-icon>
+  <div fxLayout="row" fxLayout.lt-sm="column" fxFlex= "66%" fxFlex.lt-sm= "80%"fxLayoutAlign="space-between center">
+    <div class="search" fxFlexOrder.lt-sm="2">
+      <form [formGroup]="searchForm" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center"novalidate>
+        <mat-icon fxLayoutGap="15px" aria-hidden="false" aria-label="search icon">search</mat-icon>
+        <mat-form-field>
+          <input type="text" matInput formControlName="search" [matAutocomplete]="auto" placeholder="Recherche profil"  (keyup.enter)=getPostUser()>
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let user of filterAllUsers | async;" [value]="user._id" (click)=getPostUser() (keyup.enter)=getPostUser()>{{user.pseudo}}</mat-option>
+          <!-- <input type="hidden" formControlName="_id" [value]="user._id"/> -->
+        </mat-autocomplete>
+      </form>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" fxFlexOrder.lt-sm="1">
+      <img mat-card-avatar [src]="currentUser.avatar" alt="">
+      <div fxLayout="column" fxLayout.lt-sm="row" fxLayoutAlign="center start" fxLayoutAlign.lt-sm="center center" fxLayoutGap.lt-sm="15px">
+        <h3 class="link" (click)=getPostCurrentUser()> {{currentUser.pseudo}}</h3>
+        <mat-card-subtitle *ngIf="currentUser.admin">Teacher</mat-card-subtitle>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenavMenu>
+    <mat-nav-list>
+      <a mat-list-item class="link" (click)="getCurrentProfileUser()">Mon profil</a>
+      <a mat-list-item class="link" routerLink="/accueil/friends">Gestion des amis</a>
+
+    </mat-nav-list>
+      <mat-list-item>
+        <h2 mat-list-item>Amis en ligne</h2>
+      </mat-list-item>
+      <div *ngFor="let user of friendsConnected" class="user-connected">
+        <mat-list-item *ngIf="user !== null && user!== undefined && user._id !== currentUser._id" (click)="openDialog(user)" class="link" >
+          <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="5px">
+              &nbsp;&nbsp;
+            <mat-icon color="accent">person</mat-icon>
+            <span>{{user.pseudo}}</span>
+          </div>
+        </mat-list-item>
+      </div>
+    <mat-nav-list>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div fxLayout="row" fxLayoutAlign="space-around start">
+
+      <div fxFlex="550px" fxFlex.lt-sm="90%">
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

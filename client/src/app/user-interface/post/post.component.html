@@ -1,0 +1,89 @@
+<div fxLayout="center center">
+  <mat-card>
+    <mat-card-header>
+      <img mat-card-avatar [src]="displayedUser.avatar" alt="">
+      <mat-card-title class="link" (click)="getProfileUser()">{{displayedUser.pseudo}}</mat-card-title>
+      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="displayedUser.admin">Teacher</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card *ngIf="isCurrentUser" class="card-login">
+    <mat-card-content>
+      <mat-card-header>
+
+        <mat-card-title>
+          <mat-icon aria-hidden="false">edit</mat-icon>&nbsp;Créer une publication
+        </mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="postForm" fxLayout="column" (ngSubmit)="createPost()" novalidate>
+        <div class="form-field-container" fxLayout="column" fxLayoutGap="15px">
+          <mat-form-field>
+            <textarea formControlName="message" placeholder="Ecrivez un message..." matInput cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"></textarea>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary">Publier</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div fxLayout="center center" *ngFor="let post of postArray">
+  <mat-card class="card-login">
+
+    <mat-card-header fxLayoutAlign="space-between start">
+      <img mat-card-avatar [src]="displayedUser.avatar" alt="">
+      <mat-card-title class="link" (click)="getProfileUser()">{{displayedUser.pseudo}}</mat-card-title>
+      <mat-card-subtitle>{{displayedUser.grade}}</mat-card-subtitle>
+      <mat-card-subtitle>le {{post.date | date:'fullDate'}} à {{post.date | date:'h:mm a'}}</mat-card-subtitle>
+      <div class="cancel">
+        <mat-icon *ngIf="isCurrentUser || currentUser.admin" color="primary" class="link"
+          (click)="deletePost(displayedUser._id, post._id)">cancel</mat-icon>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-content>
+        <p>{{post.message}}</p>
+      </mat-card-content>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title color="primary" class="link">
+              Commentaires
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form *ngIf="currentUser.admin || areFriends || isCurrentUser " [formGroup]="commentForm" (ngSubmit)="createComment(post)" novalidate>
+            <mat-form-field class="comment-input">
+              <input matInput formControlName="message" placeholder="Saisissez votre commentaire">
+            </mat-form-field>
+            <button mat-raised-button color="primary">Publier</button>
+          </form>
+          <mat-card class="comment-card" *ngFor="let comment of post.commentsArray ">
+            <mat-card-header fxLayoutAlign="space-between start">
+              <img mat-card-avatar [src]="displayedUser.avatar" alt="">
+              <mat-card-title class="link" (click)="getProfileUser()">{{comment.pseudo}}</mat-card-title>
+              <mat-card-subtitle>le {{comment.date | date:'fullDate'}} à {{comment.date | date:'h:mm a'}}
+              </mat-card-subtitle>
+              <div class="cancel">
+                <!-- <mat-icon *ngIf="isCurrentUser || currentUser.admin" color="primary" class="link">cancel</mat-icon> -->
+              </div>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{comment.comment}}</p>
+            </mat-card-content>
+
+
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <!-- <mat-card-actions fxLayoutAlign="end center">
+        <button mat-button color="primary">Commentaires</button>
+      </mat-card-actions> -->
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- <button [routerLink]="['/']" routerLinkActive="router-link-active" ></button> -->

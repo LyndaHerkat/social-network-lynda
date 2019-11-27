@@ -1,0 +1,61 @@
+<div *ngIf="friendsArray !== null">
+  <h2>Mes amis</h2>
+  <div fxLayout="column">
+    <div class="friendsList">
+      <mat-card *ngFor="let friend of friendsArray" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <img mat-card-avatar [src]="friend.avatar" alt="">
+          <mat-card-title>{{friend.pseudo}}</mat-card-title>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" >
+          <!-- <button mat-raised-button color="accent" (click)="deleteFriend(friend._id, currentUser._id)">Bloquer</button> -->
+          <button mat-raised-button color="accent" (click)="deleteFriend(friend._id, currentUser._id)">
+              <mat-icon class="block">block</mat-icon>
+            </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="requestsArray !== undefined">
+  <h2>Invitations envoyées</h2>
+  <div fxLayout="column">
+    <div class="requestsList">
+      <mat-card *ngFor="let request of requestsArray" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <img mat-card-avatar [src]="request.avatar" alt="">
+          <mat-card-title>{{request.pseudo}}</mat-card-title>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" >
+          <!-- <button mat-raised-button color="primary">Accepter</button>
+          <button mat-raised-button color="accent">Refuser</button> -->
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="invitationsArray !== undefined">
+  <h2>Invitations reçues</h2>
+  <div fxLayout="column">
+    <div class="invitationsList">
+      <mat-card *ngFor="let invitation of invitationsArray" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <img mat-card-avatar [src]="invitation.avatar" alt="">
+          <mat-card-title>{{invitation.pseudo}}</mat-card-title>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+          <button mat-raised-button color="primary" (click)="acceptInvitation(invitation._id, currentUser._id)">
+            <mat-icon>check_circle</mat-icon>
+          </button>
+          <button mat-raised-button color="accent" (click)= "deleteInvitation(invitation._id, currentUser._id)" >
+            <mat-icon class="block">block</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

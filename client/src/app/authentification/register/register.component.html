@@ -1,0 +1,96 @@
+<div fxLayout="center center">
+  <mat-card fxFlex.l-sm= "90%">
+    <mat-card-content>
+      <form [formGroup]="registerForm" fxLayout="column" (ngSubmit)='submit()' novalidate>
+        <div class="form-field-container" fxLayout.gt-sm="row" fxLayoutGap="15px">
+          <div fxLayout="column">
+            <mat-form-field>
+              <input formControlName="name" matInput type="text" placeholder="Nom">
+            </mat-form-field>
+            <p class="error" *ngIf="registerForm.get('name').invalid && isSubmitted">Champ requis (minimum 3 caractères)</p>
+          </div>
+          <div fxLayout="column">
+            <mat-form-field>
+              <input formControlName="firstname" matInput type="text" placeholder="Prénom">
+            </mat-form-field>
+            <p class="error" *ngIf="registerForm.get('firstname').invalid && isSubmitted">Champ requis (minimum 3 caractères)</p>
+          </div>
+
+        </div>
+
+        <div class="form-field-container" fxLayout.gt-sm="row" fxLayoutGap="15px">
+          <div fxLayout="column">
+            <mat-form-field>
+              <input formControlName="pseudo"matInput type="text" placeholder="Pseudo">
+            </mat-form-field>
+            <p class="error" *ngIf="registerForm.get('pseudo').invalid && isSubmitted">Champ requis (minimum 3 caractères)</p>
+          </div>
+
+          <div fxLayout="column">
+            <mat-form-field>
+              <input formControlName="email" matInput type="text" placeholder="Email">
+            </mat-form-field>
+            <p class="error" *ngIf="registerForm.get('email').hasError('required') && isSubmitted">Veuillez entrer votre email</p>
+            <p class="error" *ngIf="registerForm.get('email').hasError('email')">Veuillez entrer un email sous format mail.</p>
+          </div>
+
+        </div>
+
+        <div class="form-field-container" fxLayout.gt-sm="row" fxLayoutGap="15px">
+
+          <div fxLayout="column">
+            <mat-form-field>
+              <input formControlName="password" matInput type="password" placeholder="Mot de passe">
+            </mat-form-field>
+            <p class="error" *ngIf="registerForm.get('password').invalid && isSubmitted">Champ requis (minimum 8 caractères)</p>
+          </div>
+          <div fxLayout="column">
+            <mat-form-field>
+              <input formControlName="confirmPassword" matInput type="password" placeholder="Confirmer mot de passe">
+            </mat-form-field>
+            <p class="error" *ngIf="registerForm.get('confirmPassword').hasError('isNoMatch') && isSubmitted">le mot de passe ne correspond pas</p>
+          </div>
+        </div>
+
+        <div class="form-field-container" fxLayout.gt-sm="row" fxLayoutGap="15px">
+          <div fxLayout="column">
+            <mat-form-field>
+              <input formControlName="birth" matInput [matDatepicker]="picker" placeholder="Date de naissance">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <p class="error" *ngIf="registerForm.get('birth').invalid && isSubmitted">Champ requis</p>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-radio-group formControlName="sexe" aria-label="Sexe" fxLayoutGap="15px" fxLayoutAlign="center center">
+              <mat-radio-button value="femme ">Femme</mat-radio-button>
+              <mat-radio-button value="homme ">Homme</mat-radio-button>
+            </mat-radio-group>
+            <p class="error" *ngIf="registerForm.get('sexe').invalid && isSubmitted">Champ requis</p>
+          </div>
+
+        </div>
+        <div fxLayout="column">
+          <mat-form-field>
+            <mat-label>Niveau scolaire</mat-label>
+            <mat-select formControlName="grade">
+                <mat-option value="cm2">CM2</mat-option>
+                <mat-option value="6eme">6eme</mat-option>
+                <mat-option value="5eme">5eme</mat-option>
+                <mat-option value="4eme">4eme</mat-option>
+                <mat-option value="3eme">3eme</mat-option>
+                <mat-option value="seconde">seconde</mat-option>
+                <mat-option value="premiere">première</mat-option>
+                <mat-option value="terminal">terminal</mat-option>
+                <mat-option value="professeur">professeur</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p class="error" *ngIf="registerForm.get('grade').invalid && isSubmitted">Champ requis</p>
+        </div>
+        <p class="error" *ngIf="message">{{ message }}</p>
+        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+        <button mat-raised-button color="primary">S'inscrire</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

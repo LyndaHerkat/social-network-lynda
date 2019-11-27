@@ -1,0 +1,15 @@
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height : 70px !important;
+}
+  .logo-container p{
+    margin :0;
+    color : #00ff9b;
+    font-weight : 200;
+  }
+  .logo-title{
+    font-size : 35px;
+  }
+  .logo-pipeline{
+    font-size : 15px;
+  }

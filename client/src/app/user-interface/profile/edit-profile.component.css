@@ -1,0 +1,13 @@
+.edit-form-container,
+.mat-card {
+  width: 100% !important;
+}
+
+.edit-profile-card {
+  margin-top: 5%;
+}
+
+h1 {
+  /* color: #fff; */
+  text-align: center;
+}

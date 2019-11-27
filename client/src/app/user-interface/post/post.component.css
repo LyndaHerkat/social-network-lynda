@@ -1,0 +1,27 @@
+.card-login,
+mat-card {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+mat-card.comment-card {
+  width: 93% !important;
+}
+
+.comment-card mat-expansion-panel-header {
+  background: rgb(0, 255, 127) !important;
+  color: white !important;
+}
+
+div.cancel {
+  /* width: 100%; */
+  text-align: right !important;
+}
+
+.comment-card .mat-card-title {
+  font-size: 16px !important;
+}
+
+.comment-input {
+  width: 100%;
+}

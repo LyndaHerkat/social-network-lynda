@@ -1,0 +1,53 @@
+/*********************/
+/*IMPORT THEME CUSTOM*/
+/*********************/
+/*import du CSS du theme custom*/
+@import './style-custom-theme';
+
+
+/************/
+/*CUSTOM CSS*/
+/************/
+
+/*General*/
+/* html, body { height: 100%; } */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.error {
+  color: #ff0000;
+}
+
+.link {
+  outline: 0;
+  cursor: pointer;
+}
+.link:hover{
+  color:#00ff9b;
+}
+
+/*Homepage*/
+#background-container{
+  /* background-color: #4FB0C0; */
+  background: url('./assets/img/teach-homepage-banner.png');
+  /* background-repeat: repeat-y; */
+  background-size: cover;
+  min-height : 100vh;
+}
+.form-container{
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 10px;
+}
+.card-login{
+  width: 100%;
+}
+
+mat-card {
+  width: 100%;
+}

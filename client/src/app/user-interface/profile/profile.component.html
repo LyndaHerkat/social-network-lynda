@@ -1,0 +1,71 @@
+<!-- <h1>Modifier mon profil</h1> -->
+
+<div fxLayout="center center">
+  <mat-card class="card-profile">
+    <mat-card-content>
+      <mat-card fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <img mat-card-avatar [src]="displayedUser.avatar" alt="">
+        <mat-card-title>{{displayedUser.pseudo}}</mat-card-title>
+      </mat-card>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Informations personnelles</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <h3 mat-subheader>Nom</h3>
+            <mat-list-item> {{displayedUser.name}}
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <h3 mat-subheader>Prénom</h3>
+            <mat-list-item> {{displayedUser.firstname}}
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <h3 mat-subheader>Pseudo</h3>
+            <mat-list-item> {{displayedUser.pseudo}}
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <h3 mat-subheader>Email</h3>
+            <mat-list-item> {{displayedUser.email}}
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <h3 mat-subheader>Date de naissance</h3>
+            <mat-list-item> le {{displayedUser.birth | date:'fullDate'}}
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <h3 mat-subheader>Sexe</h3>
+            <mat-list-item> {{displayedUser.sexe}}
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <h3 mat-subheader>Niveau scolaire</h3>
+            <mat-list-item> {{displayedUser.grade}}
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Amis</mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <div fxLayoutAlign="space-between center">
+        <button *ngIf="isCurrentUser && !currentUser.admin" mat-raised-button color="primary"
+          (click)="editProfil(displayedUser)">Editer mon profil</button>
+        <!-- <button *ngIf="isCurrentUser" mat-raised-button color="primary" routerLink="/accueil/edit-profile/:">Editer mon profil</button> -->
+        <button *ngIf="currentUser.admin" mat-raised-button color="primary" (click)="editProfil(displayedUser)">Editer
+          le profil</button>
+        <!-- <button *ngIf="currentUser.admin" mat-raised-button color="primary" routerLink="/accueil/edit-profile">Editer le profil</button> -->
+        <button *ngIf="!isCurrentUser" mat-raised-button color="primary" (click)=sendInvitation()>Envoyer une
+          invitation</button>
+      </div>
+      <p *ngIf="message">{{ message }}</p>
+      <!-- <p *ngIf="errorMessage">{{ errorMessage }}</p> -->
+    </mat-card-content>
+
+  </mat-card>
+</div>

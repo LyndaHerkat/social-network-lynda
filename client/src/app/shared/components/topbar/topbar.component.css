@@ -1,0 +1,39 @@
+mat-sidenav-container {
+  background: transparent;
+  height: 100vh;
+}
+
+.topbar {
+  height: 55px;
+}
+
+.burger:hover,
+h3:hover {
+  color: #fff;
+}
+
+div.chat-container {
+  position: relative;
+}
+
+button.chat-button {
+  bottom: 0;
+  position: fixed;
+  right:0 ;
+}
+
+h2 {
+  padding: 0 16px !important;
+}
+
+.mat-card-subtitle {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 599px) {
+
+.topbar {
+  padding-top: 2%;
+  height: auto;
+}
+}

@@ -1,0 +1,24 @@
+<mat-toolbar color=warn>
+  <div class="logo-container" fxLayout="row nowrap">
+    <!-- <div routerLink="/accueil/post" class="link"></div> -->
+    <img src="../../../../assets/img/logo.png" alt="logo-teach" height="60px" fxFlexAlign="center">
+    <div (click)=getPostUser() class="link">
+      <p class="logo-title">Teach</p>
+      <p class="logo-pipeline" fxHide.lt-sm="true">le social network du soutien scolaire</p>
+    </div>
+  </div>
+  <span fxFlex="auto" class="link"></span>
+  <div>
+    <!-- <span *ngIf="jwtToken.isLogged === false" fxLayoutGap="15px">
+      <span routerLink="/login" class="link">Connexion</span>
+      <span routerLink="/register" class="link">Inscription</span>
+    </span> -->
+    <span *ngIf="jwtToken.isLogged" class="link" (click)=logout() fxLayout="row" fxLayoutAlign="center center"
+      fxLayoutGap="5px">
+      <mat-icon class="link" (click)=logout()>power_settings_new</mat-icon>
+      <span fxHide.lt-sm="true">Déconnexion</span>
+    </span>
+  </div>
+</mat-toolbar>
+
+
